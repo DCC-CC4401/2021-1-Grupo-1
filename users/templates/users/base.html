@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/header.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/sticky_menu.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/desplegable_notifications.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/desplegable_options.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/desplegable_filters.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/sticky_menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/desplegable_notifications.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/desplegable_options.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/desplegable_filters.js' %}"></script>
     <title> {% block title %} AdoptApp {% endblock %} </title>
 </head>
 
@@ -18,7 +18,7 @@
 <nav id="navbar">
     <ul>
         <li>
-            <img class="logo clickable" src="{% static 'images/logo-adoptapp.png' %}" />
+            <img class="logo clickable" src="{% static 'users/images/logo-adoptapp.png' %}" />
         </li>
        <li class="search-icon">
             <div class="search">
@@ -62,7 +62,7 @@
             <li class="separator"></li>
             <div class = "user-options">
                 <li class="avatar">
-                    <img class="clickable" src="{% static 'images/default-avatar.png' %}" />
+                    <img class="clickable" src="{% static 'users/images/default-avatar.png' %}" />
                 </li>
                 <li  id="notification_li">
                     <span id="notification_count">3</span>

@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
     path('api/get_comunas/<int:region_id>', views.GetComunas.as_view()),
-    #path('base', views.base, name='base_comun'),
-]
+    path('base/', views.BaseView.as_view(), name='base'),
+    path('base_authentication/', views.AuthenticationBaseView.as_view(), name='baseAuthentication'),
+
+              ]
