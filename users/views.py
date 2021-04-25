@@ -15,10 +15,12 @@ class GetComunas(View):
         return JsonResponse(comunas, safe=False)
 
 
-def login_user(request):
-    if request.method == 'GET':
+class LoginUserView(View):
+
+    def get(self, request):
         return render(request, "adoptapp/login.html")
-    if request.method == 'POST':
+
+    def post(self, request):
         email = request.POST['correo']
         password = request.POST['contrasena']
         user = authenticate(email=email, password=password)

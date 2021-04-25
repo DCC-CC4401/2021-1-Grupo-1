@@ -4,105 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        form {
-            width: 20%;
-            text-align: center;
-            margin: 15% auto;
-            padding: 30px;
-            background: rgba(210, 210, 210, 0.68);
-            box-shadow: #00000012 0 0 5px 3px;
-            border-radius: 25px;
-        }
-
-        input {
-            padding: 10px;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        input::placeholder {
-            text-align: center;
-        }
-
-        button {
-            position: relative;
-            top: 10px;
-            font-size: 18px;
-            color: white;
-            background: #0984e3;
-            padding: 10px;
-            width: 80%;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #085fa3;
-        }
-
-        .form-group {
-            display: inline-flex;
-            padding: 5px;
-            width: 100%;
-            position: relative;
-            left: -5px;
-        }
-
-        a {
-            color: #636e72;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #292d2f;
-        }
-
-        .first-image {
-            position: relative;
-            top: -10px;
-            width: 70px;
-            height: 70px;
-        }
-
-        .inline-image {
-            position: relative;
-            right: 3px;
-            width: 40px;
-            height: 40px;
-        }
-
-        .register {
-            position: relative;
-            top: 25px;
-            padding: 10px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="content">
             <form method="post">
-                <img class="first-image" src="{% static 'adoptapp/user_login.png' %}" alt="User login">
+                <img class="first-image" src="{% static 'users/media/user_login.png' %}" alt="User login">
                 {% csrf_token %}
                 <div class="form-group">
-                    <img class="inline-image" src="{% static 'adoptapp/user_email.png' %}" alt="User email">
+                    <img class="inline-image" src="{% static 'users/media/user_email.png' %}" alt="User email">
                     <input type="text" class="form-control" id="correo_usuario" name="correo" placeholder="CORREO" required>
                 </div>
                 <div class="form-group">
-                    <img class="inline-image" src="{% static 'adoptapp/user_password.png' %}" alt="User password">
+                    <img class="inline-image" src="{% static 'users/media/user_password.png' %}" alt="User password">
                     <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"required>
                 </div>
                 <button type="submit">LOGIN</button>
                 <div class="register">
-                    <p>¿No tienes una cuenta? <a href="#">Registrarse</a></p>
+                    <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
                 </div>
             </form>
         </div>
