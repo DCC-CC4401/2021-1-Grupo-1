@@ -13,7 +13,3 @@ class GetComunas(View):
     def get(self, request, region_id):
         comunas = list(Comuna.objects.filter(region_id=region_id).values())
         return JsonResponse(comunas, safe=False)
-
-def base(request):
-    if request.method == "GET":
-        return render(request, "adoptapp/base.html")

@@ -4,6 +4,20 @@ nav {
     border: 1px solid #303030;
     border-left: none;
     border-right: none;
+    overflow: hidden;
+}
+
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
 }
 
 nav ul {
@@ -14,12 +28,9 @@ nav ul {
 }
 
 
-
-nav ul li.logo {
+nav ul li .logo {
     padding-right: 10%;
-    font-size: 35px;
-    font-weight: 700;
-    width: 30%;
+    width: 250px;
     align-items: center;
     justify-content: center;
 }
@@ -33,26 +44,26 @@ nav ul .search{
 }
 
 nav ul .search-icon {
-    height: 40px;
+    height: 60px;
     width: 70%;
     max-width: 600px;
     display: flex;
     background: #ffffff;
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 15px;
+    border-radius: 18px;
+    padding: 10px 15px 0 10px;
     margin-right: 15px;
+    margin-left: 15px;
 }
 
 nav ul .search-icon input {
     height: 100%;
-    width: 93%;
+    width: 100%;
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px 0 0 20px;
     outline: none;
-    padding: 0 10px;
+    padding: 0 20px;
     color: #000;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 nav ul .user-info {
@@ -72,30 +83,193 @@ nav ul .separator {
     flex: 1;
 }
 
-.fas {
-    font-size: 25px;
-    padding: 6px 6px 6px 6px;
-}
-
-.icon-l {
-    font-size: 32px;
-    padding: 8px 8px 8px 8px;
-}
-
-.clickable {
-    cursor: pointer;
-}
 
 .avatar img {
     width: 35px;
 }
 
-@media screen and (max-width: 930px) {
+nav li a:hover{
+    color:#006699;
+    text-decoration:none
+}
+
+@media screen and (max-width: 1250px) {
     nav{
         padding: 20px 40px 20px 0px;
     }
-    nav ul li.logo{
+    nav ul li .logo{
         display: none;
     }
 
 }
+
+/* CSS for notifications list */
+notification_li {
+    position:relative
+}
+#notificationContainer {
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 90px;
+    margin-left: -170px;
+    width: 400px;
+    z-index: 1000;
+    display: none; /* Enable this after jquery implementation  */
+}
+
+#notificationContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border-color: transparent transparent white;
+    margin-top: 200px;
+    margin-left: 188px;
+}
+#notificationTitle {
+    font-weight: bold;
+    padding: 8px;
+    font-size: 13px;
+    color: #1c1919;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 1000;
+    width: 384px;
+}
+
+#notificationBody {
+    color: #1c1919;
+    padding: 33px 0 0 0 !important;
+    min-height:300px;
+}
+
+#notificationFooter {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 14px;
+    border-top: 1px solid #dddddd;
+}
+
+#notification_count
+{
+    padding: 3px 7px 3px 7px;
+    background: #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 26px;
+    border-radius: 9px;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    position: absolute;
+    margin-top: 2px;
+    font-size: 11px;
+}
+
+/* CSS for filter list */
+filter_li {
+    position:relative
+}
+
+#filterContainer{
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 90px;
+    margin-left: -170px;
+    width: 270px;
+    z-index: 1000;
+    display: none; /* Enable this after jquery implementation  */
+}
+
+#filterContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border-color: transparent transparent white;
+    margin-top: 200px;
+    margin-left: 188px;
+}
+
+#filterBody {
+    color: #1c1919;
+    padding: 20px 0 20px 30px !important;
+    min-height:100px;
+    width: 200px;
+}
+
+
+/* CSS for options (hamburger) list */
+option_li {
+    position:relative
+}
+
+#optionContainer{
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 90px;
+    margin-left: -170px;
+    width: 270px;
+    z-index: 1000;
+    display: none; /* Enable this after jquery implementation  */
+}
+
+#optionContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border-color: transparent transparent white;
+    margin-top: 200px;
+    margin-left: 188px;
+}
+
+#optionBody {
+    color: #1c1919;
+    padding: 20px 0 0 30px !important;
+    min-height:100px;
+}
+
+.menuItem {
+    size: 20px;
+    padding: 5px 20px 5px 20px;
+}
+
+.filterMenuItem {
+    margin-bottom: 20px;
+    height: 30px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 20px 5px;
+    vertical-align: middle;
+}
+
+footer {
+    margin-top: 70px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+

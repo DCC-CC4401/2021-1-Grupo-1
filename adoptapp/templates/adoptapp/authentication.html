@@ -1,0 +1,30 @@
+<!DOCTYPE  html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base-authentication.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <title> {% block title %} AdoptApp - Autentificación {% endblock %} </title>
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+<div id = footer>
+    <p class="container creditos">
+    <p class="text-center vspaced5">Proyecto del curso CC4401 - Ingeniería de Software.</p>
+    <p class="text-center vspaced5">Equipo 01</p>
+    <p class="text-center vspaced5"> Icono ''Paw'' creación de <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">
+        Freepik</a>, extraídos de <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
+    <p class="text-center vspaced5">Fotos extraídas de <a href="https://www.pexels.com/search/dog/" title="Pexels">www.pexels.com </a>
+    </p>
+    <br>
+</div>
+</body>
+</html>

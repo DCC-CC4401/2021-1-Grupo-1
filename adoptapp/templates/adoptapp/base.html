@@ -1,0 +1,112 @@
+<!DOCTYPE  html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/sticky_menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/desplegable_notifications.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/desplegable_options.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/desplegable_filters.js' %}"></script>
+    <title> {% block title %} AdoptApp {% endblock %} </title>
+</head>
+
+<body>
+<nav id="navbar">
+    <ul>
+        <li>
+            <img class="logo clickable" src="{% static 'images/logo-adoptapp.png' %}" />
+        </li>
+       <li class="search-icon">
+            <div class="search">
+                    <span class="fas fa-search highlight-color"></span>
+                    <input class="input-field" type="search" placeholder="Buscar en AdoptApp">
+            </div>
+       </li>
+        <li class="filter-icon" id="filter_li">
+            <a class="fas fa-filter clickable basic-color" href="#" id="filterLink"></a>
+            <div id="filterContainer">
+                <div id="filterBody" class="filterOption">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <label for="adoptar" class="switch">
+                                <input class="filterOption" type="checkbox" id="adoptar">
+                                <span class="slider round filterOption" ></span>
+                                </label>
+                            </td>
+                            <td>
+                                <span>Adoptar</span>
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>
+                                <label for="dar" class="switch">
+                                <input class="filterOption" type="checkbox" id="dar">
+                                <span class="slider round filterOption" ></span>
+                                </label>
+                            </td>
+                            <td>
+                                <span class>Dar en adopción</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </li>
+            </div>
+            <li class="separator"></li>
+            <div class = "user-options">
+                <li class="avatar">
+                    <img class="clickable" src="{% static 'images/default-avatar.png' %}" />
+                </li>
+                <li  id="notification_li">
+                    <span id="notification_count">3</span>
+                    <a class="fas fa-bell clickable icon-l basic-color" href="#" id="notificationLink"></a>
+                    <div id="notificationContainer">
+                        <div id="notificationTitle"></div>
+                        <div id="notificationBody" class="notifications"></div>
+                        <div id="notificationFooter"><a href="#">Ver todas</a></div>
+                    </div>
+                </li>
+                <li  id="option_li">
+                        <a class="fas fa-bars clickable icon-l basic-color" href="#" id="optionLink"></a>
+                         <div id="optionContainer">
+                            <div id="optionBody" class="options">
+                                <ul>
+                                <li class="menuItem"> <a href="#"> Configuración de perfil </a></li>
+                                <li class="menuItem"> <a href="#"> Cerrar sesión </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                </li>
+            </div>
+
+
+    </ul>
+</nav>
+
+<div id="content">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+<div id = footer>
+    <p class="container creditos">
+    <p class="text-center vspaced5">Proyecto del curso CC4401 - Ingeniería de Software.</p>
+    <p class="text-center vspaced5">Equipo 01</p>
+    <p class="text-center vspaced5"> Icono ''Paw'' creación de <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">
+        Freepik</a>, extraídos de <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
+    <p class="text-center vspaced5">Fotos extraídas de <a href="https://www.pexels.com/search/dog/" title="Pexels">www.pexels.com </a>
+    </p>
+    <br>
+</div>
+</body>
+</html>
