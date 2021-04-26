@@ -6,7 +6,7 @@ from django.template import loader
 from django.http import HttpResponse
 
 
-class GetComunas(View):
+class GetComunasView(View):
     """
     API View to obtain the "comunas" associated with a region.
     """
@@ -19,10 +19,10 @@ class GetComunas(View):
 class BaseView(View):
 
     def get(self, request):
-        return render(request, "users/base.html")
+        return render(request, "base.html")
 
 
 class AuthenticationBaseView(View):
 
     def get(self, request):
-        return render(request, "users/base-authentication.html")
+        return render(request, "base-authentication.html")
