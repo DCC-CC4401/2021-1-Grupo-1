@@ -5,7 +5,7 @@ from users.models import Region, Comuna
 from django.contrib.auth import authenticate, login, logout
 
 
-class GetComunas(View):
+class GetComunasView(View):
     """
     API View to obtain the "comunas" associated with a region.
     """
