@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Resultados {% endblock %}
+
+{% block include %}
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
+
+{%  block content %}
+    <div class="container">
+        <div class="no-results">
+            <h1>No se han encontrado resultados</h1>
+            <h2>Intenta con otros términos de busqueda</h2>
+        </div>
+    </div>
+{%  endblock %}

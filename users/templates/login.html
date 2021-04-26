@@ -1,32 +1,35 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <script src="{% static 'js/login.js' %}"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="content">
-            <form method="post">
-                <img class="first-image" src="{% static 'media/user_login.png' %}" alt="User login">
-                {% csrf_token %}
-                <div class="form-group">
-                    <img class="inline-image" src="{% static 'media/user_email.png' %}" alt="User email">
-                    <input type="text" class="form-control" id="correo_usuario" name="correo" placeholder="CORREO" required>
-                </div>
-                <div class="form-group">
-                    <img class="inline-image" src="{% static 'media/user_password.png' %}" alt="User password">
-                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"required>
-                </div>
-                <button type="submit">LOGIN</button>
-                <div class="register">
-                    <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
-                </div>
-            </form>
+{% extends 'base.html' %}
+
+{%  block include %}
+    <link rel="stylesheet" type="text/css" href="../static/css/homepage.css"/>
+{%  endblock %}
+
+
+{% block content %}
+
+    <div id = "presentation">
+        <div class="pet-post">
+            <div class="post-img">
+                <img class="pet-img" src="../static/media/dog.jpeg" alt="Dog running">
+            </div>
+            <div class="post-info">
+                <p>
+                    Info de la mascota
+                </p>
+            </div>
         </div>
+        <div class="pet-post">
+            <div class="post-img">
+                <img class="pet-img" src="../static/media/dog.jpeg" alt="Dog running">
+            </div>
+            <div class="post-info">
+                <p>
+                    Info de la mascota
+                </p>
+            </div>
+        </div>
+
+
     </div>
-</body>
-</html>
+
+{% endblock %}
