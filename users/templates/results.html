@@ -1,34 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %} Resultados {% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Results</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% block include %}
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
     <script src="{% static 'js/login.js' %}"></script>
-</head>
-<body>
+{% endblock %}
+
+{%  block content %}
     <div class="container">
-        <div class="content">
-            <form method="post">
-                <img class="first-image" src="{% static 'media/user_login.png' %}" alt="User login">
-                {% csrf_token %}
-                <div class="form-group">
-                    <img class="inline-image" src="{% static 'media/user_email.png' %}" alt="User email">
-                    <input type="text" class="form-control" id="correo_usuario" name="correo" placeholder="CORREO" required>
-                </div>
-                <div class="form-group">
-                    <img class="inline-image" src="{% static 'media/user_password.png' %}" alt="User password">
-                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"required>
-                </div>
-                <button type="submit">LOGIN</button>
-                <div class="register">
-                    <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
-                </div>
-            </form>
+        <div class="no-results">
+            <h1>No se han encontrado resultados</h1>
+            <h2>Intenta con otros términos de busqueda</h2>
         </div>
     </div>
-</body>
-</html>
+{%  endblock %}
