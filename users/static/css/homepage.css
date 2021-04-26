@@ -1,0 +1,23 @@
+.post-img, .post-info{
+    background-color: black;
+    text-align: center;
+    width:45%;
+    color: white;
+    transition: all 0.1s linear;
+}
+
+.post-img:hover{
+    background: rgba(175, 255, 220, 0.16);
+    cursor: pointer;
+}
+
+.pet-img{
+    width: 94%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#presentation{
+    display: inline-block;
+
+}
