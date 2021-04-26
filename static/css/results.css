@@ -1,6 +1,25 @@
-.container {
-    width: fit-content;
-    margin-left: 20%;
-    margin-right: 20%;
+.post_container {
+    width: 80%;
+    margin: auto;
     text-align: center;
+}
+
+.no_results {border-radius: 25px;
+    border: 2px solid #7a5714;
+    padding: 20px;
+    height: fit-content;
+}
+
+.empty_search {
+    height: auto;
+    width: fit-content;
+    margin: auto;
+}
+
+.vector-image {
+    padding-top: 25%;
+    width: 50%;
+    height: 50%;
+    vertical-align: center;
+    opacity: 0.25;
 }

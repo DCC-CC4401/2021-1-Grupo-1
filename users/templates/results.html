@@ -8,10 +8,14 @@
 {% endblock %}
 
 {%  block content %}
-    <div class="container">
-        <div class="no-results">
+    <div class="post_container">
+        <div class="no_results">
             <h1>No se han encontrado resultados</h1>
             <h2>Intenta con otros términos de busqueda</h2>
+        </div>
+        <br>
+        <div class="empty_search">
+            <img class="vector-image" src="{% static 'media/pets_waiting.svg' %}" alt="Pets waiting">
         </div>
     </div>
 {%  endblock %}
