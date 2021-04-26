@@ -18,7 +18,7 @@ class GetComunasView(View):
 class LoginUserView(View):
 
     def get(self, request):
-        return render(request, "login.html")
+        return render(request, "users/login.html")
 
     def post(self, request):
         email = request.POST['correo']
