@@ -34,38 +34,3 @@
     </div>
 
 {% endblock %}
-=======
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <script src="{% static 'js/login.js' %}"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="content">
-            <form method="post">
-                <img class="first-image" src="{% static 'media/user_login.png' %}" alt="User login">
-                {% csrf_token %}
-                <div class="form-group">
-                    <img class="inline-image" src="{% static 'media/user_email.png' %}" alt="User email">
-                    <input type="text" class="form-control" id="correo_usuario" name="correo" placeholder="CORREO" required>
-                </div>
-                <div class="form-group">
-                    <img class="inline-image" src="{% static 'media/user_password.png' %}" alt="User password">
-                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"required>
-                </div>
-                <button type="submit">LOGIN</button>
-                <div class="register">
-                    <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
->>>>>>> d38c51a72b4dd1a857b4bdf1aa43214f7a241b1b
