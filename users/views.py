@@ -29,3 +29,9 @@ class LoginUserView(View):
             return HttpResponseRedirect('')
         else:
             return HttpResponseRedirect('/login')
+
+
+class HomepageView(View):
+
+    def get(self, request):
+        return render(request, "homepage.html")
