@@ -35,3 +35,9 @@ class HomepageView(View):
 
     def get(self, request):
         return render(request, "homepage.html")
+
+
+class ResultsView(View):
+
+    def get(self, request):
+        return render(request, "results.html")
