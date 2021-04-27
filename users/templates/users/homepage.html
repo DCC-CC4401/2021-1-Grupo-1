@@ -13,11 +13,17 @@
 
     <div id = "presentation">
 
-
-        <div class="pet-post">
-            <div class="post-img">
-                <img class="pet-img" alt='Dog running' src={%  static 'media/dog.jpeg' %}  onclick="">
+        <div class="pet-post" onclick=""">
+            <img class="pet-img" alt='Dog running' src={%  static 'media/dog.jpeg' %}  >
+            <div class="post-info">
+                <p>
+                        Info de la mascota
+                </p>
             </div>
+        </div>
+
+        <div class="pet-post" onclick="">
+            <img class="pet-img" alt="little hamster" src={% static 'media/hamster.jpeg' %} >
             <div class="post-info">
                 <p>
                     Info de la mascota
@@ -25,21 +31,8 @@
             </div>
         </div>
 
-        <div class="pet-post">
-            <div class="post-img">
-                <img class="pet-img" alt="little hamster" src={% static 'media/hamster.jpeg' %}  onclick="">
-            </div>
-            <div class="post-info">
-                <p>
-                    Info de la mascota
-                </p>
-            </div>
-        </div>
-
-        <div class="pet-post">
-            <div class="post-img">
-                <img class="pet-img"  alt="angry cat" src={% static 'media/cat.jpeg' %} onclick="">
-            </div>
+        <div class="pet-post" onclick="">
+            <img class="pet-img"  alt="angry cat" src={% static 'media/cat.jpeg' %} >
             <div class="post-info">
                 <p>
                     Info de la mascota
