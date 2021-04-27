@@ -2,20 +2,37 @@
     width: 80%;
     margin: auto;
     text-align: center;
+    padding-top: 10px;
 }
 
-.no-results {
+.with-results, .no-results {
     border-radius: 25px;
     border: 2px solid #7a5714;
-    padding: 20px;
+    padding: 10px;
     height: fit-content;
 }
 
-.with-results {
-    border-radius: 25px;
-    border: 2px solid #7a5714;
-    padding: 20px;
-    height: fit-content;
+.result-item {
+    border-radius: 15px;
+    display: inline-block;
+    width: 100%;
+    background: rgba(203, 130, 82, 0.64);
+    text-align: left;
+}
+
+.result-img {
+    padding: 5px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 20%;
+}
+
+.result-text {
+    padding-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .empty-search {

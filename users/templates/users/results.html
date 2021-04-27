@@ -14,25 +14,34 @@
 
     <div class="post-container">
 
-        {% if True %}
-
+        <div class="without-results" id="without-results">
             <div class="no-results">
                 <h1>No se han encontrado resultados</h1>
                 <h2>Intenta con otros términos de busqueda</h2>
             </div>
             <br>
             <div class="empty-search">
-                <img class="vector-image" src="{% static 'media/pets_waiting.svg' %}" alt="Pets waiting">
+                <img class="vector-image" src="{% static "media/pets_waiting.svg" %}" alt="Pets waiting">
             </div>
+        </div>
 
-        {% else %}
-
-            <div class="with-results">
-                <h1>Se han encontrado resultados</h1>
+        <div class="with-results" id="with-results">
+            <div class="result-item">
+                <img class="result-img" src="{%  static "media/dog.jpeg" %}" alt="Dog running">
+                <div class="result-text">
+                    Busco dar perro en adopcion
+                </div>
             </div>
+        </div>
 
-        {% endif %}
+    <br>
+
+    <label for="previous-page">Anterior</label>
+    <button type="button" onclick="{previousPage();}" id="previous-page"></button>
+
+    <label for="next-page">Siguiente</label>
+    <button type="button" onclick="{nextPage();}" id="next-page"></button>
 
     </div>
-
+    <script src="{% static "js/results.js" %}"></script>
 {% endblock %}
