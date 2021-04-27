@@ -7,6 +7,10 @@
     transition: all 0.1s linear;
 }
 
+.post-info{
+    padding: 10px;
+}
+
 .post-img:hover{
     background: rgba(175, 255, 220, 0.16);
     cursor: pointer;
@@ -25,4 +29,5 @@
 
 #presentation{
     display: inline-block ;
+    text-align: center;
 }
