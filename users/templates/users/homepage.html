@@ -1,16 +1,23 @@
-{% extends 'base.html' %}
+{% extends '../../templates/base.html' %}
+{% include statics %}
+
+{% block title %}
+    Homepage
+{% endblock %}
 
 {%  block include %}
-    <link rel="stylesheet" type="text/css" href="../static/css/homepage.css"/>
+    <link rel="stylesheet" type="text/css" href={%  statics  "users/css/homepage.css" %}/>
 {%  endblock %}
 
 
 {% block content %}
 
     <div id = "presentation">
+
+
         <div class="pet-post">
             <div class="post-img">
-                <img class="pet-img" src="../static/media/dog.jpeg" alt="Dog running">
+                <img class="pet-img" src="../../static/media/dog.jpeg" alt="Dog running" onclick="">
             </div>
             <div class="post-info">
                 <p>
@@ -18,9 +25,10 @@
                 </p>
             </div>
         </div>
+
         <div class="pet-post">
             <div class="post-img">
-                <img class="pet-img" src="../static/media/dog.jpeg" alt="Dog running">
+                <img class="pet-img" src="../../static/media/dog.jpeg" alt="Dog running" onclick="">
             </div>
             <div class="post-info">
                 <p>

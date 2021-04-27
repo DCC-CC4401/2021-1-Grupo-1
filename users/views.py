@@ -18,7 +18,7 @@ class GetComunasView(View):
 class LoginUserView(View):
 
     def get(self, request):
-        return render(request, "login.html")
+        return render(request, "users/login.html")
 
     def post(self, request):
         email = request.POST['correo']
@@ -34,10 +34,10 @@ class LoginUserView(View):
 class HomepageView(View):
 
     def get(self, request):
-        return render(request, "homepage.html")
+        return render(request, "users/homepage.html")
 
 
 class ResultsView(View):
 
     def get(self, request):
-        return render(request, "results.html")
+        return render(request, "users/results.html")

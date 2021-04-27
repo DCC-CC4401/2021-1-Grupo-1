@@ -17,7 +17,8 @@
     margin-bottom: 3%;
 }
 
-#presentation{
+.pet-post{
     display: inline-block;
+    width: 45%
 
 }
