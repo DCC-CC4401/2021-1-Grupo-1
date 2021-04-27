@@ -34,13 +34,17 @@
             </div>
         </div>
 
-    <br>
+        <br>
 
-    <label for="previous-page">Anterior</label>
-    <button type="button" onclick="{previousPage();}" id="previous-page"></button>
+        <div id="previous-button">
+            <label for="previous-page">Anterior</label>
+            <button type="button" onclick="{previousPage();}" id="previous-page"></button>
+        </div>
 
-    <label for="next-page">Siguiente</label>
-    <button type="button" onclick="{nextPage();}" id="next-page"></button>
+        <div id="next-button">
+            <label for="next-page">Siguiente</label>
+            <button type="button" onclick="{nextPage();}" id="next-page"></button>
+        </div>
 
     </div>
     <script src="{% static "js/results.js" %}"></script>

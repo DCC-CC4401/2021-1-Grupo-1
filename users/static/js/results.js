@@ -4,8 +4,8 @@ let maxPage = 1;
 let withoutResults = document.getElementById("without-results")
 let withResults = document.getElementById("with-results")
 
-let nextPageButton = document.getElementById("next-page")
-let previousPageButton = document.getElementById("previous-page")
+let nextButton = document.getElementById("next-button")
+let previousButton = document.getElementById("previous-button")
 
 updateContent()
 
@@ -33,14 +33,14 @@ function updateContent() {
     }
 
     if (maxPage > page) {
-        nextPageButton.style.display = "block";
+        nextButton.style.display = "block";
     } else {
-        nextPageButton.style.display = "none";
+        nextButton.style.display = "none";
     }
 
     if (page > 0) {
-        previousPageButton.style.display = "block";
+        previousButton.style.display = "block";
     } else {
-        previousPageButton.style.display = "none";
+        previousButton.style.display = "none";
     }
 }
