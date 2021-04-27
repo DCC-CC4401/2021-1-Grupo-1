@@ -1,14 +1,13 @@
-{% extends '../../templates/base.html' %}
-{% include statics %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block include %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+{% endblock include %}
 
 {% block title %}
     Homepage
-{% endblock %}
-
-{%  block include %}
-    <link rel="stylesheet" type="text/css" href={%  statics  "users/css/homepage.css" %}/>
-{%  endblock %}
-
+{% endblock title %}
 
 {% block content %}
 

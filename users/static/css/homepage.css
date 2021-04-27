@@ -1,7 +1,8 @@
 .post-img, .post-info{
     background-color: black;
     text-align: center;
-    width:45%;
+    width:98%;
+    margin-left: 1%;
     color: white;
     transition: all 0.1s linear;
 }
@@ -19,6 +20,9 @@
 
 .pet-post{
     display: inline-block;
-    width: 45%
+    width:30%;
+}
 
+#presentation{
+    display: inline-block ;
 }
