@@ -1,9 +1,9 @@
 .post-img, .post-info{
-    background-color: black;
+    background-color: transparent;
     text-align: center;
     width:98%;
     margin-left: 1%;
-    color: white;
+    color: black;
     transition: all 0.1s linear;
 }
 
@@ -11,8 +11,9 @@
     padding: 10px;
 }
 
-.post-img:hover{
-    background: rgba(175, 255, 220, 0.16);
+.pet-post:hover{
+    background: rgba(165, 106, 67, 0.9);
+
     cursor: pointer;
 }
 
@@ -25,6 +26,8 @@
 .pet-post{
     display: inline-block;
     width:30%;
+    background: rgba(203,130,82, 0.64);
+
 }
 
 #presentation{
