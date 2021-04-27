@@ -7,7 +7,6 @@
 }
 .pet-post:hover{
     background: rgba(165, 106, 67, 0.9);
-
     cursor: pointer;
 }
 
@@ -21,6 +20,7 @@
     display: inline-block;
     width:45%;
     background: rgba(203,130,82, 0.64);
+    margin-top: 3px;
 
 }
 
