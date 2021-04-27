@@ -1,0 +1,123 @@
+/* Common CSS used in login and register views */
+body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #303030;
+}
+
+#bg-image {
+  /* The image used */
+  background-color: #222222;
+  background-image: url("../media/auth-bg/bg17.jpg");
+
+  /* Add the blur effect */
+  filter: blur(px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#content {
+  /* background-color: rgba(0,0,0, 0.4);  Black w/opacity/see-through */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  width: 70%;
+  max-width: 1400px;
+}
+
+form {
+  width: 20%;
+  text-align: center;
+  margin: 15% auto;
+  padding: 30px;
+  background: rgba(210, 210, 210, 0.68);
+  box-shadow: #00000012 0 0 5px 3px;
+  border-radius: 25px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input, select::placeholder {
+  text-align: center;
+}
+
+button {
+  position: relative;
+  top: 10px;
+  font-size: 18px;
+  color: white;
+  background: #0984e3;
+  padding: 10px;
+  width: 80%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #085fa3;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  display: inline-flex;
+  justify-content: center;
+  padding: 5px;
+  width: 100%;
+  position: relative;
+}
+
+.form-text{
+  margin-left: 0;
+}
+
+a {
+  color: #636e72;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #292d2f;
+}
+
+.first-image {
+  position: relative;
+  top: -10px;
+  width: 70px;
+  height: 70px;
+}
+
+.inline-image {
+  position: relative;
+  right: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.register {
+  position: relative;
+  top: 25px;
+  padding: 10px;
+}
