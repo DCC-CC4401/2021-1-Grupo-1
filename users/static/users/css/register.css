@@ -1,12 +1,3 @@
-form {
-    width: 40%;
-    text-align: center;
-    margin: 15% auto;
-    padding: 30px;
-    background: rgba(210, 210, 210, 0.68);
-    box-shadow: #00000012 0 0 5px 3px;
-    border-radius: 25px;
-}
 
 .day-column{
     width: 15%;
@@ -29,3 +20,9 @@ form {
     display: flex;
     align-items: center;
 }
+
+.icon-right>input{
+    margin-right: -40px;
+    margin-left: -20px;
+}
+
