@@ -21,6 +21,10 @@
     text-align: left;
 }
 
+.result-item + .result-item {
+    margin-top: 10px;
+}
+
 .result-img {
     padding: 5px;
     border-radius: 15px;

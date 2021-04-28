@@ -22,8 +22,6 @@ const testResults = [
 let page = 0;
 let maxPage = 1;
 
-let results = 0;
-
 let withoutResults = document.getElementById("without-results")
 let withResults = document.getElementById("with-results")
 
@@ -75,12 +73,6 @@ function updateContent() {
 
 function addResult(n) {
     let result = ""
-
-    if (results > 0) {
-        result = result + "<br>";
-    }
-
-    results += 1;
 
     result = result + "<div class='result-item'>" +
         "<img class='result-img' src='/static/" + testResults[n].src + "' alt='Dog running'>" +
