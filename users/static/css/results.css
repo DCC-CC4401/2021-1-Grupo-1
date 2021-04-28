@@ -63,6 +63,7 @@
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
+    margin-left: 0;
 }
 
 .filters {
@@ -70,6 +71,10 @@
     display: inline-block;
     position: absolute;
     bottom: 5px;
+}
+
+.result-filter + .result-filter {
+    margin-left: 5px;
 }
 
 .page-button {
