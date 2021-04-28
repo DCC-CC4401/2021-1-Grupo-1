@@ -1,17 +1,17 @@
 nav {
     background: #1c1919;
-    padding: 20px 60px 20px 90px;
+    padding: 10px 60px 10px 90px;
     border: 1px solid #303030;
     border-left: none;
     border-right: none;
     overflow: hidden;
+    top: 0;
 }
 
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
   position: fixed;
-  top: 0;
   width: 100%;
 }
 
@@ -25,6 +25,7 @@ nav ul {
     list-style: none;
     flex-wrap: wrap;
     align-items: center;
+    min-width: 700px;
 }
 
 
@@ -37,10 +38,10 @@ nav ul li .logo {
 
 nav ul .search{
     display: flex;
-    width: 50%;
+    width: 100%;
     min-width: 400px;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 nav ul .search-icon {
@@ -57,14 +58,15 @@ nav ul .search-icon {
 
 nav ul .search-icon input {
     height: 100%;
-    width: 100%;
     border: none;
     border-radius: 20px 0 0 20px;
     outline: none;
     padding: 0 20px;
     color: #000;
     font-size: 20px;
+    width: 90%;
 }
+
 
 nav ul .user-info {
     width: 20%;
@@ -93,6 +95,11 @@ nav li a:hover{
     text-decoration:none
 }
 
+#optionBody>ul{
+    display: block;
+}
+
+
 @media screen and (max-width: 1250px) {
     nav{
         padding: 20px 40px 20px 0px;
@@ -114,7 +121,7 @@ notification_li {
     overflow: visible;
     position: absolute;
     top: 90px;
-    margin-left: -170px;
+    margin-left: -300px;
     width: 400px;
     z-index: 1000;
     display: none; /* Enable this after jquery implementation  */
@@ -222,7 +229,7 @@ option_li {
     overflow: visible;
     position: absolute;
     top: 90px;
-    margin-left: -170px;
+    margin-left: -200px;
     width: 270px;
     z-index: 1000;
     display: none; /* Enable this after jquery implementation  */
@@ -273,3 +280,9 @@ footer {
     margin-left: auto;
 }
 
+.pwd{
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border-width: 1px;
+    height: 18px;
+}

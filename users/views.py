@@ -42,3 +42,12 @@ def register_view(request):
         if form.is_valid():
             return HttpResponseRedirect('/')
 
+
+def profile_view(request):
+    if request.method == "GET":
+        return render(request, 'users/view_profile.html')
+
+
+def profile_config(request):
+    if request.method == "GET":
+        return render(request, 'users/config_profile.html')

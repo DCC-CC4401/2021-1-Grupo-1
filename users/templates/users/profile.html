@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Perfil de usuario
+{% endblock title %}
+{% block include %}
+    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'users/js/gears_button.js' %}"></script>
+{% endblock include %}
+{% block content %}
+    <div id="content-profile">
+        <div class="profile-general-info">
+            <img class="profile-photo" src="{% static 'images/default-avatar.png' %}" alt="Profile photo">
+            <div class="profile-description">
+                <div class="profile-title">
+                <h4 class="bold-700"> Nombre Apellido </h4>
+                <i class="fas fa-cogs padded-icon" id="config-button"></i>
+                </div>
+                <div>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                </div>
+                <span class="italic join-date">Miembro desde 2017/04/13</span>
+            </div>
+
+        </div>
+        <div class="profile-section" id="contact-section">
+        <h5 class="section-title">Datos de contacto</h5>
+            <div class = "subsection">
+                <div class="vspaced10">
+                    <span class="bold-700 s16 cinf">Correo:</span>
+                    <span class="s16"> corrocomonaruto@gmail.com</span></div>
+                <div class="vspaced10">
+                    <span class="bold-700 s16 cinf">Teléfono:</span>
+                    <span class="s16"> 569 5695 6956</span>
+                </div>
+            </div>
+        </div>
+    {% block profile-section %}
+    {% endblock profile-section %}
+    </div>
+
+{% endblock content %}
+
