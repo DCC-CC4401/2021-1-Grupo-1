@@ -17,7 +17,8 @@
         <div class="without-results" id="without-results">
             <div class="no-results">
                 <h1>No se han encontrado resultados</h1>
-                <h2>Intenta con otros términos de busqueda</h2>
+                <br>
+                <h3>Intenta con otros términos de busqueda</h3>
             </div>
             <br>
             <div class="empty-search">
@@ -28,22 +29,32 @@
         <div class="with-results" id="with-results">
             <div class="result-item">
                 <img class="result-img" src="{%  static "media/dog.jpeg" %}" alt="Dog running">
-                <div class="result-text">
-                    Busco dar perro en adopcion
+                <div class="result-body">
+                    <div class="result-header">
+                        Busco dar perro en adopción
+                    </div>
+                    <div class="result-desc">
+                        Descripción
+                    </div>
+                    <div class="result-filter">
+                        Perro
+                    </div>
+                    <div class="result-filter">
+                        En adopción
+                    </div>
+                    <button type="button" class="result-button">Ir a publicación</button>
                 </div>
             </div>
         </div>
 
         <br>
-
+        <!-- Creo que discutimos infinite scroll, por mientras pongo esto para ver 2 versiones de la pagina -->
         <div id="previous-button">
-            <label for="previous-page">Anterior</label>
-            <button type="button" onclick="{previousPage();}" id="previous-page"></button>
+            <button type="button" class="page-button" onclick="{previousPage();}">Anterior</button>
         </div>
 
         <div id="next-button">
-            <label for="next-page">Siguiente</label>
-            <button type="button" onclick="{nextPage();}" id="next-page"></button>
+            <button type="button" class="page-button" onclick="{nextPage();}">Siguiente</button>
         </div>
 
     </div>
