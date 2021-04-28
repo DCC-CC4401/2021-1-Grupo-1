@@ -54,6 +54,7 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
+    width: 100%;
 }
 
 .result-filter {
@@ -62,6 +63,11 @@
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+.filters {
+    text-align: left;
+    display: inline-block;
     position: absolute;
     bottom: 5px;
 }
@@ -89,7 +95,7 @@
     cursor: pointer;
     position: absolute;
     bottom: 5px;
-    right: 5px;
+    right: 20px;
 }
 
 .result-desc {
