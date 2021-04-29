@@ -10,7 +10,7 @@ const testResults = [
         titulo: "Busco regalar gato que se cree perro",
         descripcion: "Ayuda",
         src: "media/cat.jpeg",
-        filters: ["Perro", "Gato", "En adopción"],
+        filters: ["Gato", "En adopción"],
         seen: false,
     },
     {
@@ -24,39 +24,19 @@ const testResults = [
 
 let testFilters = [];
 
-let page = 0;
-let maxPage = 1;
+let results = 0;
 
 let userFilters = document.getElementById("user-filters")
 
 let withoutResults = document.getElementById("without-results")
 let withResults = document.getElementById("with-results")
 
-let nextButton = document.getElementById("next-button")
-let previousButton = document.getElementById("previous-button")
-
-
-for (let i = 0; i < testResults.length; i++) {
-    addResult(i);
-}
 
 addFilter("Perro")
 addFilter("En adopción")
+addFilter("Iguana")
 updateContent()
 
-function nextPage() {
-    if (page < maxPage) {
-        page += 1;
-        updateContent()
-    }
-}
-
-function previousPage() {
-    if (page > 0) {
-        page -= 1;
-        updateContent()
-    }
-}
 
 function updateContent() {
     if (testFilters.length > 0) {
@@ -64,7 +44,24 @@ function updateContent() {
     } else {
         userFilters.style.display = "none";
     }
-    if (page === 0) {
+
+    removeResults()
+    results = 0;
+
+    for (let i = 0; i < testResults.length; i++) {
+        let matches = 0;
+        for (let j = 0; j < testFilters.length; j++) {
+            if (testResults[i].filters.includes(testFilters[j])) {
+                matches += 1;
+            }
+        }
+        if (matches === testFilters.length) {
+            addResult(i);
+            results += 1;
+        }
+    }
+
+    if (results > 0) {
         withResults.style.display = "block";
         withoutResults.style.display = "none";
     } else {
@@ -72,23 +69,18 @@ function updateContent() {
         withResults.style.display = "none";
     }
 
-    if (maxPage > page) {
-        nextButton.style.display = "block";
-    } else {
-        nextButton.style.display = "none";
-    }
+}
 
-    if (page > 0) {
-        previousButton.style.display = "block";
-    } else {
-        previousButton.style.display = "none";
+function removeResults() {
+    while (withResults.childElementCount > 0) {
+        withResults.removeChild(withResults.childNodes[0]);
     }
 }
 
 function addResult(n) {
     let result = ""
 
-    result = result + "<div class='result-item'>" +
+    result = result + "<div class='result-item' id='result-'" + n + ">" +
         "<img class='result-img' src='/static/users/" + testResults[n].src + " ' alt='Animal photo'>" +
         "<div class='result-body'><div class='result-header'>" + testResults[n].titulo + "</div>" +
         "<div class='result-desc'>" + testResults[n].descripcion + "</div>";
@@ -114,17 +106,22 @@ function addResult(n) {
     withResults.innerHTML = withResults.innerHTML + result;
 }
 
-function removeFilter(n) {
-    let elem = document.getElementById("user-filter-" + n);
+function removeFilter(text) {
+    let elem = document.getElementById("user-filter-" + text);
     userFilters.removeChild(elem);
 
-    testFilters.splice(n);
+    testFilters.splice(testFilters.indexOf(text), 1);
+    updateContent();
 }
 
 function addFilter(text) {
+    if (testFilters.includes(text)) {
+        return;
+    }
+
     let divFilter = document.createElement("div");
     divFilter.setAttribute("class", "user-filter");
-    divFilter.setAttribute("id", "user-filter-" + testFilters.length);
+    divFilter.setAttribute("id", "user-filter-" + text);
 
     let textFilter = document.createElement("div")
     textFilter.setAttribute("class", "result-filter");
@@ -133,8 +130,8 @@ function addFilter(text) {
     let buttonFilter = document.createElement("button")
     buttonFilter.setAttribute("type", "button");
     buttonFilter.setAttribute("class", "cross-button");
-    buttonFilter.setAttribute("onclick", "{removeFilter("+ testFilters.length + ");}");
     buttonFilter.innerHTML = "<img src='/static/users/media/close.svg' alt='close' class='cross-img'/>";
+    buttonFilter.onclick = function () {removeFilter(text);}
 
     divFilter.appendChild(buttonFilter);
     divFilter.appendChild(textFilter);
