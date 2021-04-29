@@ -3,19 +3,22 @@ const testResults = [
         titulo: "Busco dar perro en adopción",
         descripcion: "Es un perro y lo quiero dar en adopción",
         src: "media/dog.jpeg",
-        filters: ["Perro", "En adopción"]
+        filters: ["Perro", "En adopción"],
+        seen: true,
     },
     {
         titulo: "Busco regalar gato que se cree perro",
         descripcion: "Ayuda",
         src: "media/cat.jpeg",
-        filters: ["Perro", "Gato", "En adopción"]
+        filters: ["Perro", "Gato", "En adopción"],
+        seen: false,
     },
     {
         titulo: "Mi perro busca dueño que lo entienda",
         descripcion: "No lo entiendo, no hace \"guau, guau\"",
         src: "media/hamster.jpeg",
-        filters: ["Perro", "En adopción"]
+        filters: ["Perro", "En adopción"],
+        seen: true,
     }
 ]
 
@@ -75,7 +78,7 @@ function addResult(n) {
     let result = ""
 
     result = result + "<div class='result-item'>" +
-        "<img class='result-img' src='/static/users/" + testResults[n].src + " ' alt='Dog running'>" +
+        "<img class='result-img' src='/static/users/" + testResults[n].src + " ' alt='Animal photo'>" +
         "<div class='result-body'><div class='result-header'>" + testResults[n].titulo + "</div>" +
         "<div class='result-desc'>" + testResults[n].descripcion + "</div>";
 
@@ -89,6 +92,10 @@ function addResult(n) {
 
     if (testResults[n].filters.length > 0) {
         result = result + "</div>";
+    }
+
+    if (testResults[n].seen) {
+        result = result + "<div class='result-eye'><img src='/static/users/media/visibility.svg' alt='Eye'></div>"
     }
 
     result = result + "<button type='button' class='result-button'>Ir a publicación</button></div></div>";
