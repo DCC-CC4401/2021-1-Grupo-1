@@ -3,6 +3,7 @@
     margin: auto;
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .with-results, .no-results {
@@ -131,6 +132,15 @@
     padding-bottom: 10px;
 }
 
+.filter-text {
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: center;
+    padding-left: 10px;
+}
+
 .user-filter {
     display: inline-block;
     width: fit-content;
@@ -146,6 +156,7 @@
     background: transparent;
     padding-top: 10px;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 .cross-img {
