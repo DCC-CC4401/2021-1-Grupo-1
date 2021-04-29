@@ -17,6 +17,8 @@ def get_comunas_view(request, region_id):
 
 def login_user_view(request):
     if request.method == "GET":
+        if request.user.is_authenticated:
+            return HttpResponseRedirect('/')
         return render(request, "users/login.html")
 
     if request.method == "POST":
@@ -31,14 +33,15 @@ def login_user_view(request):
 
 
 def register_view(request):
-    # TODO: Create account on form.is_valid
     if request.method == "GET":
+        if request.user.is_authenticated:
+            return HttpResponseRedirect('/')
         form = RegisterForm()
         return render(request, 'users/register.html', {'form': form})
+
     if request.method == "POST":
         form = RegisterForm(request.POST)
-        print(form.is_valid())
-        print(form.errors)
         if form.is_valid():
+            form.save()
             return HttpResponseRedirect('/')
 
