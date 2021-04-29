@@ -60,7 +60,7 @@
             </div>
         </li>
             <li class="separator"></li>
-            {% block user %}
+        {% if request.user.is_authenticated %}
             <div class = "user-options">
                 <li class="avatar">
                     <img class="clickable" src="{% static 'images/default-avatar.png' %}" />
@@ -88,7 +88,9 @@
 
                 </li>
             </div>
-        {% endblock user%}
+        {% else %}
+            <a style="color:white" href="">Iniciar Sesión</a>
+        {% endif %}
 
 
     </ul>

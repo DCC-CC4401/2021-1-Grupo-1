@@ -9,16 +9,6 @@
     Homepage
 {% endblock title %}
 
-<script>
-    if(user.is_authenticated()){
-        {% block user %}
-            <a style="color:white" href="">Iniciar Sesión</a>
-        {% endblock user %}
-    }
-</script>
-
-
-
 {% block content %}
 
     <div id = "presentation">
