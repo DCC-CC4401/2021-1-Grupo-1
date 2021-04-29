@@ -70,6 +70,16 @@
     margin-left: 0;
 }
 
+.result-eye {
+    display: inline-block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 5px;
+    right: 20px;
+    opacity: 0.7;
+}
+
 .filters {
     text-align: left;
     display: inline-block;
@@ -111,4 +121,40 @@
     font-style: italic;
     padding-top: 5px;
     padding-bottom: 20px;
+}
+
+.user-filters {
+    text-align: left;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+
+.user-filter {
+    display: inline-block;
+    width: fit-content;
+}
+
+.cross-button {
+    display: inline-block;
+    border: none;
+    height: 16px;
+    margin: 0;
+    vertical-align: center;
+    width: 16px;
+    background: transparent;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.cross-img {
+    padding-top: 5px;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.user-filter + .user-filter {
+    margin-left: 10px;
 }
