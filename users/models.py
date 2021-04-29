@@ -54,7 +54,7 @@ class User(AbstractUser):
     username = None  # Not using AbstractUser's username field
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=30, blank=False)
-    email = models.EmailField(primary_key=True, blank=False)
+    email = models.EmailField(unique=True, blank=False)
     phone_number = models.CharField(max_length=12, blank=False)
     address = models.CharField(max_length=100, blank=False)
     region = models.ForeignKey(Region, on_delete=models.PROTECT, blank=False)
