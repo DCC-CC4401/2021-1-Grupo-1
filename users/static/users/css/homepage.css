@@ -19,7 +19,7 @@
     border-radius: 15px;
     display: inline-block;
     width:45%;
-    background: rgba(203,130,82, 0.64);
+    background: rgba(203, 130, 82, 0.2);
     margin-top: 3px;
 
 }
@@ -27,8 +27,4 @@
 #presentation{
     display: inline-block ;
     text-align: center;
-}
-
-#unregistered_user{
-    color:white;
 }
