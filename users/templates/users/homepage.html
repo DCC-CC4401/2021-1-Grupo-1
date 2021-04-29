@@ -9,10 +9,14 @@
     Homepage
 {% endblock title %}
 
+<script>
+    if(user.is_authenticated()){
+        {% block user %}
+            <a style="color:white" href="">Iniciar Sesión</a>
+        {% endblock user %}
+    }
+</script>
 
-{% block user %}
-    <a style="color:white" href="">Iniciar Sesión</a>
-{% endblock user %}
 
 
 {% block content %}
