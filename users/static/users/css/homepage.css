@@ -28,3 +28,7 @@
     display: inline-block ;
     text-align: center;
 }
+
+#unregistered_user{
+    color:white;
+}

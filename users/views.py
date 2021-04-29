@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse, HttpResponseRedirect
+
+from users.forms import RegisterForm
 from users.models import Region, Comuna
 from django.contrib.auth import authenticate, login, logout
 
