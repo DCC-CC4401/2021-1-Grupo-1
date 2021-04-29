@@ -75,7 +75,7 @@ function addResult(n) {
     let result = ""
 
     result = result + "<div class='result-item'>" +
-        "<img class='result-img' src=" + testResults[n].src + "'/static' alt='Dog running'>" +
+        "<img class='result-img' src='/static/users/" + testResults[n].src + " ' alt='Dog running'>" +
         "<div class='result-body'><div class='result-header'>" + testResults[n].titulo + "</div>" +
         "<div class='result-desc'>" + testResults[n].descripcion + "</div>";
 
