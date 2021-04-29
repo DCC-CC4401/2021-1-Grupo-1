@@ -1,0 +1,28 @@
+
+.day-column{
+    width: 15%;
+}
+
+.month-column{
+    width: 30%;
+}
+
+.year-column{
+    width: 15%;
+}
+
+.form-input > div{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#show_pwd {
+    display: flex;
+    align-items: center;
+}
+
+.icon-right>input{
+    margin-right: -40px;
+    margin-left: -20px;
+}
+

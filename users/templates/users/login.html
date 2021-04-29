@@ -1,35 +1,31 @@
-{% extends '../../templates/base.html' %}
-
-{%  block include %}
-    <link rel="stylesheet" type="text/css" href="../../static/css/homepage.css"/>
-{%  endblock %}
-
-
+{% extends "users/base-authentication.html" %}
+{% load static %}
+{% block title %}
+    Iniciar sesión
+{% endblock title %}
+{% block include %}
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+{% endblock include %}
 {% block content %}
-
-    <div id = "presentation">
-        <div class="pet-post">
-            <div class="post-img">
-                <img class="pet-img" src="../../static/media/dog.jpeg" alt="Dog running">
-            </div>
-            <div class="post-info">
-                <p>
-                    Info de la mascota
-                </p>
+    <form method="post">
+        <img class="first-image" src="{% static 'images/logo-adoptapp.png' %}" alt="User login">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="form-input">
+                <img class="inline-image" src="{% static 'users/media/user_email.png' %}" alt="User email">
+                <input type="text" class="form-control" id="correo_usuario" name="correo" placeholder="CORREO" required>
             </div>
         </div>
-        <div class="pet-post">
-            <div class="post-img">
-                <img class="pet-img" src="../../static/media/dog.jpeg" alt="Dog running">
-            </div>
-            <div class="post-info">
-                <p>
-                    Info de la mascota
-                </p>
+        <div class="form-group">
+            <div class="form-input">
+                <img class="inline-image" src="{% static 'users/media/user_password.png' %}" alt="User password">
+                <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"required>
             </div>
         </div>
+        <button type="submit">LOGIN</button>
+        <div class="register">
+            <p>¿No tienes una cuenta? <a href="/register">Regístrate</a></p>
+        </div>
+    </form>
+{% endblock content %}
 
-
-    </div>
-
-{% endblock %}

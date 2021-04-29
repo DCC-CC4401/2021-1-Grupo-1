@@ -5,22 +5,21 @@ from users.models import Region, Comuna
 from django.contrib.auth import authenticate, login, logout
 
 
-class GetComunasView(View):
+
+def get_comunas_view(request, region_id):
     """
     API View to obtain the "comunas" associated with a region.
     """
-
-    def get(self, request, region_id):
+    if request.method == "GET":
         comunas = list(Comuna.objects.filter(region_id=region_id).values())
         return JsonResponse(comunas, safe=False)
 
 
-class LoginUserView(View):
-
-    def get(self, request):
+def login_user_view(request):
+    if request.method == "GET":
         return render(request, "users/login.html")
 
-    def post(self, request):
+    if request.method == "POST":
         email = request.POST['correo']
         password = request.POST['contrasena']
         user = authenticate(email=email, password=password)
@@ -29,6 +28,19 @@ class LoginUserView(View):
             return HttpResponseRedirect('')
         else:
             return HttpResponseRedirect('/login')
+
+
+def register_view(request):
+    # TODO: Create account on form.is_valid
+    if request.method == "GET":
+        form = RegisterForm()
+        return render(request, 'users/register.html', {'form': form})
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        print(form.is_valid())
+        print(form.errors)
+        if form.is_valid():
+            return HttpResponseRedirect('/')
 
 
 class HomepageView(View):

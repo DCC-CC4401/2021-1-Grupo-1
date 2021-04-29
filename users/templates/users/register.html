@@ -1,0 +1,97 @@
+{% extends "users/base-authentication.html" %}
+{% load static %}
+{% block title %}
+    Registro
+{% endblock title %}
+{% block include %}
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+    <script defer src="{% static 'users/js/register.js' %}"></script>
+{% endblock include %}
+{% block content %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <img class="first-image" src="{% static 'images/logo-adoptapp.png' %}" alt="User login">
+        <div class="form-group">
+            <label class="form-text" for="email">Email</label>
+            <div class="form-input">
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="password">Contraseña</label>
+            <div class="form-input icon-right">
+                {{ form.password }}
+                <i class="fa fa-eye" id="show_pwd"></i>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="first_name">Nombre</label>
+            <div class="form-input">
+                {{ form.first_name }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="last_name">Apellido</label>
+            <div class="form-input">
+                {{ form.last_name }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="last_name">Fecha de nacimiento</label>
+            <div class="form-input">
+                <div class="day-column">
+                    <label class="form-text" for="day">Día</label>
+                    <input type="number" class="form-control" id="day" name="day" required min="1" max="31" placeholder="dd">
+                </div>
+                <div class="month-column">
+                    <label class="form-text" for="month">Mes</label>
+                    <select class="form-control" id="month" name="month" required>
+                        <option hidden disabled selected value></option>
+                        <option value="1"> Enero </option>
+                        <option value="2"> Febrero </option>
+                        <option value="3"> Marzo </option>
+                        <option value="4"> Abril </option>
+                        <option value="5"> Mayo </option>
+                        <option value="6"> Junio </option>
+                        <option value="7"> Julio </option>
+                        <option value="8"> Agosto </option>
+                        <option value="9"> Septiembre </option>
+                        <option value="10"> Octubre </option>
+                        <option value="11"> Noviembre </option>
+                        <option value="12"> Diciembre </option>
+                    </select>
+                </div>
+                <div class="year-column">
+                    <label class="form-text" for="year">Año</label>
+                    <input type="number" class="form-control" id="year" name="year" required min="1900" max="2100" placeholder="yyyy">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="phone_number">Número de teléfono</label>
+            <div class="form-input">
+                {{ form.phone_number }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="region">Región</label>
+            <div class="form-input">
+                {{ form.region }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="comuna">Comuna</label>
+            <div class="form-input">
+                {{ form.comuna }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="address">Dirección</label>
+            <div class="form-input">
+                {{ form.address }}
+            </div>
+        </div>
+        <button type="submit">Crear cuenta</button>
+    </form>
+{% endblock content %}
+
