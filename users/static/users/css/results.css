@@ -2,20 +2,41 @@
     width: 80%;
     margin: auto;
     text-align: center;
+    padding-top: 10px;
 }
 
-.no-results {
+.with-results, .no-results {
     border-radius: 25px;
     border: 2px solid #7a5714;
-    padding: 20px;
+    padding: 10px;
     height: fit-content;
 }
 
-.with-results {
-    border-radius: 25px;
-    border: 2px solid #7a5714;
-    padding: 20px;
-    height: fit-content;
+.result-item {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: rgba(203, 130, 82, 0.64);
+    text-align: left;
+}
+
+.result-item + .result-item {
+    margin-top: 10px;
+}
+
+.result-img {
+    padding: 5px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 20%;
+}
+
+.result-header {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .empty-search {
@@ -30,4 +51,64 @@
     height: 50%;
     vertical-align: center;
     opacity: 0.25;
+}
+
+.result-body {
+    padding: 10px 15px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 100%;
+}
+
+.result-filter {
+    background: rgba(245, 245, 245, 0.64);
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 0;
+}
+
+.filters {
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+}
+
+.result-filter + .result-filter {
+    margin-left: 5px;
+}
+
+.page-button {
+    background: rgba(203, 130, 82, 0.64);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.result-button {
+    background: rgba(245, 245, 245, 0.64);
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+}
+
+.result-desc {
+    font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 20px;
 }
