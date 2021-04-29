@@ -44,14 +44,3 @@ def register_view(request):
         if form.is_valid():
             return HttpResponseRedirect('/')
 
-
-class HomepageView(View):
-
-    def get(self, request):
-        return render(request, "users/homepage.html")
-
-
-class ResultsView(View):
-
-    def get(self, request):
-        return render(request, "users/results.html")

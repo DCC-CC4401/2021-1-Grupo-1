@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block include %}
-    <link rel="stylesheet" type="text/css" href={% static "users/css/results.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "adoptapp/css/results.css" %}>
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
             </div>
             <br>
             <div class="empty-search">
-                <img class="vector-image" src="{% static "/users/media/pets_waiting.svg" %}" alt="Pets waiting">
+                <img class="vector-image" src="{% static "adoptapp/media/pets_waiting.svg" %}" alt="Pets waiting">
             </div>
         </div>
 
@@ -36,6 +36,6 @@
         </div>
 
     </div>
-    <script src="{% static "js/../../static/users/js/results.js" %}"></script>
+    <script src="{% static "adoptapp/js/results.js" %}"></script>
 {% endblock %}
 

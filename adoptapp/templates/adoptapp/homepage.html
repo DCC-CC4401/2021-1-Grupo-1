@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block include %}
-    <link rel="stylesheet" href="{% static 'users/css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'adoptapp/css/homepage.css' %}">
 {% endblock include %}
 
 {% block title %}
@@ -14,7 +14,7 @@
     <div id = "presentation">
 
         <div class="pet-post" onclick="">
-            <img class="pet-img" alt='Dog running' src={%  static 'users/media/dog.jpeg' %}  >
+            <img class="pet-img" alt='Dog running' src={%  static 'adoptapp/media/dog.jpeg' %}  >
             <div class="post-info">
                 <p>
                         Info de la mascota
@@ -23,7 +23,7 @@
         </div>
 
         <div class="pet-post" onclick="">
-            <img class="pet-img" alt="little hamster" src={% static 'users/media/hamster.jpeg' %} >
+            <img class="pet-img" alt="little hamster" src={% static 'adoptapp/media/hamster.jpeg' %} >
             <div class="post-info">
                 <p>
                     Info de la mascota
@@ -32,7 +32,7 @@
         </div>
 
         <div class="pet-post" onclick="">
-            <img class="pet-img"  alt="angry cat" src={% static 'users/media/cat.jpeg' %} >
+            <img class="pet-img"  alt="angry cat" src={% static 'adoptapp/media/cat.jpeg' %} >
             <div class="post-info">
                 <p>
                     Info de la mascota
@@ -42,5 +42,5 @@
 
 
     </div>
-    <script src="{% static 'users/js/homepage.js' %}"></script>
+    <script src="{% static 'adoptapp/js/homepage.js' %}"></script>
 {% endblock %}
