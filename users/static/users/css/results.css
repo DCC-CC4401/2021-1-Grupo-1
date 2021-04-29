@@ -3,6 +3,7 @@
     margin: auto;
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .with-results, .no-results {
@@ -129,6 +130,15 @@
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 10px;
+}
+
+.filter-text {
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: center;
+    padding-left: 10px;
 }
 
 .user-filter {

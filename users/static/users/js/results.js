@@ -27,6 +27,7 @@ let testFilters = [];
 let results = 0;
 
 let userFilters = document.getElementById("user-filters")
+let filterText = document.getElementById("filter-text")
 
 let withoutResults = document.getElementById("without-results")
 let withResults = document.getElementById("with-results")
@@ -40,9 +41,9 @@ updateContent()
 
 function updateContent() {
     if (testFilters.length > 0) {
-        userFilters.style.display = "block";
+        filterText.innerHTML = "Filtros: ";
     } else {
-        userFilters.style.display = "none";
+        filterText.innerHTML = "Sin filtros";
     }
 
     removeResults()
