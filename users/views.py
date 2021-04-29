@@ -4,8 +4,6 @@ from django.http import JsonResponse, HttpResponseRedirect
 from users.forms import RegisterForm
 from users.models import Region, Comuna, User
 from django.contrib.auth import authenticate, login, logout
-
-
 def get_comunas_view(request, region_id):
     """
     API View to obtain the "comunas" associated with a region.

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block include %}
+    <link rel="stylesheet" type="text/css" href={% static "adoptapp/css/results.css" %}>
+{% endblock %}
+
+{% block content %}
+
+    <div class="post-container">
+
+        <div class="user-filters" id="user-filters">
+            <div class="filter-text" id="filter-text">
+                Filtros:
+            </div>
+        </div>
+
+        <div class="without-results" id="without-results">
+            <div class="no-results">
+                <h1>No se han encontrado resultados</h1>
+                <br>
+                <h3>Intenta con otros términos de busqueda</h3>
+            </div>
+            <br>
+            <div class="empty-search">
+                <img class="vector-image" src="{% static "adoptapp/media/pets_waiting.svg" %}" alt="Pets waiting">
+            </div>
+        </div>
+
+        <div class="with-results" id="with-results">
+            <!-- Results go here -->
+        </div>
+
+    </div>
+    <script src="{% static "adoptapp/js/results.js" %}"></script>
+{% endblock %}
+

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/header.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/sticky_menu.js' %}"></script>
@@ -60,8 +60,8 @@
                 </div>
             </div>
         </li>
-            </div>
             <li class="separator"></li>
+        {% if request.user.is_authenticated %}
             <div class = "user-options">
                 <li class="avatar">
                     <img class="clickable" src="{% static 'images/default-avatar.png' %}" />
@@ -89,6 +89,9 @@
 
                 </li>
             </div>
+        {% else %}
+            <a style="color:white" href="/login">Iniciar Sesión</a>
+        {% endif %}
 
 
     </ul>

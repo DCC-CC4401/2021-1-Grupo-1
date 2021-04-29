@@ -1,0 +1,30 @@
+.post-info{
+    background-color: transparent;
+    text-align: center;
+    color: black;
+    transition: all 0.1s linear;
+    padding: 10px;
+}
+.pet-post:hover{
+    background: rgba(165, 106, 67, 0.9);
+    cursor: pointer;
+}
+
+.pet-img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.pet-post{
+    border-radius: 15px;
+    display: inline-block;
+    width:45%;
+    background: rgba(203, 130, 82, 0.2);
+    margin-top: 3px;
+
+}
+
+#presentation{
+    display: inline-block ;
+    text-align: center;
+}
