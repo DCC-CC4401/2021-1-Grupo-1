@@ -2,7 +2,7 @@ const testPost = [
     {
         info:"Perro encontrado en la calle" ,
         alt:"Perro corriendo",
-        src: "media/dog.jpeg",
+        src: "adoptapp/media/dog.jpeg",
     },
 
 ]
@@ -17,7 +17,7 @@ function addPost(n) {
 
     let petImg = document.createElement("img"); //create the image element for the post
     petImg.setAttribute("class","pet-img");
-    petImg.setAttribute("src", "/static/users/"+testPost[n].src);
+    petImg.setAttribute("src", "/static/"+testPost[n].src);
     petImg.setAttribute("alt", testPost[n].alt);
 
     let petInfo = document.createElement("div"); //create the div section for the information
