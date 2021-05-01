@@ -3,6 +3,9 @@ let comunaSelect = document.getElementById('id_comuna');
  regionSelect.addEventListener("change", function () {
     // Fetch all comunas associated with current region using /api/get_comunas
     let regionId =  regionSelect.value;
+    if( regionId === "") {
+        return;
+    }
     fetch('/api/get_comunas/' + regionId)
         .then(response => response.json())
         .then(function(comunas) {

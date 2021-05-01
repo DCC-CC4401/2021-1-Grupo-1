@@ -8,7 +8,6 @@ MONTHS = {
     9: 'Septiembre', 10: 'Octubre', 11: 'Noviembre', 12: 'Diciembre'
 }
 
-
 class RegisterForm(forms.ModelForm):
     # Remove empty labels (ugly "--------")
     region = forms.ModelChoiceField(queryset=Region.objects.all(), empty_label='Selecciona una opción')
@@ -16,7 +15,7 @@ class RegisterForm(forms.ModelForm):
     password = forms.CharField(max_length=128, widget=forms.PasswordInput)
     birth_date = forms.DateField(widget=forms.SelectDateWidget(
         empty_label=("Año", "Mes", "Día"),
-        years=(i for i in range(date.today().year, 1899, -1)),
+        years=range(date.today().year, 1900, -1),
         months=MONTHS
     ))
 
