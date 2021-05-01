@@ -2,21 +2,21 @@ const testResults = [
     {
         titulo: "Busco dar perro en adopción",
         descripcion: "Es un perro y lo quiero dar en adopción",
-        src: "media/dog.jpeg",
+        src: "/static/adoptapp/media/dog.jpeg",
         filters: ["Perro", "En adopción"],
         seen: true,
     },
     {
         titulo: "Busco regalar gato que se cree perro",
         descripcion: "Ayuda",
-        src: "media/cat.jpeg",
+        src: "/static/adoptapp/media/cat.jpeg",
         filters: ["Gato", "En adopción"],
         seen: false,
     },
     {
         titulo: "Mi perro busca dueño que lo entienda",
         descripcion: "No lo entiendo, no hace \"guau, guau\"",
-        src: "media/hamster.jpeg",
+        src: "/static/adoptapp/media/hamster.jpeg",
         filters: ["Perro", "En adopción"],
         seen: true,
     }
@@ -82,7 +82,7 @@ function addResult(n) {
     let result = ""
 
     result = result + "<div class='result-item' id='result-'" + n + ">" +
-        "<img class='result-img' src='/static/users/" + testResults[n].src + " ' alt='Animal photo'>" +
+        "<img class='result-img' src='" + testResults[n].src + " ' alt='Animal photo'>" +
         "<div class='result-body'><div class='result-header'>" + testResults[n].titulo + "</div>" +
         "<div class='result-desc'>" + testResults[n].descripcion + "</div>";
 
