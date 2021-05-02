@@ -120,8 +120,7 @@
     </div>
     <div class="navigation-options">
             <span>
-            <span class="fas fa-eye navicon"></span><span class="navigation-link"> Ver perfil como invitado</span>
-            <span class="fas fa-home navicon"></span><span class="navigation-link"> Volver a la página principal</span>
+            <a href="{% url 'home' %}"><span class="fas fa-home navicon"></span><span class="navigation-link"> Volver a la página principal</span></a>
             </span>
     </div>
 {% endblock profile-section %}

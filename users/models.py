@@ -81,3 +81,9 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('profile', kwargs={'user_id': self.id})
+
+    def get_profile_url(self):
+        return self.get_absolute_url()
+
+    def get_profile_edit_url(self):
+        return reverse('profile_edit', kwargs={'user_id': self.id})

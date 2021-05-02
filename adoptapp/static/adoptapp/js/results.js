@@ -81,7 +81,7 @@ function removeResults() {
 function addResult(n) {
     let result = ""
 
-    result = result + "<div class='result-item l-shadow-section' id='result-'" + n + ">" +
+    result = result + "<div class='result-item s-shadow-section' id='result-'" + n + ">" +
         "<img class='result-img' src='" + testResults[n].src + " ' alt='Animal photo'>" +
         "<div class='result-body'><div class='result-header'>" + testResults[n].titulo + "</div>" +
         "<div class='result-desc'>" + testResults[n].descripcion + "</div>";
@@ -125,7 +125,7 @@ function addFilter(text) {
     divFilter.setAttribute("id", "user-filter-" + text);
 
     let textFilter = document.createElement("div")
-    textFilter.setAttribute("class", "result-filter w-icon l-shadow-section");
+    textFilter.setAttribute("class", "result-filter w-icon s-shadow-section");
     textFilter.innerHTML = text;
 
     let buttonFilter = document.createElement("button")

@@ -8,14 +8,13 @@
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 {% endblock include %}
 {% block content %}
-    <div id="content-profile">
         <div class="profile-general-info">
             <img class="profile-photo" src="{% static 'images/default-avatar.png' %}" alt="Profile photo">
             <div class="profile-description">
                 <div class="profile-title">
                 <h4 class="bold-700">{{ profile_user.first_name }} {{ profile_user.last_name }}</h4>
                 {% if request.user.id == profile_user.id %}
-                    <a href="edit/{{ profile_user.id }}"><i class="fas fa-cogs padded-icon" id="config-button"></i></a>
+                    <a href="{{ profile_user.get_profile_edit_url }}"><i class="fas fa-cogs padded-icon" id="config-button"></i></a>
                 {% endif %}
                 </div>
                 <div>
@@ -39,7 +38,6 @@
         </div>
     {% block profile-section %}
     {% endblock profile-section %}
-    </div>
 
 {% endblock content %}
 

@@ -43,6 +43,9 @@ def register_view(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            new_user = authenticate(email=form.cleaned_data['email'],
+                                    password=form.cleaned_data['password'])
+            login(request, new_user)
             return HttpResponseRedirect(reverse('home'))
 
 

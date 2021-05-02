@@ -4,8 +4,9 @@ nav {
     border: 1px solid #303030;
     border-left: none;
     border-right: none;
-    overflow: hidden;
     top: 0;
+    position: sticky;
+    z-index: 2;
 }
 
 
@@ -31,9 +32,13 @@ nav ul {
 
 nav ul li .logo {
     padding-right: 10%;
-    width: 250px;
     align-items: center;
     justify-content: center;
+    width: 160px;
+}
+
+nav fa-filter {
+    margin-top: 5px;
 }
 
 nav ul .search{
@@ -45,13 +50,13 @@ nav ul .search{
 }
 
 nav ul .search-icon {
-    height: 60px;
+    height: 45px;
     width: 70%;
     max-width: 600px;
     display: flex;
     background: #ffffff;
     border-radius: 18px;
-    padding: 10px 15px 0 10px;
+    padding: 5px 15px 3px 15px;
     margin-right: 15px;
     margin-left: 15px;
 }
@@ -101,9 +106,6 @@ nav li a:hover{
 
 
 @media screen and (max-width: 1250px) {
-    nav{
-        padding: 20px 40px 20px 0px;
-    }
     nav ul li .logo{
         display: none;
     }
@@ -120,7 +122,7 @@ notification_li {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 90px;
+    top: 84px;
     margin-left: -300px;
     width: 400px;
     z-index: 1000;
@@ -190,7 +192,7 @@ filter_li {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 90px;
+    top: 84px;
     margin-left: -170px;
     width: 270px;
     z-index: 1000;
@@ -228,7 +230,7 @@ option_li {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 90px;
+    top: 84px;
     margin-left: -200px;
     width: 270px;
     z-index: 1000;
