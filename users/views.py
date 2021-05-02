@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseRedirect
+from django.views.generic import UpdateView
 
 from users.forms import RegisterForm
 from users.models import Region, Comuna, User
@@ -43,11 +44,22 @@ def register_view(request):
             return HttpResponseRedirect('/')
 
 
-def profile_view(request):
+def profile_view(request, user_id):
     if request.method == "GET":
-        return render(request, 'users/view_profile.html')
+        profile_user = User.objects.get(pk=user_id)
+        return render(request, 'users/profile_view.html', {'profile_user': profile_user})
 
 
-def profile_config(request):
-    if request.method == "GET":
-        return render(request, 'users/config_profile.html')
+class ProfileEditView(UpdateView):
+    model = User
+    context_object_name = 'profile_user'
+    template_name = 'users/profile_edit.html'
+    success_url = ''
+    fields = [
+        'first_name', 'last_name', 'phone_number', 'address', 'region', 'comuna', 'description',
+    ]
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs['user_id']
+        return User.objects.get(pk=pk)
+

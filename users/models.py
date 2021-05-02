@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
+from django.urls import reverse
 
 
 class CustomUserManager(BaseUserManager):
@@ -32,6 +33,13 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_staff=True.')
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')
+        extra_fields['first_name'] = 'admin'
+        extra_fields['last_name'] = ''
+        extra_fields['phone_number'] = ''
+        extra_fields['address'] = ''
+        extra_fields['region'] = Region.objects.get(pk=1)
+        extra_fields['comuna'] = Comuna.objects.get(pk=1)
+        extra_fields['birth_date'] = None
         return self.create_user(email, password, **extra_fields)
 
 
@@ -61,15 +69,15 @@ class User(AbstractUser):
     comuna = models.ForeignKey(Comuna, on_delete=models.PROTECT, blank=False)
     description = models.CharField(max_length=260, blank=True)
     register_date = models.DateField(auto_now_add=True)
-    birth_date = models.DateField(blank=False)
+    birth_date = models.DateField(null=True, blank=False)  # Null for superuser
 
     USERNAME_FIELD = 'email'  # Use 'email' field for authentication
-    REQUIRED_FIELDS = ['first_name', 'last_name',
-                       'phone_number', 'address',
-                       'region', 'comuna',
-                       'birth_date']
+    REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
 
     def __str__(self):
         return self.email
+
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'user_id': self.id})
