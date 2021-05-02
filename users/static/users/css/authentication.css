@@ -43,8 +43,6 @@ form {
     border-radius: 25px;
 }
 
-
-
 input, select {
   padding: 10px;
   border-radius: 5px;
@@ -56,19 +54,12 @@ input, select::placeholder {
 }
 
 button {
-    position: relative;
-    top: 10px;
-    font-size: 18px;
-    color: white;
-    background: #0984e3;
-    padding: 10px;
     width: 60%;
-    border-radius: 10px;
-    cursor: pointer;
+    margin-top: 15px;
 }
 
-button:hover {
-    background: #085fa3;
+.beauty-button{
+    padding: 10px;
 }
 
 .form-group {
@@ -86,15 +77,6 @@ button:hover {
 
 .form-text {
     margin-left: 0;
-}
-
-a {
-    color: #636e72;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #292d2f;
 }
 
 .first-image {

@@ -10,7 +10,9 @@ $(document).ready(function () {
     });
 
 // Popup click
-    $("#optionContainer").click(function () {
-        return false;
+    $("#optionContainer").click(function (event) {
+        if (event !== undefined){
+        event.stopPropagation();
+        }
     });
 });

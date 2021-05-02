@@ -8,6 +8,7 @@ MONTHS = {
     9: 'Septiembre', 10: 'Octubre', 11: 'Noviembre', 12: 'Diciembre'
 }
 
+
 class RegisterForm(forms.ModelForm):
     # Remove empty labels (ugly "--------")
     region = forms.ModelChoiceField(queryset=Region.objects.all(), empty_label='Selecciona una opción')

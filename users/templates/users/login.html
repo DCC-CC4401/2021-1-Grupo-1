@@ -4,6 +4,7 @@
     Iniciar sesión
 {% endblock title %}
 {% block include %}
+     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
 {% endblock include %}
 {% block content %}
@@ -22,7 +23,7 @@
                 <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="CONTRASEÑA"required>
             </div>
         </div>
-        <button type="submit">LOGIN</button>
+        <button class="beauty-button button-blue" type="submit">Entrar</button>
         <div class="register">
             <p>¿No tienes una cuenta? <a href="/register">Regístrate</a></p>
         </div>

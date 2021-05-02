@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
 
 from users.forms import RegisterForm
 from users.models import Region, Comuna, User
@@ -16,7 +17,7 @@ def get_comunas_view(request, region_id):
 def login_user_view(request):
     if request.method == "GET":
         if request.user.is_authenticated:
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('home'))
         return render(request, "users/login.html")
 
     if request.method == "POST":
@@ -25,15 +26,15 @@ def login_user_view(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect(reverse('home'))
         else:
-            return HttpResponseRedirect('/login')
+            return HttpResponseRedirect(reverse('home'))
 
 
 def register_view(request):
     if request.method == "GET":
         if request.user.is_authenticated:
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('home'))
         form = RegisterForm()
         return render(request, 'users/register.html', {'form': form})
 
@@ -41,5 +42,10 @@ def register_view(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('home'))
+
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
 

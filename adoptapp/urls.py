@@ -20,6 +20,6 @@ from adoptapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
-    path('homepage/', views.HomepageView.as_view()),
-    path('results/', views.ResultsView.as_view()),
+    path('', views.HomepageView.as_view(), name='home'),
+    path('results/', views.ResultsView.as_view(), name='results'),
 ]
