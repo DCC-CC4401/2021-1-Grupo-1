@@ -1,0 +1,316 @@
+#content-profile{
+    text-align: center;
+    box-shadow: 0px 10px 14px -7px #5d5c5c;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+
+span{
+    font-size: 14px;
+}
+
+.s16 {
+    font-size: 16px;
+}
+
+.s28{
+    font-size: 28px
+}
+
+.s18 {
+    font-size: 18px;
+}
+
+
+.s14 {
+    font-size: 14px;
+}
+
+.bold-500{
+    font-weight: 500;
+}
+
+.fa-comments{
+    font-size: 18px;
+}
+
+.fa-eye{
+    font-size:18px;
+}
+
+.italic{
+    font-style: italic;
+}
+
+#content-profile{
+    margin: 35px 0 0 0;
+    padding: 20px 100px 20px 100px;
+    min-width: 700px;
+}
+
+
+.profile-photo{
+    display: flex;
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+    vertical-align: center;
+}
+
+.profile-photo:hover~.fa-expand{
+    display: inline;
+}
+
+
+@media screen and (max-width: 980px) {
+    #content-profile{
+        width: 100%
+    }
+    .profile-photo{
+        width: 100px;
+        height: 100px;
+        margin-top: 40px;
+    }
+    .publication-photo{
+        width: 80px;
+        height: 80px;
+        margin-top: 20px;
+    }
+
+}
+
+.fa-expand{
+    width: 20px;
+    right: 100px;
+    top: 125px;
+    color: #4a4a4a;
+    display:none;
+}
+
+.profile-general-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-title{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.profile-description{
+    display:flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.join-date{
+    padding-top:16px;
+}
+
+.profile-title{
+
+}
+.fa-cogs{
+    margin-top: -5px;
+    padding-left: 20px;
+}
+
+.profile-section{
+    display:block;
+    text-align: left;
+    flex-direction: row;
+    box-shadow: 0px 10px 14px -7px #5d5c5c;
+}
+
+.profile-section > div{
+    padding: 20px 0 10px 0;
+    background-color: #d6d6d6;
+}
+
+.publication-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.publication-photo{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.publication-date{
+    color: #4a4a4a;
+    font-size: 12px;
+    font-weight: 700;
+    flex: 1;
+}
+
+.publication{
+    background-color: white !important;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-section{
+    margin: 50px 20px 20px 20px;
+    padding: 20px;
+    background-color: #d6d6d6;
+    border-radius: 30px;
+}
+
+.section-title{
+    color: white;
+    background-color: #0e8df5;
+    padding: 7px 7px 7px 15px;
+    border-radius: 10px;
+    margin-top: -30px;
+    margin-bottom: 15px;
+    width: 200px;
+    box-shadow: 0px 10px 14px -7px #5d5c5c;
+}
+
+.publication-title-info{
+    padding-left: 40px;
+    padding-top: 15px;
+}
+
+.publication-date-button{
+    flex: 1;
+    padding-top: 15px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+
+
+.go-to-publication{
+    margin-top: 55px;
+}
+
+.subsection{
+    background-color: white !important;
+    border-radius: 10px;
+}
+
+.cinf{
+    margin-left: 80px;
+}
+#publications-list{
+    max-height: 470px;
+    overflow-y: scroll;
+    padding-right: 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.fas{
+    cursor: pointer;
+}
+
+.fa-comments{
+    margin-left: 8px;
+    margin-right: 9px;
+}
+
+/* CONFIG_PROFILE.HTML */
+#title-privacy{
+    background-color: #ffc300;
+    border-color: #c8b516;
+    width: 360px;
+}
+
+.cancel-save-buttons{
+    margin-top: 30px;
+    flex: 1;
+    text-align: right;
+    margin-right: 20px;
+}
+
+#title-password{
+    background-color: #ff3333;
+    border-color: #be1b1b;
+    width: 230px;
+}
+
+.special-left-align{
+    padding-right: 30%;
+    text-align: right;
+}
+
+button {
+	box-shadow: 0px 10px 14px -7px #5d5c5c;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+    font-size: 14px;
+	color:#ffffff;
+	text-decoration:none;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.navicon{
+    padding-left: 20px;
+}
+
+.fa-globe{
+    font-size: 14px;
+}
+
+.fa-chevron-down{
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.fa-pencil-alt{
+    font-size: 14px;
+
+}
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+
+}
+
+.column {
+    flex: 50%;
+    padding: 10px;
+}

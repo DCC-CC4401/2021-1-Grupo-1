@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Perfil de usuario
+{% endblock title %}
+{% block include %}
+    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+{% endblock include %}
+{% block content %}
+    <div id="content-profile">
+        <div class="profile-general-info">
+            <img class="profile-photo" src="{% static 'images/default-avatar.png' %}" alt="Profile photo">
+            <div class="profile-description">
+                <div class="profile-title">
+                <h4 class="bold-700">{{ profile_user.first_name }} {{ profile_user.last_name }}</h4>
+                {% if request.user.id == profile_user.id %}
+                    <a href="edit/{{ profile_user.id }}"><i class="fas fa-cogs padded-icon" id="config-button"></i></a>
+                {% endif %}
+                </div>
+                <div>
+                    {{ profile_user.description }}
+                </div>
+                <span class="italic join-date">Miembro desde {{ profile_user.register_date }}</span>
+            </div>
+
+        </div>
+        <div class="profile-section" id="contact-section">
+        <h5 class="section-title">Datos de contacto</h5>
+            <div class = "subsection">
+                <div class="vspaced10">
+                    <span class="bold-700 s16 cinf">Correo:</span>
+                    <span class="s16">{{ profile_user.email }}</span></div>
+                <div class="vspaced10">
+                    <span class="bold-700 s16 cinf">Teléfono:</span>
+                    <span class="s16">{{ profile_user.phone_number }}</span>
+                </div>
+            </div>
+        </div>
+    {% block profile-section %}
+    {% endblock profile-section %}
+    </div>
+
+{% endblock content %}
+
