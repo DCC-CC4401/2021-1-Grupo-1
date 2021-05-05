@@ -10,7 +10,6 @@ MONTHS = {
 
 
 class RegisterForm(forms.ModelForm):
-    # Remove empty labels (ugly "--------")
     region = forms.ModelChoiceField(queryset=Region.objects.all(), empty_label='Selecciona una opción')
     comuna = forms.ModelChoiceField(queryset=Comuna.objects.all(), empty_label='Selecciona una opción')
     password = forms.CharField(max_length=128, widget=forms.PasswordInput)
@@ -30,6 +29,9 @@ class RegisterForm(forms.ModelForm):
         super(RegisterForm, self).__init__(*args, **kwargs)
         self.fields['email'].widget.attrs['placeholder'] = 'ejemplo@dominio.com'
         self.fields['phone_number'].widget.attrs['placeholder'] = '+56912345678'
+        if hasattr(self, 'instance'):
+            # Initially, the comuna queryset is empty because the user has to first select a region.
+            self.fields['comuna'].queryset = Comuna.objects.none()
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -37,3 +39,21 @@ class RegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class ProfileEditForm(forms.ModelForm):
+    # Add region field and change region-comuna default empty_label
+    region = forms.ModelChoiceField(queryset=Region.objects.all(), empty_label='Selecciona una opción')
+
+    def __init__(self, *args, **kwargs):
+        # We override init to initially populate comuna queryset with the comunas that are
+        # related to the user's region (otherwise, all comunas are listed in the <select> field).
+        super(ProfileEditForm, self).__init__(*args, **kwargs)
+        if hasattr(self, 'instance'):
+            self.fields['comuna'].queryset = Comuna.objects.filter(region__id=self.instance.comuna.region.id)
+
+    class Meta:
+        model = User
+        fields = [
+            'first_name', 'last_name', 'phone_number', 'address', 'region', 'comuna', 'description',
+        ]

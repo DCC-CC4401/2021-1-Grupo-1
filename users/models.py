@@ -65,7 +65,6 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, blank=False)
     phone_number = models.CharField(max_length=12, blank=False)
     address = models.CharField(max_length=100, blank=False)
-    region = models.ForeignKey(Region, on_delete=models.PROTECT, blank=False)
     comuna = models.ForeignKey(Comuna, on_delete=models.PROTECT, blank=False)
     description = models.CharField(max_length=260, blank=True)
     register_date = models.DateField(auto_now_add=True)

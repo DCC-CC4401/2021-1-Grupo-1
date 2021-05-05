@@ -1,11 +1,14 @@
+from django import forms
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import UpdateView
 
-from users.forms import RegisterForm
+from users.forms import RegisterForm, ProfileEditForm
 from users.models import Region, Comuna, User
 from django.contrib.auth import authenticate, login, logout
+
+
 def get_comunas_view(request, region_id):
     """
     API View to obtain the "comunas" associated with a region.
@@ -64,12 +67,14 @@ class ProfileEditView(UpdateView):
     model = User
     context_object_name = 'profile_user'
     template_name = 'users/profile_edit.html'
+    form_class = ProfileEditForm
     success_url = ''
-    fields = [
-        'first_name', 'last_name', 'phone_number', 'address', 'region', 'comuna', 'description',
-    ]
 
     def get_object(self, queryset=None):
         pk = self.kwargs['user_id']
         return User.objects.get(pk=pk)
 
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['region'] = self.object.comuna.region.id
+        return initial.copy()
