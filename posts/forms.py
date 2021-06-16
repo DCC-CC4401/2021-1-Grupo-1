@@ -16,9 +16,9 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['specie', 'pet_name', 'author', 'comuna',
+        fields = ['specie', 'pet_name',
                   'description', 'breed', 'sex', 'pet_size',
-                  'parasytes', 'sterilized', 'vaccinated']
+                  'parasytes', 'sterilized', 'vaccinated'] #falta author y comuna
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
