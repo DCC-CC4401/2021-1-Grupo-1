@@ -1,5 +1,5 @@
-{% extends "users/base-authentication.html" %}
-<!-- no sé sie sto sea el final, pero no me tinca mucho hacer el mismo template que el log in, por lo menos en cuanto a la base -->
+{% extends 'base.html' %}
+
 {% load static %}
 {% block title %}
     Crear publicación
@@ -16,105 +16,73 @@
         <div class="form-group">
             <label class="form-text" for="nombre">Nombre de la mascota (*):</label>
             <span class="form-input">
-                <input type="text" name="nombre" id="nombre">
+                {{ form.pet_name }}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="especie">Especie (*): </label>
             <span class="form-input">
-                <select name="especie" id="especie" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Especie 1</option>
-                    <option value="">Especie 2</option>
-                    <option value="">Especie 3</option>
-                </select>
+                    {{ form.specie }}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="raza">Raza: </label>
             <span class="form-input">
-                <select name="raza" id="raza" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Raza 1</option>
-                    <option value="">Raza 2</option>
-                    <option value="">Raza 3</option>
-                </select>
+                {{form.breed}}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="sexo">Sexo (*): </label>
             <span class="form-input">
-                <select name="sexo" id="sexo" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Macho</option>
-                    <option value="">Hembra</option>
-                </select>
+                {{ form.sex }}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="tamano">Tamaño según su especie (*): </label>
             <span class="form-input">
-                <select name="tamano" id="tamano" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Pequeño</option>
-                    <option value="">Mediano</option>
-                    <option value="">Grande</option>
-                </select>
+                {{ form.pet_size }}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="desparasitado">Está desparasitado? (*): </label>
             <span class="form-input">
-                <select name="desparasitado" id="desparasitado" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Sí</option>
-                    <option value="">No (si no sabes marca esta opción)</option>
-                </select>
+                {{ form.parasytes }}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="vacunado">Está vacunado? (*): </label>
             <span class="form-input">
-                <select name="vacunado" id="vacunado" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Sí</option>
-                    <option value="">No</option>
-                    <option value="">No sé</option>
-                </select>
+                {{ form.vaccinated }}
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="esterilizado">Está esterilizado? (*): </label>
             <span class="form-input">
-                <select name="esterilizado" id="esterilizado" required>
-                    <option value="" disabled selected>Elija una opción</option>
-                    <option value="">Sí</option>
-                    <option value="">No</option>
-                    <option value="">No sé</option>
-                </select>
+                {{ form.sterilized }}
             </span>
         </div>
         <div class="form-group">
-            <label class="form-text" for="lugar">Lugar (*): </label>
+            <label for="comuna">Comuna (*): </label>
             <span class="form-input">
-                <input type="text" name="lugar" id="lugar" required>
+                <select name="comuna" id="comuna">
+                    <option value="">Comuna</option>
+                </select>
             </span>
         </div>
         <div class="form-group">
             <label class="form-text" for="descripcion">Descripción (*): </label>
             <span class="form-input">
-                <textarea name="descripcion" id="descripcion" rows="10" cols="60" required></textarea>
+                {{ form.description }}
             </span>
         </div>
         <div class="form-group">
             El animal es:
-            <span><input type="radio" name="mio" id="mio" value="">Mío</span>
-            <span><input type="radio" name="calle" id="calle" value="">De la calle</span>
+            <span> {{ form.status }}</span>
         </div>
         <div class="form-group">
             <label class="form-text" for="fecha">Fecha del avistamiento (*): </label>
             <span class="form-input">
-                <input type="date" name="fecha" id="fecha">
+                {{ form.sighting_date }}
             </span>
         </div>
         <div class="form-group">
