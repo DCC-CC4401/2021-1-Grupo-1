@@ -11,6 +11,7 @@
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 {% endblock include %}
 {% block content %}
+    <div id="title-post"><h1>Crear Post</h1></div>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">

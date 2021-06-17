@@ -5,6 +5,14 @@ body, html {
 * {
     box-sizing: border-box;
 }
+
+h1{
+    font-size: 60px;
+}
+#title-post{
+    text-align: center;
+}
+
 #content {
     top: 50%;
     left: 50%;
