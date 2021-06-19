@@ -50,6 +50,7 @@ def register_view(request):
                                     password=form.cleaned_data['password'])
             login(request, new_user)
             return HttpResponseRedirect(reverse('home'))
+        return render(request, 'users/register.html', {'form': form})
 
 
 def logout_user(request):
