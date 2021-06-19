@@ -14,81 +14,78 @@
         <div class="post-section" id="post-general-info">
             <img class="post-main-photo" src="{% static 'images/default-avatar.png' %}" alt="Pet photo">
             <div class="profile-title">
-            <h4 class="light-300 soft-brown">Especie - Raza</h4>
-            <h3 class="bold-700 deep-blue">Nombre de la mascota</h3>
+            <h4 class="light-300 soft-brown">{% request.post.specie %} - {% request.post.breed %}</h4>
+            <h3 class="bold-700 deep-blue">{% request.post.pet_name %}</h3>
                 <h5 class="light-300">
-                    Publicado el {# % request.post.fecha % #} 20/12/2020,
-                    por <a>{# % request.post.autor % #} Nombre Apellido</a></h5>
+                    Publicado el {% request.post.post_date %},
+                    por <a>{% request.post.author.name %}</a></h5>
                 <h5 class="light-300 italic">
-                    {# % request.post.sexo % #} Sexo desconocido
+                    Sexo: {% request.post.sex %}
                 </h5>
-                <h5 class="light-300">Tamaño {# % request.post.tamano % #} pequeño</h5>
+                <h5 class="light-300">Tamaño: {% request.post.pet_size %}</h5>
             </div>
         </div>
 
         <div class="post-section" id="post-warnings">
             <div class="post-warning" id="warning-avistamiento">
-                {# % if request.post.avistamiento == 1 % #}
+                {% if request.post.status == 'Calle' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                 <div class="warning-details">
                     <h5>Esta publicación corresponde a un avistamiento.</h5>
-                    <h6><b>Fecha del avistamiento:</b> 15 Jun 2021</h6>
-                    <h6><b>Sector:</b> Melipilla</h6>
+                    <h6><b>Fecha del avistamiento:</b>{% request.post.sighting_date %}</h6>
+                    <h6><b>Sector:</b>{% request.post.comuna %}</h6>
                 </div>
-                <!-- {# % else % #}
+                {% else %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                  <div class="warning-details">
                      <h5>Animal en posesión del autor.</h5>
                      <h6><b>Sector:</b> Melipilla</h6>
                  </div>
-                 {# % endif % #} -->
+                 {% endif %} -->
              </div>
 
             <div class="post-warning" id="warning-desparasitado">
-                {# % if request.post.desparasitado == 1 % #}
+                {% if request.post.parasytes == 'NO' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                 <div class="warning-details">
                     <h5>Animal desparasitado.</h5>
-                    <h6><b>Fecha última desparasitación:</b> 15 Jun 2021</h6>
                 </div>
-                <!-- {# % else % #}
+                {% else %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                 <div class="warning-details">
                     <h5>Animal no desparasitado.</h5>
                 </div>
-                {# % endif % #} -->
+                {% endif %}
             </div>
 
              <div class="post-warning" id="warning-vacuna">
-                 {# % if request.post.vacunado == 1 % #}
+                 {% if request.post.vaccinated == 'SI' %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                  <div class="warning-details">
                      <h5>Animal vacunado.</h5>
-                     <h6><b>Fecha última vacuna:</b> 15 Jun 2021</h6>
                  </div>
-                 <!-- {# % else % #}
+                 {% else %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                  <div class="warning-details">
-                     <h5>Animal sin vacunas al día/no vacunado.</h5>
-                     <h6><b>Fecha última vacuna:</b> 15 Jun 2021</h6>
+                     <h5>Animal no vacunado.</h5>
                  </div>
-                 {# % endif % #} -->
+                 {% endif %}
              </div>
 
              <div class="post-warning" id="warning-esterilizado">
-                 {# % if request.post.esterilizado == 1 % #}
+                 {% if request.post.sterilized == 'SI' %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                  <h5>Animal esterilizado.</h5>
-                <!--  {# % else % #}
+                 {% else %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                  <h5>Animal no esterilizado.</h5>
-                 {# % endif % #} -->
+                 {% endif %} -->
              </div>
          </div>
 
          <div class="post-section" id="post-description">
              <div class="bold-700 deep-blue p22">Descripción</div>
-             <h5 class="light-300"> {% lorem 100 w %}. </h5>
+             <h5 class="light-300"> {% request.post.description %}. </h5>
          </div>
 
          <div class="post-section" id="post-photos">
