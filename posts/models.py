@@ -5,8 +5,8 @@ class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     specie = models.CharField(max_length=30) #este al final dijimos que va a ser select o input? los modelos no calzan
     pet_name = models.CharField(max_length=30)
-    #author = models.ForeignKey("User", on_delete=models.CASCADE)
-    #comuna = models.ForeignKey("Comuna", on_delete=models.PROTECT)
+    author = models.ForeignKey("users.User", on_delete=models.CASCADE)
+    comuna = models.ForeignKey("users.Comuna", on_delete=models.PROTECT)
     description = models.TextField(max_length=1000)
     breed = models.CharField(max_length=50) #aquí pasa lo mismo que con la especie
     sex = models.CharField(choices=[('MA', 'Macho'), ('HE', 'Hembra')], max_length=10)
