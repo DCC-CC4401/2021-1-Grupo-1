@@ -16,10 +16,10 @@ def create_post_view(request):
             form = PostForm(request.POST)
             if form.is_valid():
                 form.save()
-                new_post = '' #no sé que poner aqui uwu
+                new_post = ''  # no sé que poner aqui uwu
                 return HttpResponseRedirect(reverse('home'))
     else:
-        #Aquí se puede redirigir a una página de error quizás, por el momento esta igual que el if para trabajar
+        # Aquí se puede redirigir a una página de error quizás, por el momento esta igual que el if para trabajar
         if request.method == "GET":
             form = PostForm()
             return render(request, "posts/create_post.html", {'form': form})
@@ -30,4 +30,3 @@ def create_post_view(request):
                 form.save()
                 new_post = ''  # no sé que poner aqui uwu
                 return HttpResponseRedirect(reverse('home'))
-

@@ -1,5 +1,5 @@
 from django import forms
-from posts.models import Post , PostImage
+from posts.models import Post, PostImage
 from users.models import Comuna
 from datetime import date
 
@@ -13,17 +13,15 @@ MONTHS = {
 class PostForm(forms.ModelForm):
     comuna = forms.ModelChoiceField(queryset=Comuna.objects.all(), empty_label='Selecciona una opción')
 
-
     class Meta:
         model = Post
         fields = ['specie', 'pet_name',
                   'description', 'breed', 'sex', 'pet_size',
                   'parasytes', 'sterilized', 'vaccinated', 'status',
-                  'sighting_date'] #falta author y comuna
+                  'sighting_date']  # falta author y comuna
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
-
 
     def save(self, commit=True):
         post = super().save(commit=False)
