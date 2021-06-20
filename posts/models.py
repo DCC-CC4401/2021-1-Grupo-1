@@ -12,7 +12,7 @@ class Post(models.Model):
     comuna = models.ForeignKey("users.Comuna", on_delete=models.PROTECT)
     region = models.ForeignKey("users.Region", on_delete=models.PROTECT)
     description = models.TextField(max_length=1000)
-    breed = models.CharField(max_length=50)  # aquí pasa lo mismo que con la especie
+    breed = models.CharField(max_length=50, blank=True)
     sex = models.CharField(choices=[('MA', 'Macho'), ('HE', 'Hembra'), ('DS', 'Desconocido')], max_length=10)
     pet_size = models.CharField(choices=[('GR', 'Grande'), ('ME', 'Mediano'), ('PE', 'Pequeño')], max_length=10)
     parasytes = models.CharField(choices=[('SI', 'Sí'), ('NO', 'No')], max_length=10)
