@@ -13,20 +13,18 @@ MONTHS = {
 class PostForm(forms.ModelForm):
     region = forms.ModelChoiceField(queryset=Region.objects.all(), empty_label='Selecciona una opción')
     comuna = forms.ModelChoiceField(queryset=Comuna.objects.all(), empty_label='Selecciona una opción')
-    fecha = forms.DateField(widget=forms.DateInput(attrs={"style": "display: none;"}))
+    sighting_date = forms.DateField(widget=forms.SelectDateWidget(
+        empty_label=("Año", "Mes", "Día"),
+        years=range(date.today().year, 1900, -1),
+        months=MONTHS
+    ))
 
     class Meta:
         model = Post
         fields = ['specie', 'pet_name', 'comuna',
                   'description', 'breed', 'sex', 'pet_size',
                   'parasytes', 'sterilized', 'vaccinated', 'status',
-                  'sighting_date', 'region']
-
-    def __init__(self, *args, **kwargs):
-        super(PostForm, self).__init__(*args, **kwargs)
-        if hasattr(self, 'instance'):
-            # Initially, the comuna queryset is empty because the user has to first select a region.
-            self.fields['comuna'].queryset = Comuna.objects.none()
+                  'sighting_date']
 
     def save(self, commit=True):
         post = super().save(commit=False)

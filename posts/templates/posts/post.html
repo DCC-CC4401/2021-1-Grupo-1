@@ -14,26 +14,26 @@
         <div class="post-section" id="post-general-info">
             <img class="post-main-photo" src="{% static 'images/default-avatar.png' %}" alt="Pet photo">
             <div class="profile-title">
-            <h4 class="light-300 soft-brown">{% request.post.specie %} - {% request.post.breed %}</h4>
-            <h3 class="bold-700 deep-blue">{% request.post.pet_name %}</h3>
+            <h4 class="light-300 soft-brown">{{ post.specie }} - {{ post.breed }}</h4>
+            <h3 class="bold-700 deep-blue">{{ post.pet_name }}</h3>
                 <h5 class="light-300">
-                    Publicado el {% request.post.post_date %},
-                    por <a>{% request.post.author.name %}</a></h5>
+                    Publicado el {{ post.post_date }},
+                    por <a>{{ post.author.first_name }} {{ post.author.last_name }}</a></h5>
                 <h5 class="light-300 italic">
-                    Sexo: {% request.post.sex %}
+                    Sexo: {{ post.sex }}
                 </h5>
-                <h5 class="light-300">Tamaño: {% request.post.pet_size %}</h5>
+                <h5 class="light-300">Tamaño: {{ post.pet_size }}</h5>
             </div>
         </div>
 
         <div class="post-section" id="post-warnings">
             <div class="post-warning" id="warning-avistamiento">
-                {% if request.post.status == 'Calle' %}
+                {% if post.status == 'Calle' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                 <div class="warning-details">
                     <h5>Esta publicación corresponde a un avistamiento.</h5>
-                    <h6><b>Fecha del avistamiento:</b>{% request.post.sighting_date %}</h6>
-                    <h6><b>Sector:</b>{% request.post.comuna %}</h6>
+                    <h6><b>Fecha del avistamiento:</b>{{ post.sighting_date }}</h6>
+                    <h6><b>Sector:</b>{{ post.comuna }}</h6>
                 </div>
                 {% else %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
@@ -41,11 +41,11 @@
                      <h5>Animal en posesión del autor.</h5>
                      <h6><b>Sector:</b> Melipilla</h6>
                  </div>
-                 {% endif %} -->
+                 {% endif %}
              </div>
 
             <div class="post-warning" id="warning-desparasitado">
-                {% if request.post.parasytes == 'NO' %}
+                {% if post.parasytes == 'NO' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                 <div class="warning-details">
                     <h5>Animal desparasitado.</h5>
@@ -59,7 +59,7 @@
             </div>
 
              <div class="post-warning" id="warning-vacuna">
-                 {% if request.post.vaccinated == 'SI' %}
+                 {% if post.vaccinated == 'SI' %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                  <div class="warning-details">
                      <h5>Animal vacunado.</h5>
@@ -73,19 +73,19 @@
              </div>
 
              <div class="post-warning" id="warning-esterilizado">
-                 {% if request.post.sterilized == 'SI' %}
+                 {% if post.sterilized == 'SI' %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                  <h5>Animal esterilizado.</h5>
                  {% else %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                  <h5>Animal no esterilizado.</h5>
-                 {% endif %} -->
+                 {% endif %}
              </div>
          </div>
 
          <div class="post-section" id="post-description">
              <div class="bold-700 deep-blue p22">Descripción</div>
-             <h5 class="light-300"> {% request.post.description %}. </h5>
+             <h5 class="light-300"> {{ post.description }}. </h5>
          </div>
 
          <div class="post-section" id="post-photos">
@@ -99,7 +99,7 @@
                 <img class="post-photo" src="{% static 'posts/media/example3.jpg' %}"/>
              </a>
              <a class="post-photo" href="{% static 'posts/media/example4.jpg' %}" data-lightbox="pet">
-                <img class="post-photo" src="{% static 'posts/media/example4.jpg' %}"/>\
+                <img class="post-photo" src="{% static 'posts/media/example4.jpg' %}"/>
              </a>
          </div>
 

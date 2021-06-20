@@ -10,7 +10,6 @@ class Post(models.Model):
     pet_name = models.CharField(max_length=30)
     author = models.ForeignKey("users.User", on_delete=models.CASCADE)
     comuna = models.ForeignKey("users.Comuna", on_delete=models.PROTECT)
-    region = models.ForeignKey("users.Region", on_delete=models.PROTECT)
     description = models.TextField(max_length=1000)
     breed = models.CharField(max_length=50, blank=True)
     sex = models.CharField(choices=[('MA', 'Macho'), ('HE', 'Hembra'), ('DS', 'Desconocido')], max_length=10)

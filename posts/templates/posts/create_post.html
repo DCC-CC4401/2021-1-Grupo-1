@@ -16,6 +16,7 @@
     <div id="title-post"><h1>Crear Post</h1></div>
     <form method="post">
         {% csrf_token %}
+        {{ form.errors }}
         <div class="form-group">
             <label class="form-text" for="nombre">Nombre de la mascota (*):</label>
             <span class="form-input">
