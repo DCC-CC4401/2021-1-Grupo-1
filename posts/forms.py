@@ -12,6 +12,7 @@ MONTHS = {
 
 class PostForm(forms.ModelForm):
     comuna = forms.ModelChoiceField(queryset=Comuna.objects.all(), empty_label='Selecciona una opción')
+    fecha = forms.DateField(widget=forms.DateInput(attrs={"style": "display: none;"}))
 
     class Meta:
         model = Post

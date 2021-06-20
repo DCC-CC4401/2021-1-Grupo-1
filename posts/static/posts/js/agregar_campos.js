@@ -1,3 +1,19 @@
+let status = document.getElementById("id_status");
+let fecha = document.getElementsByClassName("form-group")[11];
+
+fecha.style.display = "none";
+status.addEventListener("change", mostrarFecha);
+
+let block = true;
+function mostrarFecha() {
+    if (status.selectedIndex === 0 || status.selectedIndex === 1) {
+        fecha.style.display = "none";
+    } else if (status.selectedIndex === 2) {
+        fecha.style.display = "block";
+    }
+}
+
+
 // Solo se muestra el primer input
 document.getElementById("id_form-0-image").style.display = "block";
 

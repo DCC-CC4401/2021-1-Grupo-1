@@ -57,6 +57,7 @@ button {
 .form-group {
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .form-input {
