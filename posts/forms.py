@@ -15,10 +15,10 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['specie', 'pet_name',
+        fields = ['specie', 'pet_name', 'author', 'comuna',
                   'description', 'breed', 'sex', 'pet_size',
                   'parasytes', 'sterilized', 'vaccinated', 'status',
-                  'sighting_date']  # falta author y comuna
+                  'sighting_date']
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
@@ -28,3 +28,13 @@ class PostForm(forms.ModelForm):
         if commit:
             post.save()
         return post
+
+
+class ImageForm(forms.Form):
+    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"style": "display: block;"}))
+
+    def save(self, commit=True):
+        image_post = super().save(commit=False)
+        if commit:
+            image_post.save()
+        return image_post

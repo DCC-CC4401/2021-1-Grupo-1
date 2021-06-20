@@ -23,7 +23,7 @@
         <div class="form-group">
             <label class="form-text" for="especie">Especie (*): </label>
             <span class="form-input">
-                    {{ form.specie }}
+                {{ form.specie }}
             </span>
         </div>
         <div class="form-group">
@@ -88,11 +88,12 @@
         </div>
         <div class="form-group">
             <label class="form-text" for="foto">Agregar foto: </label>
-            <span class="form-input">
-                <input type="file" name="foto" id="foto">
-            </span>
+            {% for elem in image_form %}
+                <span class="form-input">
+                    {{ elem.image }}
+                </span>
+            {% endfor %}
         </div>
         <button type="submit">Crear publicación</button>
 </form>
 {% endblock content %}
-
