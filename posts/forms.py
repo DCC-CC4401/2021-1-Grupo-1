@@ -17,7 +17,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['specie', 'pet_name', 'author', 'comuna',
+        fields = ['specie', 'pet_name', 'comuna',
                   'description', 'breed', 'sex', 'pet_size',
                   'parasytes', 'sterilized', 'vaccinated', 'status',
                   'sighting_date', 'region']
@@ -35,11 +35,11 @@ class PostForm(forms.ModelForm):
         return post
 
 
-class ImageForm(forms.Form):
+class ImageForm(forms.ModelForm):
     image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"style": "display: none;"}))
 
-    def save(self, commit=True):
-        image_post = super().save(commit=False)
-        if commit:
-            image_post.save()
-        return image_post
+    class Meta:
+        model = PostImage
+        fields = ['image']
+
+
