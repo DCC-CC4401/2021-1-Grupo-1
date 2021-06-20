@@ -53,7 +53,7 @@ a{
 }
 
 a:hover {
-    color: #292d2f;
+    color: #006699;
 }
 
 /* Switches cuadrados y redondos */
@@ -156,6 +156,8 @@ body {
         width: 100%;
     }
 }
+
+
 
 .text-center {
     text-align: center!important;
@@ -277,3 +279,11 @@ button:disabled{
     font-style: italic;
 }
 
+#add_post{
+    color: white;
+    margin-right: 18px;
+}
+
+#add_post:hover{
+    color: #006699;
+}

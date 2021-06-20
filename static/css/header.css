@@ -105,10 +105,21 @@ nav li a:hover{
 }
 
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1300px) {
     nav ul li .logo{
         display: none;
     }
+    nav ul .search{
+        width: 20vw;
+        min-width: 220px;
+        align-items: center;
+        justify-content: left;
+    }
+
+    nav ul .search-icon {
+    width: 30vw;
+    min-width: 250px;
+}
 
 }
 
