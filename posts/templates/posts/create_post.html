@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}
+    Crear publicación
+{% endblock title %}
+{% block include %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'posts/css/create_post.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'posts/js/agregar_campos.js' %}"></script>
+    <script defer src="{% static 'users/js/region_comuna_form.js' %}"></script>
+{% endblock include %}
+{% block content %}
+    <div id="title-post"><h1>Crear Post</h1></div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="form-text" for="nombre">Nombre de la mascota (*):</label>
+            <span class="form-input">
+                {{ form.pet_name }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="especie">Especie (*): </label>
+            <span class="form-input">
+                {{ form.specie }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="raza">Raza: </label>
+            <span class="form-input">
+                {{form.breed}}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="sexo">Sexo (*): </label>
+            <span class="form-input">
+                {{ form.sex }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="tamano">Tamaño según su especie (*): </label>
+            <span class="form-input">
+                {{ form.pet_size }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="desparasitado">Está desparasitado? (*): </label>
+            <span class="form-input">
+                {{ form.parasytes }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="vacunado">Está vacunado? (*): </label>
+            <span class="form-input">
+                {{ form.vaccinated }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="esterilizado">Está esterilizado? (*): </label>
+            <span class="form-input">
+                {{ form.sterilized }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="region">Región (*): </label>
+            <span class="form-input">
+                {{ form.region }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="comuna">Comuna (*): </label>
+            <span class="form-input">
+                {{ form.comuna }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="descripcion">Descripción (*): </label>
+            <span class="form-input">
+                {{ form.description }}
+            </span>
+        </div>
+        <div class="form-group">
+            El animal es:
+            <span> {{ form.status }}</span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="fecha">Fecha del avistamiento (*): </label>
+            <span class="form-input">
+                {{ form.sighting_date }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-text" for="foto">Agregar foto: </label>
+            {% for elem in image_form %}
+                <span class="form-input">
+                    {{ elem.image }}
+                </span>
+            {% endfor %}
+        </div>
+        <button type="submit">Crear publicación</button>
+</form>
+{% endblock content %}

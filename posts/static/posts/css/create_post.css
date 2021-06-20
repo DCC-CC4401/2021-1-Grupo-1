@@ -1,0 +1,92 @@
+body, html {
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 60px;
+}
+#title-post{
+    text-align: center;
+}
+
+#content {
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    max-width: 1400px;
+    max-height: 100%;
+}
+
+#footer {
+    background-color: transparent !important;
+}
+
+form {
+    width: 40%;
+    text-align: center;
+    margin: 7% auto;
+    padding: 30px;
+    background: rgba(210, 210, 210, 0.68);
+    box-shadow: #00000012 0 0 5px 3px;
+    border-radius: 25px;
+}
+
+input, select, textarea{
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input, select::placeholder {
+    text-align: center;
+}
+
+button {
+    width: 60%;
+    margin-top: 15px;
+}
+
+.beauty-button{
+    padding: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form-input {
+    display: inline-flex;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+    position: static;
+}
+
+.form-text {
+    margin-left: 0;
+}
+
+.first-image {
+  position: static;
+  top: -10px;
+  width: 9.6vw;
+  height: 4vw;
+  min-width: 130px;
+  min-height: 54px;
+}
+
+.inline-image {
+  position: static;
+  right: 3px;
+  top: 3px;
+  width: 35px;
+  height: 35px;
+
+}
+

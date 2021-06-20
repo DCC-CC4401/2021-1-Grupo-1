@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('posts.urls')),
     path('', views.HomepageView.as_view(), name='home'),
     path('results/', views.ResultsView.as_view(), name='results'),
+    path('', include('posts.urls')),
 ]
