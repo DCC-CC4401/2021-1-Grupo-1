@@ -15,17 +15,17 @@
         <div class="subsection">
             <form method="post" novalidate>
                 {% csrf_token %}
-                {{ form.errors }}
+                {{ privacy_form.errors }}
 
                 <div class="row">
                     <div class="column">
                         <span class="bold-700 s16 cinf">Nombre: </span>
                     </div>
                     <div class="column">
-                        {{ form.first_name }}
+                        {{ privacy_form.first_name }}
                     </div>
                     <div class="column">
-                        {{ form.last_name }}
+                        {{ privacy_form.last_name }}
                     </div>
                     <div class="column">
                         <i class="fas fa-pencil-alt"></i>
@@ -48,7 +48,7 @@
                         <span class="bold-700 s16 cinf">Dirección: </span>
                     </div>
                     <div class="column">
-                        <span class="s16">{{ form.address }}</span>
+                        <span class="s16">{{ privacy_form.address }}</span>
                     </div>
                     <div class="column">
                         <i class="fas fa-pencil-alt"></i>
@@ -60,7 +60,7 @@
                         <span class="bold-700 s16 cinf">Región: </span>
                     </div>
                     <div class="column">
-                        <span class="s16">{{ form.region }}</span>
+                        <span class="s16">{{ privacy_form.region }}</span>
                     </div>
                     <div class="column">
                         <i class="fas fa-pencil-alt"></i>
@@ -72,7 +72,7 @@
                         <span class="bold-700 s16 cinf">Comuna: </span>
                     </div>
                     <div class="column">
-                        <span class="s16">{{ form.comuna }}</span>
+                        <span class="s16">{{ privacy_form.comuna }}</span>
                     </div>
                     <div class="column">
                         <i class="fas fa-pencil-alt"></i>
@@ -84,7 +84,7 @@
                         <span class="bold-700 s16 cinf">Teléfono: </span>
                     </div>
                     <div class="column">
-                        <span class="s16">{{ form.phone_number }}</span>
+                        <span class="s16">{{ privacy_form.phone_number }}</span>
                     </div>
                     <div class="column">
                         <i class="fas fa-pencil-alt"></i>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="cancel-save-buttons">
-                    <button type="submit" class="beauty-button button-yellow" disabled>Guardar</button>
+                    <button type="submit" name="submit-privacy-form" class="beauty-button button-yellow" disabled>Guardar</button>
                 </div>
             </form>
         </div>
@@ -100,23 +100,30 @@
     <div class="profile-section" id="password-section">
         <h5 class="section-title" id="title-password">Modificar contraseña</h5>
         <div class="subsection">
-            <div class="special-left-align">
-                <div class="vspaced5">
-                    <label for="password" class="bold-700 s16 cinf">Contraseña actual: </label>
-                    <input class="pwd" type="password" name="password">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ password_form.errors }}
+                <div class="special-left-align">
+                    <div class="vspaced5">
+                        <label for="password" class="bold-700 s16 cinf">Contraseña actual: </label>
+                        <span class="s16">{{ password_form.current_password }}</span>
+                        <!-- <input class="pwd" type="password" name="password"> -->
+                    </div>
+                    <div class="vspaced5">
+                        <label for="new-password" class="bold-700 s16 cinf">Nueva contraseña: </label>
+                        <span class="s16">{{ password_form.new_password }}</span>
+                        <!-- <input class="pwd" type="password" name="new-password"> -->
+                    </div>
+                    <div class="vspaced5">
+                        <label for="new-password" class="bold-700 s16 cinf">Repita la nueva contraseña: </label>
+                        <span class="s16">{{ password_form.new_password_repeat }}</span>
+                        <!-- <input class="pwd" type="password" name="repeat-password"> -->
+                    </div>
                 </div>
-                <div class="vspaced5">
-                    <label for="new-password" class="bold-700 s16 cinf">Nueva contraseña: </label>
-                    <input class="pwd" type="password" name="new-password">
+                <div class="cancel-save-buttons">
+                    <button type="submit" name="submit-password-form" class="beauty-button button-yellow">Guardar</button>
                 </div>
-                <div class="vspaced5">
-                    <label for="""new-password" class="bold-700 s16 cinf">Repita la nueva contraseña: </label>
-                    <input class="pwd" type="password" name="repeat-password">
-                </div>
-            </div>
-            <div class="cancel-save-buttons">
-                <button type="submit" class="beauty-button button-yellow">Guardar</button>
-            </div>
+            </form>
         </div>
     </div>
     <div class="navigation-options">

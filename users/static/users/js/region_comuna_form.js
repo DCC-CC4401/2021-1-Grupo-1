@@ -22,3 +22,5 @@ regionSelect.addEventListener("change", function () {
             console.error('There was a problem fetching comunas for regionId = ' + regionId + ':' + error.message);
         })
 })
+
+regionSelect.dispatchEvent(new Event("change"));
