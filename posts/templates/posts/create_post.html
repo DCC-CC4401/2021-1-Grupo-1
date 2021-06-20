@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script defer type="text/javascript" src="{% static 'posts/js/agregar_campos.js' %}"></script>
+    <script defer src="{% static 'users/js/region_comuna_form.js' %}"></script>
 {% endblock include %}
 {% block content %}
     <div id="title-post"><h1>Crear Post</h1></div>
@@ -64,11 +65,15 @@
             </span>
         </div>
         <div class="form-group">
+            <label for="region">Región (*): </label>
+            <span class="form-input">
+                {{ form.region }}
+            </span>
+        </div>
+        <div class="form-group">
             <label for="comuna">Comuna (*): </label>
             <span class="form-input">
-                <select name="comuna" id="comuna">
-                    <option value="">Comuna</option>
-                </select>
+                {{ form.comuna }}
             </span>
         </div>
         <div class="form-group">

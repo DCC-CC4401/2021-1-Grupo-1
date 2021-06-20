@@ -1,6 +1,6 @@
 from django import forms
 from posts.models import Post, PostImage
-from users.models import Comuna
+from users.models import Comuna, Region
 from datetime import date
 
 MONTHS = {
@@ -11,6 +11,7 @@ MONTHS = {
 
 
 class PostForm(forms.ModelForm):
+    region = forms.ModelChoiceField(queryset=Region.objects.all(), empty_label='Selecciona una opción')
     comuna = forms.ModelChoiceField(queryset=Comuna.objects.all(), empty_label='Selecciona una opción')
     fecha = forms.DateField(widget=forms.DateInput(attrs={"style": "display: none;"}))
 
@@ -19,10 +20,13 @@ class PostForm(forms.ModelForm):
         fields = ['specie', 'pet_name', 'author', 'comuna',
                   'description', 'breed', 'sex', 'pet_size',
                   'parasytes', 'sterilized', 'vaccinated', 'status',
-                  'sighting_date']
+                  'sighting_date', 'region']
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
+        if hasattr(self, 'instance'):
+            # Initially, the comuna queryset is empty because the user has to first select a region.
+            self.fields['comuna'].queryset = Comuna.objects.none()
 
     def save(self, commit=True):
         post = super().save(commit=False)
