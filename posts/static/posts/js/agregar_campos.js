@@ -1,10 +1,12 @@
 let status = document.getElementById("id_status");
 let fecha = document.getElementsByClassName("form-group")[11];
 
+// Se oculta por defecto el campo de fecha y se le agrega un listener
+// al campo de status del animal
 fecha.style.display = "none";
 status.addEventListener("change", mostrarFecha);
 
-let block = true;
+// Se muestra o no el campo de fecha de avistamiento
 function mostrarFecha() {
     if (status.selectedIndex === 0 || status.selectedIndex === 1) {
         fecha.style.display = "none";
@@ -13,8 +15,7 @@ function mostrarFecha() {
     }
 }
 
-
-// Solo se muestra el primer input
+// Solo se muestra el primer input de imagen
 document.getElementById("id_form-0-image").style.display = "block";
 
 // Se le agrega un listener a los 3 primeros inputs
