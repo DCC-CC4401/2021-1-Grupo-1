@@ -1,5 +1,5 @@
 let status = document.getElementById("id_status");
-let fecha = document.getElementsByClassName("form-group")[11];
+let fecha = document.getElementsByClassName("form-group")[12];
 
 // Se oculta por defecto el campo de fecha y se le agrega un listener
 // al campo de status del animal
