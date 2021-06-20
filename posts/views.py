@@ -12,7 +12,7 @@ def create_post_view(request):
     #   return HttpResponseForbidden(status=403)
     if request.method == "GET":
         form = PostForm()
-        image_formset = formset_factory(ImageForm, max_num=4)
+        image_formset = formset_factory(ImageForm, extra=4, max_num=4)
         formset = image_formset()
         return render(request, "posts/create_post.html", {'form': form, 'image_form': formset})
 

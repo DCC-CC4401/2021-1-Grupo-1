@@ -31,7 +31,7 @@ class PostForm(forms.ModelForm):
 
 
 class ImageForm(forms.Form):
-    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"style": "display: block;"}))
+    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"style": "display: none;"}))
 
     def save(self, commit=True):
         image_post = super().save(commit=False)
