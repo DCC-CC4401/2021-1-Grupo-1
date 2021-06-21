@@ -90,3 +90,6 @@ button {
 
 }
 
+#buscar-adoptapp > *{
+    text-align: left;
+}

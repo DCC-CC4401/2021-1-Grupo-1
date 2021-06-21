@@ -21,7 +21,7 @@
                 <a href= "{% url 'home' %}"><img class="logo clickable" src="{% static 'images/logo-adoptapp.png' %}"/></a>
             </li>
            <li class="search-icon">
-                <div class="search">
+                <div class="search" id="buscar-adoptapp">
                         <span class="fas fa-search highlight-color"></span>
                         <input class="input-field" type="search" placeholder="Buscar en AdoptApp">
                 </div>
@@ -61,6 +61,9 @@
                 <li class="separator"></li>
             {% if request.user.is_authenticated %}
                 <div class = "user-options">
+                    <li>
+                        <a id="add_post" href="{%  url 'create_post' %}"><img class="clickable" />Agregar publicación</a>
+                    </li>
                     <li class="avatar">
                         <a href="{{ request.user.get_profile_url }}"><img class="clickable" src="{% static 'images/default-avatar.png' %}" /></a>
                     </li>
@@ -78,8 +81,8 @@
                              <div id="optionContainer">
                                 <div id="optionBody" class="options">
                                     <ul>
-                                    <li class="menuItem"> <a href="{{ request.user.get_profile_edit_url}}"> Configuración de perfil </a></li>
-                                    <li class="menuItem"> <a href="{% url 'logout' %}"> Cerrar sesión </a></li>
+                                    <li class="menuItem"> <a href="{{ request.user.get_profile_edit_url}}">Configuración de perfil</a></li>
+                                    <li class="menuItem"> <a href="{% url 'logout' %}">Cerrar sesión</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -111,5 +114,6 @@
         </p>
     </div>
 </div>
+
 </body>
 </html>

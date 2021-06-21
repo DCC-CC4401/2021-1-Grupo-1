@@ -1,6 +1,10 @@
 $(document).ready(function () {
+   window.addEventListener("resize", function(event) {
+    console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+  })
   window.onscroll = function () {
     myFunction()
+
   };
 
   const navbar = document.getElementById("navbar");
@@ -13,4 +17,8 @@ $(document).ready(function () {
       navbar.classList.remove("sticky");
     }
   }
+
+
+
 });
+
