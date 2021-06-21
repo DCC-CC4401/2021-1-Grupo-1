@@ -10,8 +10,9 @@ def post_view(request, post_id):
     if request.method == "GET":
         post = Post.objects.get(pk=post_id)
         images = PostImage.objects.filter(post_id=post_id)
+        image_urls = [x.image.url for x in images]
         return render(request, 'posts/post.html', {'post': post,
-                                                   'images': images})
+                                                   'image_urls': image_urls})
 
 
 def create_post_view(request):
@@ -25,18 +26,17 @@ def create_post_view(request):
 
     if request.method == "POST":
         form = PostForm(request.POST)
-        formset = image_formset(request.POST)
+        formset = image_formset(request.POST, request.FILES)
         if form.is_valid():
             # Aquí se agrega el usuario al post
             post = form.save(commit=False)
             post.author = request.user
             post.save()
             for image_form in formset:
-                print(image_form.is_valid())
-                print(image_form.errors)
                 if image_form.is_valid():
                     img = image_form.save(commit=False)
                     img.post = post
-                    img.save()
+                    if img.image:
+                        img.save()
             return HttpResponseRedirect(reverse('post_view', args=[post.id]))  # tiene que redirigir al post
         return render(request, "posts/create_post.html", {'form': form, 'image_form': formset})

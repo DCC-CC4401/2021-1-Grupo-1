@@ -1,4 +1,6 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 from posts.models import Post, PostImage
 from users.models import Comuna, Region
 from datetime import date
@@ -26,12 +28,6 @@ class PostForm(forms.ModelForm):
                   'parasytes', 'sterilized', 'vaccinated', 'status',
                   'sighting_date']
 
-    def save(self, commit=True):
-        post = super().save(commit=False)
-        if commit:
-            post.save()
-        return post
-
 
 class ImageForm(forms.ModelForm):
     image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"style": "display: none;"}))
@@ -39,5 +35,3 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = PostImage
         fields = ['image']
-
-

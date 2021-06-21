@@ -33,19 +33,19 @@
                 <div class="warning-details">
                     <h5>Esta publicación corresponde a un avistamiento.</h5>
                     <h6><b>Fecha del avistamiento:</b>{{ post.sighting_date }}</h6>
-                    <h6><b>Sector:</b>{{ post.comuna }}</h6>
+                    <h6><b>Sector:</b> {{ post.comuna }}</h6>
                 </div>
                 {% else %}
                  <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                  <div class="warning-details">
                      <h5>Animal en posesión del autor.</h5>
-                     <h6><b>Sector:</b> Melipilla</h6>
+                     <h6><b>Sector:</b> {{ post.comuna }}</h6>
                  </div>
                  {% endif %}
              </div>
 
             <div class="post-warning" id="warning-desparasitado">
-                {% if post.parasytes == 'NO' %}
+                {% if post.parasytes == 'SI' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                 <div class="warning-details">
                     <h5>Animal desparasitado.</h5>
@@ -89,18 +89,11 @@
          </div>
 
          <div class="post-section" id="post-photos">
-             <a href="{% static 'posts/media/example1.jpeg' %}" data-lightbox="pet">
-                 <img class="post-photo" src="{% static 'posts/media/example1.jpeg' %}"/>
-             </a>
-             <a class="post-photo" href="{% static 'posts/media/example2.jpg' %}" data-lightbox="pet">
-                 <img class="post-photo" src="{% static 'posts/media/example2.jpg' %}"/>
-             </a>
-             <a class="post-photo" href="{% static 'posts/media/example3.jpg' %}" data-lightbox="pet">
-                <img class="post-photo" src="{% static 'posts/media/example3.jpg' %}"/>
-             </a>
-             <a class="post-photo" href="{% static 'posts/media/example4.jpg' %}" data-lightbox="pet">
-                <img class="post-photo" src="{% static 'posts/media/example4.jpg' %}"/>
-             </a>
+             {% for url in image_urls %}
+                 <a href="{{ url }}" data-lightbox="pet">
+                    <img class="post-photo" src="{{ url }}" alt="Foto"/>
+                 </a>
+             {% endfor %}
          </div>
 
 <script type="text/javascript" src="{% static 'posts/js/lightbox.js' %}"></script>
