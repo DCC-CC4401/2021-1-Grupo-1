@@ -14,15 +14,15 @@
         <div class="post-section" id="post-general-info">
             <img class="post-main-photo" src="{% static 'images/default-avatar.png' %}" alt="Pet photo">
             <div class="profile-title">
-            <h4 class="light-300 soft-brown">{{ post.specie }} - {{ post.breed }}</h4>
+            <h4 class="light-300 soft-brown">{{ post.get_specie_display }} - {{ post.breed }}</h4>
             <h3 class="bold-700 deep-blue">{{ post.pet_name }}</h3>
                 <h5 class="light-300">
                     Publicado el {{ post.post_date }},
                     por <a>{{ post.author.first_name }} {{ post.author.last_name }}</a></h5>
                 <h5 class="light-300 italic">
-                    Sexo: {{ post.sex }}
+                    Sexo: {{ post.get_sex_display }}
                 </h5>
-                <h5 class="light-300">Tamaño: {{ post.pet_size }}</h5>
+                <h5 class="light-300">Tamaño: {{ post.get_pet_size_display }}</h5>
             </div>
         </div>
 
