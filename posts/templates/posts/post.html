@@ -6,95 +6,104 @@
 {% block include %}
     <link rel="stylesheet" href="{% static 'posts/css/lightbox.css' %}">
     <link rel="stylesheet" href="{% static 'posts/css/post.css' %}">
-<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 
 
 {% endblock include %}
 {% block content %}
-        <div class="post-section" id="post-general-info">
-            <img class="post-main-photo" src="{% static 'images/default-avatar.png' %}" alt="Pet photo">
-            <div class="profile-title">
-            <h4 class="light-300 soft-brown">{{ post.get_specie_display }} - {{ post.breed }}</h4>
+    <div class="post-section" id="post-general-info">
+        <img class="post-main-photo" src="{{ image_urls.0 }}" alt="Pet photo">
+        <div class="profile-title">
+            <h4 class="light-300 soft-brown">
+                {{ post.get_specie_display }} -
+                {% if post.breed %}{{ post.breed }}
+                {% else %} Raza no especificada
+                {% endif %}
+            </h4>
             <h3 class="bold-700 deep-blue">{{ post.pet_name }}</h3>
-                <h5 class="light-300">
-                    Publicado el {{ post.post_date }},
-                    por <a>{{ post.author.first_name }} {{ post.author.last_name }}</a></h5>
-                <h5 class="light-300 italic">
-                    Sexo: {{ post.get_sex_display }}
-                </h5>
-                <h5 class="light-300">Tamaño: {{ post.get_pet_size_display }}</h5>
-            </div>
+            <h5 class="light-300">
+                Publicado el {{ post.post_date }},
+                por <a>{{ post.author.first_name }} {{ post.author.last_name }}</a></h5>
+            <h5 class="light-300 italic">
+                Sexo: {{ post.get_sex_display }}
+            </h5>
+            <h5 class="light-300">Tamaño: {{ post.get_pet_size_display }}</h5>
         </div>
+    </div>
 
-        <div class="post-section" id="post-warnings">
-            <div class="post-warning" id="warning-avistamiento">
-                {% if post.status == 'Calle' %}
+    <div class="post-section" id="post-warnings">
+        <div class="post-warning" id="warning-avistamiento">
+            {% if post.status == 'Calle' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                 <div class="warning-details">
                     <h5>Esta publicación corresponde a un avistamiento.</h5>
-                    <h6><b>Fecha del avistamiento:</b>{{ post.sighting_date }}</h6>
-                    <h6><b>Sector:</b> {{ post.comuna }}</h6>
+                    <h6><b>Fecha del avistamiento:</b>
+                        {% if post.sighting_date %}{{ post.sighting_date }}
+                        {% else %} No especificada
+                        {% endif %}
+                    </h6>
+                    <h6><b>Sector:</b> {{ post.comuna }}, <br>{{ post.comuna.region }}</h6>
                 </div>
-                {% else %}
-                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
-                 <div class="warning-details">
-                     <h5>Animal en posesión del autor.</h5>
-                     <h6><b>Sector:</b> {{ post.comuna }}</h6>
-                 </div>
-                 {% endif %}
-             </div>
+            {% else %}
+                <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
+                <div class="warning-details">
+                    <h5>Animal en posesión del autor.</h5>
+                    <h6><b>Sector:</b> {{ post.comuna }}, <br>{{ post.comuna.region }}</h6>
+                </div>
+            {% endif %}
+        </div>
 
-            <div class="post-warning" id="warning-desparasitado">
-                {% if post.parasytes == 'SI' %}
+        <div class="post-warning" id="warning-desparasitado">
+            {% if post.parasytes == 'SI' %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
                 <div class="warning-details">
                     <h5>Animal desparasitado.</h5>
                 </div>
-                {% else %}
+            {% else %}
                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
                 <div class="warning-details">
                     <h5>Animal no desparasitado.</h5>
                 </div>
-                {% endif %}
-            </div>
+            {% endif %}
+        </div>
 
-             <div class="post-warning" id="warning-vacuna">
-                 {% if post.vaccinated == 'SI' %}
-                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
-                 <div class="warning-details">
-                     <h5>Animal vacunado.</h5>
-                 </div>
-                 {% else %}
-                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
-                 <div class="warning-details">
-                     <h5>Animal no vacunado.</h5>
-                 </div>
-                 {% endif %}
-             </div>
+        <div class="post-warning" id="warning-vacuna">
+            {% if post.vaccinated == 'SI' %}
+                <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
+                <div class="warning-details">
+                    <h5>Animal vacunado.</h5>
+                </div>
+            {% else %}
+                <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
+                <div class="warning-details">
+                    <h5>Animal no vacunado.</h5>
+                </div>
+            {% endif %}
+        </div>
 
-             <div class="post-warning" id="warning-esterilizado">
-                 {% if post.sterilized == 'SI' %}
-                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
-                 <h5>Animal esterilizado.</h5>
-                 {% else %}
-                 <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
-                 <h5>Animal no esterilizado.</h5>
-                 {% endif %}
-             </div>
-         </div>
+        <div class="post-warning" id="warning-esterilizado">
+            {% if post.sterilized == 'SI' %}
+                <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/ok.png"/>
+                <h5>Animal esterilizado.</h5>
+            {% else %}
+                <img class="warning-sign" src="https://img.icons8.com/fluent/48/000000/break.png"/>
+                <h5>Animal no esterilizado.</h5>
+            {% endif %}
+        </div>
+    </div>
 
-         <div class="post-section" id="post-description">
-             <div class="bold-700 deep-blue p22">Descripción</div>
-             <h5 class="light-300"> {{ post.description }}. </h5>
-         </div>
+    <div class="post-section" id="post-description">
+        <div class="bold-700 deep-blue p22">Descripción</div>
+        <h5 class="light-300"> {{ post.description }} </h5>
+    </div>
 
-         <div class="post-section" id="post-photos">
-             {% for url in image_urls %}
-                 <a href="{{ url }}" data-lightbox="pet">
-                    <img class="post-photo" src="{{ url }}" alt="Foto"/>
-                 </a>
-             {% endfor %}
-         </div>
+    <div class="post-section" id="post-photos">
+        {% for url in image_urls %}
+            <a href="{{ url }}" data-lightbox="pet">
+                <img class="post-photo" src="{{ url }}" alt="Foto"/>
+            </a>
+        {% endfor %}
+    </div>
 
-<script type="text/javascript" src="{% static 'posts/js/lightbox.js' %}"></script>
- {% endblock content %}
+    <script type="text/javascript" src="{% static 'posts/js/lightbox.js' %}"></script>
+{% endblock content %}

@@ -11,14 +11,14 @@ class Post(models.Model):
     author = models.ForeignKey("users.User", on_delete=models.CASCADE)
     comuna = models.ForeignKey("users.Comuna", on_delete=models.PROTECT)
     description = models.TextField(max_length=1000)
-    breed = models.CharField(max_length=50, blank=True, default='Raza no especificada')
+    breed = models.CharField(max_length=50, blank=True)
     sex = models.CharField(choices=[('MA', 'Macho'), ('HE', 'Hembra'), ('DS', 'Desconocido')], max_length=10)
     pet_size = models.CharField(choices=[('GR', 'Grande'), ('ME', 'Mediano'), ('PE', 'Pequeño')], max_length=10)
     parasytes = models.CharField(choices=[('SI', 'Sí'), ('NO', 'No')], max_length=10)
     sterilized = models.CharField(choices=[('SI', 'Sí'), ('NO', 'No'), ('DS', 'Desconocido')], max_length=10)
     vaccinated = models.CharField(choices=[('SI', 'Sí'), ('NO', 'No'), ('DS', 'Desconocido')], max_length=10)
     status = models.CharField(choices=[('Mío', 'Mío'), ('Calle', 'De la calle')], max_length=15)
-    sighting_date = models.DateField(blank=True, default='Desconocido')
+    sighting_date = models.DateField(blank=True)
 
 
 class PostImage(models.Model):

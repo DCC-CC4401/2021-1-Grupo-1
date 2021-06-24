@@ -3,10 +3,10 @@ from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.urls import reverse
 from django.forms.models import model_to_dict
 
+from posts.models import Post, PostImage
 from users.forms import RegisterForm, ProfileEditPrivacyForm, ProfileEditPasswordForm
 from users.models import Region, Comuna, User
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
-
 
 def get_comunas_view(request, region_id):
     """
@@ -60,14 +60,20 @@ def logout_user(request):
 def profile_view(request, user_id):
     if request.method == "GET":
         profile_user = User.objects.get(pk=user_id)
-        return render(request, 'users/profile_view.html', {'profile_user': profile_user})
+        posts_user = Post.objects.select_related().filter(author=user_id)
+        posts_photos = {}
+        for p in posts_user:
+            photo = PostImage.objects.filter(post_id=p.id).first()
+            posts_photos[p.id] = photo
+        return render(request, 'users/profile_view.html',
+                      {'profile_user': profile_user, 'posts_user': posts_user, 'posts_photos': posts_photos})
 
 
 def profile_edit(request, user_id):
     if request.user.id != user_id:
         return HttpResponseForbidden()
     profile_user = request.user
-    initial = model_to_dict(profile_user) # Add user info as initial
+    initial = model_to_dict(profile_user)  # Add user info as initial
     initial['region'] = profile_user.comuna.region_id
     privacy_form = ProfileEditPrivacyForm(initial=initial)
     password_form = ProfileEditPasswordForm(profile_user=profile_user)
