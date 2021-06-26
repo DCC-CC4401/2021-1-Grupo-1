@@ -1,5 +1,6 @@
 {% extends "users/profile.html" %}
 {% load static %}
+{% load keyvalue %}
 {% block title %}
     Perfil de usuario
 {% endblock title %}
@@ -11,8 +12,8 @@
              {% for post in posts_user %}
                 <div class="publication">
                     <div class="publication-info">
-                        {% with post.id as photo_key %}
-                            <img class="publication-photo" src="{{ posts_photos.1.image.url }}" alt="{{ posts_photos.1.image.url }}">
+                        {% with posts_photos|keyvalue:post.id as photo_post %}
+                            <img class="publication-photo" src="{{ photo_post.image.url }}" alt="{{ photo_post }}">
                         {% endwith %}
                         <div class="publication-details">
                             <div class="publication-title-info">
