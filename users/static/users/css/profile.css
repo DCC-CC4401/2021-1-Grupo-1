@@ -139,7 +139,8 @@ span{
     width: 120px;
     height: 120px;
     position: relative;
-    cursor: pointer;
+    border-radius:50%;
+    box-shadow: 10px 10px 5px #ccc;
 }
 
 
@@ -178,6 +179,12 @@ span{
 .publication-title-info{
     padding-left: 40px;
     padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.publication-detail{
+    padding-left: 40px;
+    padding-bottom: 4px;
 }
 
 .publication-date-button{
