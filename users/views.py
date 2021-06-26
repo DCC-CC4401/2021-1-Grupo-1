@@ -39,7 +39,8 @@ def register_view(request):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse('home'))
         form = RegisterForm()
-        return render(request, 'users/register.html', {'form': form})
+        errores = ''
+        return render(request, 'users/register.html', {'form': form, 'errores': errores})
 
     if request.method == "POST":
         form = RegisterForm(request.POST)
@@ -49,7 +50,11 @@ def register_view(request):
                                     password=form.cleaned_data['password'])
             login(request, new_user)
             return HttpResponseRedirect(reverse('home'))
-        return render(request, 'users/register.html', {'form': form})
+        errores = "Las siguientes cosas fallaron\n"
+        form_errores = form.errors.as_data()
+        for i in form_errores:
+            errores += str(i) + ':' + str(form_errores[i][0].message)
+        return render(request, 'users/register.html', {'form': form, 'errores': errores})
 
 
 def logout_user(request):

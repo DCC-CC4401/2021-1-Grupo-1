@@ -5,13 +5,16 @@
 {% endblock title %}
 {% block include %}
     <link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/modal.css' %}">
     <script defer src="{% static 'users/js/register.js' %}"></script>
+    <script defer src="{% static 'users/js/modal.js' %}"></script>
+
     <script defer src="{% static 'users/js/region_comuna_form.js' %}"></script>
 {% endblock include %}
 {% block content %}
     <form method="post" novalidate>
         {% csrf_token %}
-        {{ form.errors }}
+
         <input type="hidden" id="id_birth_date" name="birth_date" value="2000-01-01">
         <img class="first-image" src="{% static 'images/logo-adoptapp.png' %}" alt="User login">
         <div class="form-group">
@@ -75,5 +78,13 @@
             <p>¿Ya tienes una cuenta? <a href="{%  url 'login' %}">Inicia sesión</a></p>
         </div>
     </form>
+    {% if form.errors %}
+        <div class="modal is-visible" id="modal1">
+            <div class="modal-dialog">
+                <p>{{ errores }}</p>
+                <button class="close-modal" onclick="cerrar()">Cerrar</button>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}
 
