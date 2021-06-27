@@ -7,7 +7,6 @@
 }
 
 
-
 #container{
     min-height: 100vh;
     display: flex;
@@ -142,6 +141,7 @@ body {
     color: #4a4a4a;
     font-size: 12px;
     background-color: white;
+    padding-top: 10px;
 
 }
 
