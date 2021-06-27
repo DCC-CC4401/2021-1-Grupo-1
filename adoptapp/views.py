@@ -17,9 +17,9 @@ def results_view(request):
     for p in results:
         photo = PostImage.objects.filter(post_id=p.id).first()
         images.append(photo)
-    results = zip(results, images)
+    results = list(zip(results, images))
     paginator = Paginator(results, 10)
-    page_number = request.GET.get('page')
+    page_number = request.GET.get('page', '1')
     page_obj = paginator.get_page(page_number)
     return render(request, "adoptapp/results.html", {'results': page_obj})
 
