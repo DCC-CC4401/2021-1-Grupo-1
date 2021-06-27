@@ -1,3 +1,4 @@
+/*
 const testResults = [
     {
         titulo: "Busco dar perro en adopción",
@@ -141,3 +142,4 @@ function addFilter(text) {
 
     testFilters.push(text)
 }
+ */
