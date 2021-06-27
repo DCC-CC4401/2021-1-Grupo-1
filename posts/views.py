@@ -39,4 +39,14 @@ def create_post_view(request):
                     if img.image:
                         img.save()
             return HttpResponseRedirect(reverse('post_view', args=[post.id]))  # tiene que redirigir al post
-        return render(request, "posts/create_post.html", {'form': form, 'image_form': formset})
+
+        trad = {'specie': 'Especie', 'pet_name': 'Nombre de la mascota', 'comuna': 'Comuna',
+                'description': 'Descripción', 'breed': 'Raza', 'sex': 'Sexo', 'pet_size': 'Tamaño según su especie',
+                'parasytes': 'Está desparasitado', 'sterilized': 'Está esterilizad', 'vaccinated': 'Está vacunado',
+                'status': "Estado del animal",
+                'sighting_date': 'Fecha del avistamiento'}
+        errors = ["Las siguientes cosas fallaron", '']
+        form_errors = form.errors.as_data()
+        for i in form_errors:
+            errors += [trad[str(i)] + ': ' + str(form_errors[i][0].message)]
+        return render(request, "posts/create_post.html", {'form': form, 'image_form': formset, 'errores': errors})

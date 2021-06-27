@@ -8,6 +8,7 @@ from users.forms import RegisterForm, ProfileEditPrivacyForm, ProfileEditPasswor
 from users.models import Region, Comuna, User
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
+
 def get_comunas_view(request, region_id):
     """
     API View to obtain the "comunas" associated with a region.
@@ -31,7 +32,7 @@ def login_user_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse('home'))
         else:
-            return HttpResponseRedirect(reverse('home'))
+            return render(request, "users/login.html", {'errores': ["Los datos ingresados no son correctos"]})
 
 
 def register_view(request):
@@ -50,11 +51,14 @@ def register_view(request):
                                     password=form.cleaned_data['password'])
             login(request, new_user)
             return HttpResponseRedirect(reverse('home'))
-        errores = "Las siguientes cosas fallaron\n"
-        form_errores = form.errors.as_data()
-        for i in form_errores:
-            errores += str(i) + ':' + str(form_errores[i][0].message)
-        return render(request, 'users/register.html', {'form': form, 'errores': errores})
+        trad = {"first_name": "Nombre", "last_name": "Apellido", "email": "Email", "phone_number": "Telefono",
+                "address": "Dirección", "comuna": "Comuna", "password": "Contraseña", "region": "Región",
+                "birth_date": "Fecha de nacimiento"}
+        errors = ["Las siguientes cosas fallaron", '']
+        form_errors = form.errors.as_data()
+        for i in form_errors:
+            errors += [trad[str(i)] + ': ' + str(form_errors[i][0].message)]
+        return render(request, 'users/register.html', {'form': form, 'errores': errors})
 
 
 def logout_user(request):

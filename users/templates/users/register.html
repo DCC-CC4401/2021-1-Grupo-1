@@ -79,10 +79,12 @@
         </div>
     </form>
     {% if form.errors %}
-        <div class="modal is-visible" id="modal1">
+        <div class="modal is-visible register" id="modal1">
             <div class="modal-dialog">
-                <p>{{ errores }}</p>
-                <button class="close-modal" onclick="cerrar()">Cerrar</button>
+                    {% for i in errores %}
+                        <p>{{ i }}</p><br>
+                    {% endfor %}
+                <button class="beauty-button button-blue" onclick="cerrar()">Cerrar</button>
             </div>
         </div>
     {% endif %}
