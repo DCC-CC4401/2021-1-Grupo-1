@@ -7,11 +7,11 @@
 }
 
 .pet-post:hover{
-    background: #4a6b8f;
+    background: rgba(165, 106, 67, 0.9);
     cursor: pointer;
 }
 
-.pet-post:hover .info{
+.pet-post:hover .breed{
     color: aliceblue;
 }
 
@@ -26,7 +26,7 @@
     display: inline-block;
     width:45%;
     background: rgba(203, 130, 82, 0.2);
-    box-shadow: 0 2px 2px #6b6969;
+    box-shadow: 0 2px 3px #e9bebe;
     margin-bottom: 10px;
     margin-left: 5px;
     margin-right: 5px;
