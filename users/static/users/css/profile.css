@@ -156,7 +156,13 @@ span{
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
+    /* border: 3px solid white; */
 }
+/*
+.publication:hover{
+    border: 3px solid #cb8252;;
+}
+*/
 
 .profile-section{
     margin: 50px 20px 20px 20px;

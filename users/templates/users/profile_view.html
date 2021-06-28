@@ -5,52 +5,54 @@
     Perfil de usuario
 {% endblock title %}
 {% block profile-section %}
+    {% if posts_user|length %}
         <div class="profile-section" id="publications-section">
             <h5 class="section-title">Publicaciones</h5>
             <div id="publications-list">
-
-             {% for post in posts_user %}
-                <div class="publication">
-                    <div class="publication-info">
-                        {% with posts_photos|keyvalue:post.id as photo_post %}
-                            <img class="publication-photo" src="{{ photo_post.image.url }}" alt="{{ photo_post }}">
-                        {% endwith %}
-                        <div class="publication-details">
-                            <div class="publication-title-info">
-                                <span class="bold-700 s16">{{post.pet_name}}, </span>
-                                <span class="light-400 s16 soft-brown">
-                                    {{ post.get_specie_display }} -
-                                    {% if post.breed %}{{ post.breed }}
-                                    {% else %} Raza no especificada
-                                    {% endif %}</span>
-
-                            </div>
-                            <div class="publication-detail">
-                                <span class="bold-500 s14">{{post.comuna}}, {{post.comuna.region}}</span>
-                            </div>
-                            <div class="publication-detail">
-                                <span class="light-400 s14">{{ post.get_sex_display}} de tamaño {{ post.get_pet_size_display }}</span>
-                            </div>
-
-                        </div>
-                        <div class="publication-date-button">
-                            <div class="publication-date">Publicado el {{ post.post_date }}</div>
-                            {% with post.id|stringformat:"s" as post_url %}
-                            <a href="{{ "../post/"|add:post_url }}">
-                                <button class="beauty-button button-blue go-to-publication">Ir a la publicación</button>
-                            </a>
+                {% for post in posts_user %}
+                    <div class="publication hvr-shadow">
+                        <div class="publication-info">
+                            {% with posts_photos|keyvalue:post.id as photo_post %}
+                                <img class="publication-photo" src="{{ photo_post.image.url }}" alt="{{ photo_post }}">
                             {% endwith %}
+                            <div class="publication-details">
+                                <div class="publication-title-info">
+                                    <span class="bold-700 s16">{{ post.pet_name }}, </span>
+                                    <span class="light-400 s16 soft-brown">
+                                            {{ post.get_specie_display }} -
+                                            {% if post.breed %}{{ post.breed }}
+                                            {% else %} Raza no especificada
+                                            {% endif %}</span>
+
+                                </div>
+                                <div class="publication-detail">
+                                    <span class="bold-500 s14">{{ post.comuna }}, {{ post.comuna.region }}</span>
+                                </div>
+                                <div class="publication-detail">
+                                    <span class="light-400 s14">{{ post.get_sex_display }} de tamaño {{ post.get_pet_size_display }}</span>
+                                </div>
+
+                            </div>
+                            <div class="publication-date-button">
+                                <div class="publication-date">Publicado el {{ post.post_date }}</div>
+                                {% with post.id|stringformat:"s" as post_url %}
+                                    <a href="{{ "../post/"|add:post_url }}">
+                                        <button class="beauty-button button-blue-paw go-to-publication hvr-shadow">Ir a la
+                                            publicación
+                                        </button>
+                                    </a>
+                                {% endwith %}
+                            </div>
                         </div>
                     </div>
-                </div>
-             {% endfor %}
-
-              </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="navigation-options">
+    {% endif %}
+    <div class="navigation-options">
             <span>
             <a href="{% url 'home' %}"><span class="fas fa-home navicon"></span><span class="navigation-link"> Volver a la página principal</span></a>
             </span>
-        </div>
+    </div>
 {% endblock profile-section %}
 

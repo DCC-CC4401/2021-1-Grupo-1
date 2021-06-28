@@ -39,7 +39,7 @@ body {
 }
 
 form {
-    width: 40%;
+    width: 45%;
     text-align: center;
     margin: 7% auto;
     padding: 30px;
@@ -75,7 +75,7 @@ button {
 .form-input {
     display: inline-flex;
     justify-content: center;
-    padding: 5px;
+    padding: 2px;
     width: 100%;
     position: relative;
 }
@@ -96,7 +96,7 @@ button {
 .inline-image {
   position: relative;
   right: 3px;
-  top: 3px;
+  top: 2px;
   width: 35px;
   height: 35px;
 
