@@ -3,7 +3,7 @@
 .modal {
   width: 40%;
   text-align: center;
-  background: rgb(243, 198, 168);
+  background: white;
   box-shadow: #00000012 0 0 5px 3px;
   border-radius: 25px;
   position: fixed;
