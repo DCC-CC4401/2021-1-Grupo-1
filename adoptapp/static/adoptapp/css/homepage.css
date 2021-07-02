@@ -41,3 +41,7 @@
     font-size: 13px;
     margin-top: 2px;
 }
+
+.non-clickable > *{
+    cursor: default;
+}
