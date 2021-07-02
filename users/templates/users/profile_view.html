@@ -1,6 +1,5 @@
 {% extends "users/profile.html" %}
 {% load static %}
-{% load keyvalue %}
 {% block title %}
     Perfil de usuario
 {% endblock title %}
@@ -9,12 +8,10 @@
             <h5 class="section-title">Publicaciones</h5>
             <div id="publications-list">
 
-             {% for post in posts_user %}
+             {% for post, photo in posts %}
                 <div class="publication">
                     <div class="publication-info">
-                        {% with posts_photos|keyvalue:post.id as photo_post %}
-                            <img class="publication-photo" src="{{ photo_post.image.url }}" alt="{{ photo_post }}">
-                        {% endwith %}
+                        <img class="publication-photo" src="{{ photo.image.url }}" alt="Foto publicación">
                         <div class="publication-details">
                             <div class="publication-title-info">
                                 <span class="bold-700 s16">{{post.pet_name}}, </span>

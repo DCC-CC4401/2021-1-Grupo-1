@@ -5,13 +5,19 @@
     transition: all 0.1s linear;
     padding: 10px;
 }
+
 .pet-post:hover{
     background: rgba(165, 106, 67, 0.9);
     cursor: pointer;
 }
 
+.pet-post:hover .breed{
+    color: aliceblue;
+}
+
 .pet-img{
-    width: 100%;
+    width: 450px;
+    height: 300px;
     border-radius: 15px;
 }
 
@@ -20,11 +26,18 @@
     display: inline-block;
     width:45%;
     background: rgba(203, 130, 82, 0.2);
-    margin-top: 3px;
-
+    box-shadow: 0 2px 3px #e9bebe;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #presentation{
     display: inline-block ;
     text-align: center;
+}
+
+.info-date{
+    font-size: 13px;
+    margin-top: 2px;
 }

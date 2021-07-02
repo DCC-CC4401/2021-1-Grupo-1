@@ -65,13 +65,14 @@ def logout_user(request):
 def profile_view(request, user_id):
     if request.method == "GET":
         profile_user = User.objects.get(pk=user_id)
-        posts_user = Post.objects.select_related().filter(author=user_id)
-        posts_photos = {}
-        for p in posts_user:
+        queryset = Post.objects.select_related().filter(author=user_id)
+        images = []
+        for p in queryset:
             photo = PostImage.objects.filter(post_id=p.id).first()
-            posts_photos[p.id] = photo
+            images.append(photo)
+        zipped = zip(queryset, images)
         return render(request, 'users/profile_view.html',
-                      {'profile_user': profile_user, 'posts_user': posts_user, 'posts_photos': posts_photos})
+                      {'profile_user': profile_user, 'posts': zipped})
 
 
 def profile_edit(request, user_id):

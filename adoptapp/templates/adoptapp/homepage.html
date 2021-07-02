@@ -12,35 +12,25 @@
 {% block content %}
 
     <div id = "presentation">
-
-        <div class="pet-post" onclick="">
-            <img class="pet-img" alt='Dog running' src={%  static 'adoptapp/media/dog.jpeg' %}  >
-            <div class="post-info">
-                <p>
-                        Info de la mascota
-                </p>
-            </div>
-        </div>
-
-        <div class="pet-post" onclick="">
-            <img class="pet-img" alt="little hamster" src={% static 'adoptapp/media/hamster.jpeg' %} >
-            <div class="post-info">
-                <p>
-                    Info de la mascota
-                </p>
-            </div>
-        </div>
-
-        <div class="pet-post" onclick="">
-            <img class="pet-img"  alt="angry cat" src={% static 'adoptapp/media/cat.jpeg' %} >
-            <div class="post-info">
-                <p>
-                    Info de la mascota
-                </p>
-            </div>
-        </div>
-
-
+       {% for post, photo in posts %}
+            {% with post.id|stringformat:"s" as post_url %}
+                <a href="{{ "post/"|add:post_url }}">
+                    <div class="pet-post">
+                        <img class="pet-img" src="{{ photo.image.url }}" alt="Foto publicación">
+                        <div class="post-info">
+                                <div>
+                                    <span class="info bold-700 s16">{{post.pet_name}}, </span>
+                                    <span class="breed light-400 s16 soft-brown">
+                                        {{ post.get_specie_display }} -
+                                        {% if post.breed %}{{ post.breed }}
+                                        {% else %} Raza no especificada
+                                        {% endif %}</span>
+                                </div>
+                                <div class="info info-date">Publicado el {{ post.post_date }}</div>
+                        </div>
+                    </div>
+                </a>
+           {% endwith %}
+     {% endfor %}
     </div>
-    <script src="{% static 'adoptapp/js/homepage.js' %}"></script>
 {% endblock %}
