@@ -6,10 +6,12 @@
 {% block include %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'posts/css/create_post.css' %}"/>
+    <link rel="stylesheet" href="{% static 'users/css/modal.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script defer type="text/javascript" src="{% static 'posts/js/agregar_campos.js' %}"></script>
     <script defer src="{% static 'users/js/region_comuna_form.js' %}"></script>
+    <script defer src="{% static 'users/js/modal.js' %}"></script>
 {% endblock include %}
 {% block content %}
     <div id="title-post"><h1>Crear Post</h1></div>
@@ -103,4 +105,14 @@
         </div>
         <button type="submit">Crear publicación</button>
 </form>
+{% if form.errors %}
+        <div class="modal is-visible register" id="modal1">
+            <div class="modal-dialog">
+                    {% for i in errores %}
+                        <p>{{ i }}</p><br>
+                    {% endfor %}
+                <button class="beauty-button button-blue" onclick="cerrar()">Cerrar</button>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}
