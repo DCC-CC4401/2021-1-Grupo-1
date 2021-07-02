@@ -4,9 +4,11 @@
     Publicación
 {% endblock title %}
 {% block include %}
+    <link rel="stylesheet" href="{% static 'css/scrollable_section.css' %}">
     <link rel="stylesheet" href="{% static 'posts/css/lightbox.css' %}">
     <link rel="stylesheet" href="{% static 'posts/css/post.css' %}">
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
 
 
 {% endblock include %}
@@ -106,4 +108,40 @@
     </div>
 
     <script type="text/javascript" src="{% static 'posts/js/lightbox.js' %}"></script>
+
+    {% if autor %}
+        <div id="content-inter">
+            <div class="profile-section" id="publications-section">
+            <h5 class="section-title">Interesados</h5>
+            <div id="publications-list">
+
+             {% for user,date in interesados %}
+                <div class="publication">
+                    <div class="publication-info">
+                        <img class="publication-photo" src="{% static 'images/default-avatar.png' %}" alt="Avatar">
+                        <div class="publication-details">
+                            <div class="publication-title-info">
+                                <span class="bold-700 s16">{{ user.first_name}} {{ user.last_name }} </span>
+
+                            </div>
+                            <div class="publication-detail">
+                                <span class="bold-500 s14">{{ user.email }} <br>
+                                    {{ user.phone_number }}</span>
+                            </div>
+
+                        </div>
+                        <div class="publication-date-button">
+                            <div class="publication-date">Interesado desde {{ date }}</div>
+
+                        </div>
+                    </div>
+                </div>
+             {% endfor %}
+
+              </div>
+            </div>
+        </div>
+    {% else %}
+        <p>Pepe</p>
+    {% endif %}
 {% endblock content %}

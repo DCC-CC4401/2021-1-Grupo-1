@@ -3,16 +3,23 @@ from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.urls import reverse
 from posts.forms import PostForm, ImageForm
-from posts.models import Post, PostImage
+from posts.models import Post, PostImage, Interested
 
 
 def post_view(request, post_id):
     if request.method == "GET":
         post = Post.objects.get(pk=post_id)
         images = PostImage.objects.filter(post_id=post_id)
+        interested = Interested.objects.filter(post_id=post_id)
         image_urls = [x.image.url for x in images]
-        return render(request, 'posts/post.html', {'post': post,
-                                                   'image_urls': image_urls})
+        interested_users = [[x.user, x.date] for x in interested]
+        if post.author == request.user:
+            return render(request, 'posts/post.html', {'post': post,
+                                                       'image_urls': image_urls, 'autor': True,
+                                                       'interesados': interested_users})
+        else:
+            return render(request, 'posts/post.html', {'post': post,
+                                                       'image_urls': image_urls, 'autor': False})
 
 
 def create_post_view(request):

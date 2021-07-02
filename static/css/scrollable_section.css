@@ -1,0 +1,135 @@
+@media screen and (max-width: 980px) {
+    .publication-photo{
+        width: 80px;
+        height: 80px;
+        margin-top: 20px;
+    }
+
+}
+
+.publication-title-info{
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.publication-detail{
+    padding-left: 40px;
+    padding-bottom: 4px;
+}
+
+.publication-date-button{
+    flex: 1;
+    padding-top: 15px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+
+.publication-date{
+    color: #4a4a4a;
+    font-size: 12px;
+    font-weight: 700;
+    flex: 1;
+}
+
+.publication{
+    background-color: white !important;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.publication-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.publication-photo{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    border-radius:50%;
+    box-shadow: 10px 10px 5px #ccc;
+}
+
+.go-to-publication{
+    margin-top: 55px;
+}
+
+#publications-list{
+    max-height: 470px;
+    overflow-y: scroll;
+    padding-right: 20px;
+}
+
+
+.profile-section{
+    display:block;
+    text-align: left;
+    flex-direction: row;
+    box-shadow: 0px 10px 14px -7px #5d5c5c;
+
+}
+
+.profile-section > div{
+    padding: 20px 0 10px 0;
+    background-color: #d6d6d6;
+}
+
+
+.profile-section{
+    margin: 50px 20px 20px 20px;
+    padding: 20px;
+    background-color: #d6d6d6;
+    border-radius: 30px;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.section-title{
+    color: white;
+    background-color: #0e8df5;
+    padding: 7px 7px 7px 15px;
+    border-radius: 10px;
+    margin-top: -30px;
+    margin-bottom: 15px;
+    width: 200px;
+    box-shadow: 0px 10px 14px -7px #5d5c5c;
+}
+
+.subsection{
+    background-color: white !important;
+    border-radius: 10px;
+}
+
+#content-inter{
+    text-align: center;
+    padding: 30px 100px 20px 100px;
+    min-width: 700px;
+}
