@@ -224,11 +224,20 @@ filter_li {
 
 #filterBody {
     color: #1c1919;
-    padding: 20px 0 20px 30px !important;
+    padding: 20px 30px 20px 30px !important;
     min-height:100px;
-    width: 200px;
 }
 
+.filter-form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-button {
+    background: none;
+    padding: 0;
+    border: none;
+}
 
 /* CSS for options (hamburger) list */
 option_li {
