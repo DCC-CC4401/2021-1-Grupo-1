@@ -30,6 +30,66 @@
                 <a class="fas fa-filter clickable white" href="#" id="filterLink"></a>
                 <div id="filterContainer">
                     <div id="filterBody" class="filterOption">
+                        <form id="filterForm">
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="specie">Especie</label>
+                                <select id="specie" name="specie">
+                                    <option value="any"> Cualquiera </option>
+                                    <option value="G"> Gato </option>
+                                    <option value="P"> Perro </option>
+                                    <option value="E"> Erizo </option>
+                                    <option value="C"> Conejo </option>
+                                    <option value="L"> Loro </option>
+                                    <option value="TO"> Tortuga </option>
+                                    <option value="TA"> Tarantula </option>
+                                    <option value="O"> Otro </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="sex">Sexo</label>
+                                <select id="sex" name="sex">
+                                    <option value="any"> Cualquiera </option>
+                                    <option value="MA"> Macho </option>
+                                    <option value="HE"> Hembra </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="size">Tamaño</label>
+                                <select id="size" name="size">
+                                    <option value="any"> Cualquiera </option>
+                                    <option value="GR"> Grande </option>
+                                    <option value="ME"> Mediano </option>
+                                    <option value="PE"> Pequeño </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="parasites">Desparasitado</label>
+                                <select id="parasites" name="parasites">
+                                    <option value="any"> Cualquiera </option>
+                                    <option value="SI"> Sí </option>
+                                    <option value="NO"> No </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="sterilized">Esterilizado</label>
+                                <select id="sterilized" name="sterilized">
+                                    <option value="any"> Cualquiera </option>
+                                    <option value="SI"> Sí </option>
+                                    <option value="NO"> No </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="vaccinated">Vacunado</label>
+                                <select id="vaccinated" name="vaccinated">
+                                    <option value="any"> Cualquiera </option>
+                                    <option value="SI"> Sí </option>
+                                    <option value="NO"> No </option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <!--
+                    <div id="filterBody" class="filterOption">
                         <table style="width:100%">
                             <tr>
                                 <td>
@@ -56,6 +116,7 @@
                             </tr>
                         </table>
                     </div>
+                    -->
                 </div>
             </li>
                 <li class="separator"></li>
