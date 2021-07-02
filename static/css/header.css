@@ -233,6 +233,11 @@ filter_li {
     justify-content: space-between;
 }
 
+.fa-button {
+    background: none;
+    padding: 0;
+    border: none;
+}
 
 /* CSS for options (hamburger) list */
 option_li {

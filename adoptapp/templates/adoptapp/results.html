@@ -16,7 +16,18 @@
 
         <div class="user-filters" id="user-filters">
             <div class="filter-text" id="filter-text">
-                Filtros:
+                {% if filters %}
+                    Filtros:
+                    {% for filter in filters %}
+                        <div class="user-filter">
+                            <div class="result-filter s-shadow-section">
+                                {{ filter }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    Sin filtros
+                {% endif %}
             </div>
         </div>
         <div class="with-results m-shadow-section" id="with-results">
@@ -31,7 +42,7 @@
                             <div class="result-filter">{{ post.get_specie_display }}</div>
                             <div class="result-filter">En adopción</div>
                         </div>
-                        <button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button>
+                        <a href="{% url 'post_view' post.id %}"><button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button></a>
                     </div>
                 </div>
             {% empty %}
