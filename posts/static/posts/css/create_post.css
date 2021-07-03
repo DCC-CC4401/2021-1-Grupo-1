@@ -67,7 +67,7 @@ input, select::placeholder {
     text-align: center;
 }
 
-button {
+.beauty-button {
     width: 60%;
     margin-top: 15px;
 }
@@ -120,3 +120,6 @@ button {
     max-width: 250px;
 }
 
+input[type="file"]{
+    max-width: 350px;
+}

@@ -122,35 +122,6 @@
                             </div>
                         </form>
                     </div>
-                    <!--
-                    <div id="filterBody" class="filterOption">
-                        <table style="width:100%">
-                            <tr>
-                                <td>
-                                    <label for="adoptar" class="switch">
-                                    <input class="filterOption" type="checkbox" id="adoptar">
-                                    <span class="slider round filterOption" ></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span>Adoptar</span>
-                                </td>
-                            </tr>
-                            <tr>
-                            <tr>
-                                <td>
-                                    <label for="dar" class="switch">
-                                    <input class="filterOption" type="checkbox" id="dar">
-                                    <span class="slider round filterOption" ></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class>Dar en adopción</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    -->
                 </div>
             </li>
                 <li class="separator"></li>
@@ -161,15 +132,6 @@
                     </li>
                     <li class="avatar">
                         <a href="{{ request.user.get_profile_url }}"><img class="clickable" src="{% static 'images/default-avatar.png' %}" /></a>
-                    </li>
-                    <li  id="notification_li">
-                        <span id="notification_count">3</span>
-                        <a class="fas fa-bell clickable icon-l white" href="#" id="notificationLink"></a>
-                        <div id="notificationContainer">
-                            <div id="notificationTitle"></div>
-                            <div id="notificationBody" class="notifications"></div>
-                            <div id="notificationFooter"><a href="#">Ver todas</a></div>
-                        </div>
                     </li>
                     <li  id="option_li">
                             <a class="fas fa-bars clickable icon-l white" href="#" id="optionLink"></a>

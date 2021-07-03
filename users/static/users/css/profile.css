@@ -320,3 +320,7 @@ button {
     flex: 50%;
     padding: 10px;
 }
+
+select{
+    max-width: 200px;
+}

@@ -16,9 +16,9 @@
             {% with post.id|stringformat:"s" as post_url %}
                 {% if request.user.is_authenticated %}
                     <a href="{{ "post/"|add:post_url }}">
-                    <div class="pet-post">
+                    <div class="pet-post hvr-grow">
                 {% else %}
-                    <div class="pet-post non-clickable">
+                    <div class="pet-post hvr-grow non-clickable">
                 {% endif %}
                         <img class="pet-img" src="{{ photo.image.url }}" alt="Foto publicación">
                         <div class="post-info">

@@ -1,6 +1,5 @@
 $(document).ready(function (){
     attachDropdownListeners("#filterLink", "#filterContainer");
-    attachDropdownListeners("#notificationLink", "#notificationContainer");
     attachDropdownListeners("#optionLink", "#optionContainer");
 })
 

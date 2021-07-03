@@ -24,22 +24,21 @@
                     <div class="column">
                         {{ privacy_form.first_name }}
                     </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <span class="bold-700 s16 cinf">Apellido: </span>
+                    </div>
                     <div class="column">
                         {{ privacy_form.last_name }}
                     </div>
-                    <div class="column">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
                 </div>
-
                 <div class="row">
                     <div class="column">
                         <span class="bold-700 s16 cinf">F. de nacimiento:</span>
                     </div>
                     <div class="column">
                         <span class="s16">{{ profile_user.birth_date }}</span>
-                    </div>
-                    <div class="column">
                     </div>
                 </div>
 
@@ -50,9 +49,6 @@
                     <div class="column">
                         <span class="s16">{{ privacy_form.address }}</span>
                     </div>
-                    <div class="column">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -61,9 +57,6 @@
                     </div>
                     <div class="column">
                         <span class="s16">{{ privacy_form.region }}</span>
-                    </div>
-                    <div class="column">
-                        <i class="fas fa-pencil-alt"></i>
                     </div>
                 </div>
 
@@ -74,9 +67,6 @@
                     <div class="column">
                         <span class="s16">{{ privacy_form.comuna }}</span>
                     </div>
-                    <div class="column">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -85,9 +75,6 @@
                     </div>
                     <div class="column">
                         <span class="s16">{{ privacy_form.phone_number }}</span>
-                    </div>
-                    <div class="column">
-                        <i class="fas fa-pencil-alt"></i>
                     </div>
                 </div>
 
@@ -107,17 +94,14 @@
                     <div class="vspaced5">
                         <label for="password" class="bold-700 s16 cinf">Contraseña actual: </label>
                         <span class="s16">{{ password_form.current_password }}</span>
-                        <!-- <input class="pwd" type="password" name="password"> -->
                     </div>
                     <div class="vspaced5">
                         <label for="new-password" class="bold-700 s16 cinf">Nueva contraseña: </label>
                         <span class="s16">{{ password_form.new_password }}</span>
-                        <!-- <input class="pwd" type="password" name="new-password"> -->
                     </div>
                     <div class="vspaced5">
                         <label for="new-password" class="bold-700 s16 cinf">Repita la nueva contraseña: </label>
                         <span class="s16">{{ password_form.new_password_repeat }}</span>
-                        <!-- <input class="pwd" type="password" name="repeat-password"> -->
                     </div>
                 </div>
                 <div class="cancel-save-buttons">

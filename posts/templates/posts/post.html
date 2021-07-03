@@ -147,6 +147,15 @@
             </div>
         </div>
     {% else %}
-        <p>Pepe</p>
+        <div class="interested-section">
+            <button class="s18 beauty-button button-blue-paw hvr-shadow" id="interestedButton">Me interesa</button>
+            <!-- if user is already interested
+            -->
+            <div class="s14 interested-warning">El autor ya fue informado de su interés previamente</div>
+
+            <!-- else -->
+            <div class="s14 interested-ok"> El autor ha sido informado y se contactará con usted si lo considera apto.</div>
+
+        </div>
     {% endif %}
 {% endblock content %}

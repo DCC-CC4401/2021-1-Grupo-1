@@ -205,7 +205,7 @@ filter_li {
     position: absolute;
     top: 84px;
     margin-left: -170px;
-    width: 270px;
+    width: 290px;
     z-index: 1000;
     display: none; /* Enable this after jquery implementation  */
 }
@@ -308,3 +308,23 @@ footer {
     border-width: 1px;
     height: 18px;
 }
+
+#filterForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.filter-form-group > *{
+    padding: 5px;
+    margin: 5px;
+}
+
+.filter-form-group > select {
+    max-width: 105px;
+}
+
