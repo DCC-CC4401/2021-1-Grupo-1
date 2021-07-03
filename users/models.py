@@ -66,7 +66,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=12, blank=False)
     address = models.CharField(max_length=100, blank=False)
     comuna = models.ForeignKey(Comuna, on_delete=models.PROTECT, blank=False)
-    description = models.CharField(max_length=260, blank=True)
+    description = models.TextField(max_length=260, blank=True)
     register_date = models.DateField(auto_now_add=True)
     birth_date = models.DateField(null=True, blank=False)  # Null for superuser
 
