@@ -211,9 +211,14 @@ span{
     border-radius: 10px;
 }
 
-.cinf{
+.ml80{
     margin-left: 80px;
 }
+
+.ml40{
+    margin-left: 40px;
+}
+
 #publications-list{
     max-height: 470px;
     overflow-y: scroll;
