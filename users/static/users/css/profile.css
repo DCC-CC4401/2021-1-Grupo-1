@@ -17,6 +17,12 @@ span{
     font-size: 14px;
 }
 
+#arrowBack {
+    position: relative;
+    left: 10px;
+    bottom: 5px;
+}
+
 .s16 {
     font-size: 16px;
 }

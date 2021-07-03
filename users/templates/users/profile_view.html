@@ -3,6 +3,11 @@
 {% block title %}
     Perfil de usuario
 {% endblock title %}
+{% block icon %}
+    {% if request.user.id == profile_user.id %}
+        <a href="{{ profile_user.get_profile_edit_url }}"><i class="fas fa-cogs padded-icon" id="config-button"></i></a>
+    {% endif %}
+{% endblock %}
 {% block profile-section %}
         <div class="profile-section" id="publications-section">
             <h5 class="section-title">Publicaciones</h5>
