@@ -37,3 +37,8 @@ class Interested(models.Model):
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'post'], name='unique_interested')
+        ]

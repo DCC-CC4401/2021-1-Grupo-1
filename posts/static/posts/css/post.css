@@ -107,4 +107,11 @@ h6{
     color: darkgreen;
 }
 
+#interestedButton, #alreadyInterestedButton {
+    display: none;
+}
+
+#interestedMessage, #notInterestedMessage {
+    display: none;
+}
 

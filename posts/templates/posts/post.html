@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="{% static 'posts/css/lightbox.css' %}">
     <link rel="stylesheet" href="{% static 'posts/css/post.css' %}">
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-
-
-
 {% endblock include %}
 {% block content %}
     <div class="post-section" id="post-general-info">
@@ -109,13 +106,13 @@
 
     <script type="text/javascript" src="{% static 'posts/js/lightbox.js' %}"></script>
 
-    {% if autor %}
+    {% if request.user == post.author %}
         <div id="content-inter">
             <div class="profile-section" id="publications-section">
             <h5 class="section-title">Interesados</h5>
             <div id="publications-list">
 
-             {% for user,date in interesados %}
+             {% for user,date in interested_users %}
                 <div class="publication">
                     <div class="publication-info">
                         <img class="publication-photo" src="{% static 'images/default-avatar.png' %}" alt="Avatar">
@@ -146,15 +143,16 @@
               </div>
             </div>
         </div>
-    {% else %}
+    {% elif request.user.is_authenticated %}
         <div class="interested-section">
+            <script defer type="text/javascript" src="{% static 'posts/js/interestedButton.js' %}"></script>
+            <input type="hidden" id="userId" value="{{ request.user.id }}">
+            <input type="hidden" id="postId" value="{{ post.id }}">
             <button class="s18 beauty-button button-blue-paw hvr-shadow" id="interestedButton">Me interesa</button>
-            <!-- if user is already interested
-            -->
-            <div class="s14 interested-warning">El autor ya fue informado de su interés previamente</div>
+            <button class="s18 beauty-button button-yellow hvr-shadow" id="alreadyInterestedButton">Ya no me interesa</button>
 
-            <!-- else -->
-            <div class="s14 interested-ok"> El autor ha sido informado y se contactará con usted si lo considera apto.</div>
+            <div id="notInterestedMessage" class="s14 interested-ok">Ha sido removido satisfactoriamente de la lista de interesados.</div>
+            <div id="interestedMessage" class="s14 interested-ok">El autor de la publicación ha sido informado y se contactará con usted si lo considera apto.</div>
 
         </div>
     {% endif %}
