@@ -55,7 +55,7 @@ def register_view(request):
         trad = {"first_name": "Nombre", "last_name": "Apellido", "email": "Email", "phone_number": "Telefono",
                 "address": "Dirección", "comuna": "Comuna", "password": "Contraseña", "region": "Región",
                 "birth_date": "Fecha de nacimiento"}
-        errors = ["Las siguientes cosas fallaron", '']
+        errors = []
         form_errors = form.errors.as_data()
         for i in form_errors:
             errors += [trad[str(i)] + ': ' + str(form_errors[i][0].message)]

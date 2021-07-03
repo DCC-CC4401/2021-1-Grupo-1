@@ -89,6 +89,7 @@
     {% if form.errors %}
         <div class="modal is-visible register" id="modal1">
             <div class="modal-dialog">
+                <h5>Las siguientes cosas fallaron:</h5> <br><br>
                     {% for i in errores %}
                         <p>{{ i }}</p><br>
                     {% endfor %}
