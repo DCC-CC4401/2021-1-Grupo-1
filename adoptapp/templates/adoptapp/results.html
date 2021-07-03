@@ -13,6 +13,9 @@
 {% block content %}
 
     <div class="post-container">
+        {% if not request.user.is_authenticated %}
+            Solo puedes acceder a las publicaciones con la sesión iniciada
+        {% endif %}
 
         <div class="user-filters" id="user-filters">
             <div class="filter-text" id="filter-text">
@@ -44,7 +47,9 @@
                             <div class="result-filter">{{ post.get_sex_display }}</div>
                             <div class="result-filter">{{ post.get_pet_size_display }}</div>
                         </div>
-                        <a href="{% url 'post_view' post.id %}"><button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button></a>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'post_view' post.id %}"><button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button></a>
+                        {% endif %}
                     </div>
                 </div>
             {% empty %}
