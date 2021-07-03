@@ -38,7 +38,7 @@ def results_view(request):
         filter_strs.append(Region.objects.get(id=filter_region).name)
     if filter_specie:
         filters.append(Q(specie=filter_specie))
-        filter_strs.append(species['filter_specie'])
+        filter_strs.append(species[filter_specie])
     if filter_sex:
         filters.append(Q(sex=filter_sex))
         filter_strs.append({'MA': 'Macho', 'HE': 'Hembra'}[filter_sex])
@@ -57,7 +57,6 @@ def results_view(request):
     if filter_status:
         filters.append(Q(status=filter_status))
         filter_strs.append({'Mío': 'Doméstico', 'Calle': 'Callejero'})
-    print(filter_strs)
     results = Post.objects.filter(
         query,
         *filters)
