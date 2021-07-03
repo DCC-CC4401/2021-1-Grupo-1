@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.forms import formset_factory
 from django.http import HttpResponseRedirect, HttpResponseForbidden, HttpResponse
 from django.shortcuts import render
@@ -18,6 +19,7 @@ def post_view(request, post_id):
                                                        'interested_users': interested_users})
 
 
+@login_required
 def create_post_view(request):
     if not request.user.is_authenticated:
         return HttpResponseForbidden(status=403)
@@ -55,7 +57,10 @@ def create_post_view(request):
         return render(request, "posts/create_post.html", {'form': form, 'image_form': formset, 'errores': errors})
 
 
+@login_required
 def interested_api(request, user_id, post_id):
+    if request.user.id != user_id:
+        return HttpResponseForbidden()
     if request.method == 'GET':
         if Interested.objects.filter(user_id=user_id, post_id=post_id).exists():
             return HttpResponse(status=200)  # OK, exists
