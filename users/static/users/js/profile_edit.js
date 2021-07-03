@@ -7,7 +7,7 @@ function getInitialFormSectionData(sectionSelector) {
 }
 
 function getSectionInputs(sectionSelector) {
-    return document.querySelectorAll(sectionSelector + ' input, ' + sectionSelector + ' select');
+    return document.querySelectorAll(sectionSelector + ' input, ' + sectionSelector + ' select, ' + sectionSelector + ' textarea');
 }
 
 function getSectionSubmitButton(sectionSelector) {

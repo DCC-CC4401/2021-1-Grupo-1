@@ -37,9 +37,12 @@
                     <img class="result-img" src="{{ img.image.url }}" alt="Animal photo">
                     <div class="result-body">
                         <div class="result-header deep-blue">{{ post.pet_name }}</div>
+                        <div class="result-region deep-brown">{{ post.comuna.region }}</div>
                         <div class="result-desc">{{ post.description }}</div>
                         <div class="filters">
                             <div class="result-filter">{{ post.get_specie_display }}</div>
+                            <div class="result-filter">{{ post.get_sex_display }}</div>
+                            <div class="result-filter">{{ post.get_pet_size_display }}</div>
                         </div>
                         <a href="{% url 'post_view' post.id %}"><button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button></a>
                     </div>
@@ -61,23 +64,25 @@
 
     </div>
 
-    <div class="pagination text-center">
-    <div class="pagination-notice s14"> Se muestran {{ results|length }} resultados por página. </div>
-        <span class="step-links">
-            {% if results.has_previous %}
-                <a href="?page=1">&laquo; primera</a> -
-                <a href="?page={{ results.previous_page_number }}">previa</a> -
-            {% endif %}
+    <div id="pagination-container">
+        <div class="pagination text- hvr-shadow">
+            <div class="pagination-notice s14"> Se muestran {{ results|length }} resultados por página. </div>
+            <span class="step-links">
+                {% if results.has_previous %}
+                    <a href="?page=1">&laquo; primera</a> -
+                    <a href="?page={{ results.previous_page_number }}">previa</a> -
+                {% endif %}
 
-            <span class="current">
-                Página {{ results.number }} de {{ results.paginator.num_pages }}.
+                <span class="current">
+                    Página {{ results.number }} de {{ results.paginator.num_pages }}.
+                </span>
+
+                {% if results.has_next %}
+                    <a href="?page={{ results.next_page_number }}">siguiente</a> -
+                    <a href="?page={{ results.paginator.num_pages }}">última&raquo;</a>
+                {% endif %}
             </span>
-
-            {% if results.has_next %}
-                <a href="?page={{ results.next_page_number }}">siguiente</a> -
-                <a href="?page={{ results.paginator.num_pages }}">última&raquo;</a>
-            {% endif %}
-        </span>
+        </div>
     </div>
 {% endblock %}
 

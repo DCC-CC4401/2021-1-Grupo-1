@@ -22,7 +22,7 @@
             <h3 class="bold-700 deep-blue">{{ post.pet_name }}</h3>
             <h5 class="light-300">
                 Publicado el {{ post.post_date }},
-                por <a>{{ post.author.first_name }} {{ post.author.last_name }}</a></h5>
+                por <a href="{% url 'profile' post.author.id %}">{{ post.author.first_name }} {{ post.author.last_name }}</a></h5>
             <h5 class="light-300 italic">
                 Sexo: {{ post.get_sex_display }}
             </h5>

@@ -24,18 +24,24 @@
                 <span class="italic join-date">Miembro desde {{ profile_user.register_date }}</span>
             </div>
         </div>
+    {% if request.user.id == profile_user.id %}
         <div class="profile-section" id="contact-section">
         <h5 class="section-title">Datos de contacto</h5>
             <div class = "subsection">
+                <p class="italic vspaced10 ml40">
+                    Estos datos son privados, solo usted los puede ver.
+                    Si se registra como interesado en una publicación, el autor de ella tendrá acceso a sus datos de contacto.
+                </p>
                 <div class="vspaced10">
-                    <span class="bold-700 s16 cinf">Correo:</span>
+                    <span class="bold-700 s16 ml80">Correo:</span>
                     <span class="s16">{{ profile_user.email }}</span></div>
                 <div class="vspaced10">
-                    <span class="bold-700 s16 cinf">Teléfono:</span>
+                    <span class="bold-700 s16 ml80">Teléfono:</span>
                     <span class="s16">{{ profile_user.phone_number }}</span>
                 </div>
             </div>
         </div>
+    {% endif %}
     {% block profile-section %}
     {% endblock profile-section %}
 
