@@ -192,7 +192,13 @@ h5 {
     font-size: 18px;
 }
 
+.s14 {
+    font-size: 14px;
+}
 
+.s18 {
+    font-size: 18px;
+}
 
 span{
     font-size: 14px;
@@ -250,7 +256,6 @@ button:disabled{
 }
 
 .s-shadow-section{
-    box-shadow: 0px 5px 7px -3px #5d5c5c;
 }
 
 .xs-shadow-section{
@@ -258,19 +263,19 @@ button:disabled{
 }
 
 .deep-blue{
-    color: #2c3e50
+    color: #2c3e50;
 }
 
 .soft-blue{
-    color: #35495e
+    color: #35495e;
 }
 
 .deep-brown{
-    color: #a56a43
+    color: #a56a43;
 }
 
 .soft-brown{
-    color: #cb8252
+    color: #cb8252;
 }
 
 .italic{
@@ -285,3 +290,81 @@ button:disabled{
 #add_post:hover{
     color: #006699;
 }
+
+/* Shadow */
+.hvr-shadow {
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-shadow:hover, .hvr-shadow:focus, .hvr-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+/* Grow */
+.hvr-grow {
+  z-index: 1;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.hvr-big-grow {
+  z-index: 1;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr-big-grow:hover, .hvr-big-grow:focus, .hvr-big-grow:active {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+input {
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus{ outline: none;}
+
+select {
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+select:focus{ outline: none;}
+
+.form-group{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.form-row > * {
+    flex-grow: 1;
+}
+
+textarea:focus{ outline: none;}

@@ -23,39 +23,104 @@
             </li>
            <li class="search-icon">
                 <div class="search" id="buscar-adoptapp">
-                        <span class="fas fa-search highlight-color"></span>
-                        <input class="input-field" type="search" placeholder="Buscar en AdoptApp">
+                        <button type="submit" form="filterForm" class="fa-button">
+                            <span class="fas fa-search highlight-color"></span>
+                        </button>
+                        <input class="input-field" form="filterForm" type="search" name="q" placeholder="Buscar en AdoptApp">
                 </div>
            </li>
             <li class="filter-icon" id="filter_li">
                 <a class="fas fa-filter clickable white" href="#" id="filterLink"></a>
                 <div id="filterContainer">
                     <div id="filterBody" class="filterOption">
-                        <table style="width:100%">
-                            <tr>
-                                <td>
-                                    <label for="adoptar" class="switch">
-                                    <input class="filterOption" type="checkbox" id="adoptar">
-                                    <span class="slider round filterOption" ></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span>Adoptar</span>
-                                </td>
-                            </tr>
-                            <tr>
-                            <tr>
-                                <td>
-                                    <label for="dar" class="switch">
-                                    <input class="filterOption" type="checkbox" id="dar">
-                                    <span class="slider round filterOption" ></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class>Dar en adopción</span>
-                                </td>
-                            </tr>
-                        </table>
+                        <form action="{% url 'results' %}" id="filterForm" method="get">
+                            {% csrf_token %}
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-region">Región</label>
+                                <select id="filter-region" name="filter-region">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="1">Tarapacá</option>
+                                    <option value="2">Antofagasta</option>
+                                    <option value="3">Atacama</option>
+                                    <option value="4">Coquimbo</option>
+                                    <option value="5">Valparaíso</option>
+                                    <option value="6">O’Higgins</option>
+                                    <option value="7">Maule</option>
+                                    <option value="8">Biobío</option>
+                                    <option value="9">Araucanía</option>
+                                    <option value="10">Los Lagos</option>
+                                    <option value="11">Aysén</option>
+                                    <option value="12">Magallanes</option>
+                                    <option value="13">Metropolitana</option>
+                                    <option value="14">Los Ríos</option>
+                                    <option value="15">Arica y Parinacota</option>
+                                    <option value="16">Ñuble</option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-specie">Especie</label>
+                                <select id="filter-specie" name="filter-specie">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="G"> Gato </option>
+                                    <option value="P"> Perro </option>
+                                    <option value="E"> Erizo </option>
+                                    <option value="C"> Conejo </option>
+                                    <option value="L"> Loro </option>
+                                    <option value="TO"> Tortuga </option>
+                                    <option value="TA"> Tarantula </option>
+                                    <option value="O"> Otro </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-sex">Sexo</label>
+                                <select id="filter-sex" name="filter-sex">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="MA"> Macho </option>
+                                    <option value="HE"> Hembra </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-size">Tamaño</label>
+                                <select id="filter-size" name="filter-size">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="GR"> Grande </option>
+                                    <option value="ME"> Mediano </option>
+                                    <option value="PE"> Pequeño </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-parasites">Desparasitado</label>
+                                <select id="filter-parasites" name="filter-parasites">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="SI"> Sí </option>
+                                    <option value="NO"> No </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-sterilized">Esterilizado</label>
+                                <select id="filter-sterilized" name="filter-sterilized">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="SI"> Sí </option>
+                                    <option value="NO"> No </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-vaccinated">Vacunado</label>
+                                <select id="filter-vaccinated" name="filter-vaccinated">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="SI"> Sí </option>
+                                    <option value="NO"> No </option>
+                                </select>
+                            </div>
+                            <div class="filter-form-group">
+                                <label class="filter-text" for="filter-status">Callejero</label>
+                                <select id="filter-status" name="filter-status">
+                                    <option value=""> Cualquiera </option>
+                                    <option value="Calle"> Sí </option>
+                                    <option value="Mío"> No </option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </li>
@@ -67,15 +132,6 @@
                     </li>
                     <li class="avatar">
                         <a href="{{ request.user.get_profile_url }}"><img class="clickable" src="{% static 'images/default-avatar.png' %}" /></a>
-                    </li>
-                    <li  id="notification_li">
-                        <span id="notification_count">3</span>
-                        <a class="fas fa-bell clickable icon-l white" href="#" id="notificationLink"></a>
-                        <div id="notificationContainer">
-                            <div id="notificationTitle"></div>
-                            <div id="notificationBody" class="notifications"></div>
-                            <div id="notificationFooter"><a href="#">Ver todas</a></div>
-                        </div>
                     </li>
                     <li  id="option_li">
                             <a class="fas fa-bars clickable icon-l white" href="#" id="optionLink"></a>

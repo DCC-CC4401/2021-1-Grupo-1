@@ -26,3 +26,21 @@
     margin-left: -20px;
 }
 
+.register{
+    font-size: 14px;
+}
+
+.region-column {
+    max-width: 60%;
+    margin-right: 10px;
+}
+
+form {
+    width: 55%;
+    text-align: center;
+    margin: 7% auto;
+    padding: 30px;
+    background: rgba(210, 210, 210, 0.68);
+    box-shadow: #00000012 0 0 5px 3px;
+    border-radius: 25px;
+}

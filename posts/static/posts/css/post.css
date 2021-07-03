@@ -80,11 +80,38 @@ h6{
     justify-content: center;
     margin-bottom: 40px;
 }
+
 .post-photo{
     width: 190px;
     height: 190px;
     border-radius: 20px;
     box-shadow: 0 10px 10px #ccc;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.interested-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
+.interested-section > * {
+    margin: 5px;
+}
+
+.interested-warning {
+    color: darkred;
+}
+.interested-ok  {
+    color: darkgreen;
+}
+
+#interestedButton, #alreadyInterestedButton {
+    display: none;
+}
+
+#interestedMessage, #notInterestedMessage {
+    display: none;
+}
 

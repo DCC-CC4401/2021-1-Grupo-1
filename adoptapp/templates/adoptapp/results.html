@@ -7,6 +7,7 @@
 
 {% block include %}
     <link rel="stylesheet" type="text/css" href={% static "adoptapp/css/results.css" %}>
+    <script defer src="{% static "adoptapp/js/results.js" %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -15,27 +16,68 @@
 
         <div class="user-filters" id="user-filters">
             <div class="filter-text" id="filter-text">
-                Filtros:
+                {% if filters %}
+                    Filtros:
+                    {% for filter in filters %}
+                        <div class="user-filter">
+                            <div class="result-filter s-shadow-section">
+                                {{ filter }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    Sin filtros
+                {% endif %}
             </div>
         </div>
-
-        <div class="without-results" id="without-results">
-            <div class="no-results m-shadow-section">
-                <h1>No se han encontrado resultados</h1>
-                <br>
-                <h3>Intenta con otros términos de busqueda</h3>
-            </div>
-            <br>
-            <div class="empty-search">
-                <img class="vector-image" src="{% static "adoptapp/media/pets_waiting.svg" %}" alt="Pets waiting">
-            </div>
-        </div>
-
         <div class="with-results m-shadow-section" id="with-results">
             <!-- Results go here -->
+            {% for post, img in results %}
+                <div class="result-item s-shadow-section hvr-grow hvr-shadow">
+                    <img class="result-img" src="{{ img.image.url }}" alt="Animal photo">
+                    <div class="result-body">
+                        <div class="result-header deep-blue">{{ post.pet_name }}</div>
+                        <div class="result-desc">{{ post.description }}</div>
+                        <div class="filters">
+                            <div class="result-filter">{{ post.get_specie_display }}</div>
+                        </div>
+                        <a href="{% url 'post_view' post.id %}"><button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button></a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="without-results" id="without-results">
+                    <div class="no-results m-shadow-section">
+                        <h1>No se han encontrado resultados</h1>
+                        <br>
+                        <h3>Intenta con otros términos de busqueda</h3>
+                    </div>
+                    <br>
+                    <div class="empty-search">
+                        <img class="vector-image" src="{% static "adoptapp/media/pets_waiting.svg" %}" alt="Pets waiting">
+                    </div>
+                </div>
+            {% endfor %}
         </div>
 
     </div>
-    <script src="{% static "adoptapp/js/results.js" %}"></script>
+
+    <div class="pagination text-center">
+    <div class="pagination-notice s14"> Se muestran {{ results|length }} resultados por página. </div>
+        <span class="step-links">
+            {% if results.has_previous %}
+                <a href="?page=1">&laquo; primera</a> -
+                <a href="?page={{ results.previous_page_number }}">previa</a> -
+            {% endif %}
+
+            <span class="current">
+                Página {{ results.number }} de {{ results.paginator.num_pages }}.
+            </span>
+
+            {% if results.has_next %}
+                <a href="?page={{ results.next_page_number }}">siguiente</a> -
+                <a href="?page={{ results.paginator.num_pages }}">última&raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 {% endblock %}
 

@@ -1,11 +1,18 @@
 from django.db import models
 
+species = {'G': 'Gato',
+           'P': 'Perro',
+           'E': 'Erizo',
+           'C': 'Conejo',
+           'L': 'Loro',
+           'TO': 'Tortuga',
+           'TA': 'Tarantula',
+           'O': 'Otro'}
 
 class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     specie = models.CharField(
-        choices=[("G", "Gato"), ("P", "Perro"), ("E", "Erizo"), ("C", "Conejo"), ("L", "Loro"), ("TO", "Tortuga"),
-                 ("TA", "Tarantula"), ("O", "Otro")],
+        choices=species.items(),
         max_length=30)
     pet_name = models.CharField(max_length=30)
     author = models.ForeignKey("users.User", on_delete=models.CASCADE)
@@ -30,3 +37,8 @@ class Interested(models.Model):
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'post'], name='unique_interested')
+        ]

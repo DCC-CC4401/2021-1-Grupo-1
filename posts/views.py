@@ -1,5 +1,5 @@
 from django.forms import formset_factory
-from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.http import HttpResponseRedirect, HttpResponseForbidden, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from posts.forms import PostForm, ImageForm
@@ -13,13 +13,9 @@ def post_view(request, post_id):
         interested = Interested.objects.filter(post_id=post_id)
         image_urls = [x.image.url for x in images]
         interested_users = [[x.user, x.date] for x in interested]
-        if post.author == request.user:
-            return render(request, 'posts/post.html', {'post': post,
-                                                       'image_urls': image_urls, 'autor': True,
-                                                       'interesados': interested_users})
-        else:
-            return render(request, 'posts/post.html', {'post': post,
-                                                       'image_urls': image_urls, 'autor': False})
+        return render(request, 'posts/post.html', {'post': post,
+                                                       'image_urls': image_urls,
+                                                       'interested_users': interested_users})
 
 
 def create_post_view(request):
@@ -57,3 +53,22 @@ def create_post_view(request):
         for i in form_errors:
             errors += [trad[str(i)] + ': ' + str(form_errors[i][0].message)]
         return render(request, "posts/create_post.html", {'form': form, 'image_form': formset, 'errores': errors})
+
+
+def interested_api(request, user_id, post_id):
+    if request.method == 'GET':
+        if Interested.objects.filter(user_id=user_id, post_id=post_id).exists():
+            return HttpResponse(status=200)  # OK, exists
+        else:
+            return HttpResponse(status=404)  # Not found
+    elif request.method == 'PUT':
+        if Interested.objects.filter(user_id=user_id, post_id=post_id).exists():
+            return HttpResponse(status=200)  # OK (already exists)
+        new_interested = Interested(user_id=user_id, post_id=post_id)
+        new_interested.save()
+        return HttpResponse(status=201)  # Created
+    elif request.method == 'DELETE':
+        if not Interested.objects.filter(user_id=user_id, post_id=post_id).exists():
+            return HttpResponse(status=404)  # Not found
+        Interested.objects.get(user_id=user_id, post_id=post_id).delete()
+        return HttpResponse(status=200)  # OK

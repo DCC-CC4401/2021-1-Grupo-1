@@ -4,8 +4,28 @@ h1{
     font-size: 60px;
     margin-top: 5px;
 }
+
 #title-post{
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#title-post-1{
+    font-size: 40px;
+    font-family: Tahoma, serif;
+    font-weight: 500;
+    color: #a56a43;
+    margin-right: 20px;
+}
+
+#title-post-2{
+    font-size: 40px;
+    font-family: Tahoma, serif;
+    font-weight: 500;
+    color: #2c3e50;
 }
 
 #content, #footer {
@@ -22,13 +42,14 @@ h1{
 }*/
 
 form {
-    width: 40%;
+    width: 52%;
     text-align: center;
-    margin: 7% auto;
-    padding: 30px;
-    background: rgba(210, 210, 210, 0.68);
+    margin: 30px auto;
+    padding: 20px;
+    background: rgb(238, 238, 238);
     box-shadow: #00000012 0 0 5px 3px;
     border-radius: 25px;
+    border: 2px solid #2c3e50;
 }
 
 input, select, textarea{
@@ -37,11 +58,16 @@ input, select, textarea{
   width: 100%;
 }
 
+textarea {
+    max-height: 100px;
+    font-family: Arial, serif;
+}
+
 input, select::placeholder {
     text-align: center;
 }
 
-button {
+.beauty-button {
     width: 60%;
     margin-top: 15px;
 }
@@ -59,7 +85,6 @@ button {
 .form-input {
     display: inline-flex;
     justify-content: center;
-    padding: 5px;
     width: 100%;
     position: static;
 }
@@ -88,4 +113,13 @@ button {
 
 #buscar-adoptapp > *{
     text-align: left;
+}
+
+#id_status {
+    flex-grow: 0;
+    max-width: 250px;
+}
+
+input[type="file"]{
+    max-width: 350px;
 }
