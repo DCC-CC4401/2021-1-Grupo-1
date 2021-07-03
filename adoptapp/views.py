@@ -70,9 +70,3 @@ def results_view(request):
     page_number = request.GET.get('page', '1')
     page_obj = paginator.get_page(page_number)
     return render(request, "adoptapp/results.html", {'results': page_obj, 'filters': filter_strs})
-
-
-class ResultsView(View):
-
-    def get(self, request):
-        return render(request, "adoptapp/results.html")

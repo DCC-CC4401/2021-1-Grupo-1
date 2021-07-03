@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.urls import reverse
@@ -66,6 +67,7 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('home'))
 
 
+@login_required
 def profile_view(request, user_id):
     if request.method == "GET":
         profile_user = User.objects.get(pk=user_id)
@@ -79,6 +81,7 @@ def profile_view(request, user_id):
                       {'profile_user': profile_user, 'posts': zipped})
 
 
+@login_required
 def profile_edit(request, user_id):
     if request.user.id != user_id:
         return HttpResponseForbidden()
