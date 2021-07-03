@@ -181,8 +181,28 @@
     margin-left: 10px;
 }
 
+#pagination-container{
+    width: 100%;
+    min-width: 300px;
+        display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .pagination{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
+    background-color: rgb(252, 197, 164);
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 30px;
+    width: 30%;
 }
 
 .pagination-notice {

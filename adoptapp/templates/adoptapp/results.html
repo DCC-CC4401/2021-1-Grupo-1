@@ -64,23 +64,25 @@
 
     </div>
 
-    <div class="pagination text-center">
-    <div class="pagination-notice s14"> Se muestran {{ results|length }} resultados por página. </div>
-        <span class="step-links">
-            {% if results.has_previous %}
-                <a href="?page=1">&laquo; primera</a> -
-                <a href="?page={{ results.previous_page_number }}">previa</a> -
-            {% endif %}
+    <div id="pagination-container">
+        <div class="pagination text- hvr-shadow">
+            <div class="pagination-notice s14"> Se muestran {{ results|length }} resultados por página. </div>
+            <span class="step-links">
+                {% if results.has_previous %}
+                    <a href="?page=1">&laquo; primera</a> -
+                    <a href="?page={{ results.previous_page_number }}">previa</a> -
+                {% endif %}
 
-            <span class="current">
-                Página {{ results.number }} de {{ results.paginator.num_pages }}.
+                <span class="current">
+                    Página {{ results.number }} de {{ results.paginator.num_pages }}.
+                </span>
+
+                {% if results.has_next %}
+                    <a href="?page={{ results.next_page_number }}">siguiente</a> -
+                    <a href="?page={{ results.paginator.num_pages }}">última&raquo;</a>
+                {% endif %}
             </span>
-
-            {% if results.has_next %}
-                <a href="?page={{ results.next_page_number }}">siguiente</a> -
-                <a href="?page={{ results.paginator.num_pages }}">última&raquo;</a>
-            {% endif %}
-        </span>
+        </div>
     </div>
 {% endblock %}
 
