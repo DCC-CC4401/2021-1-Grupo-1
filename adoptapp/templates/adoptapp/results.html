@@ -37,9 +37,12 @@
                     <img class="result-img" src="{{ img.image.url }}" alt="Animal photo">
                     <div class="result-body">
                         <div class="result-header deep-blue">{{ post.pet_name }}</div>
+                        <div class="result-region deep-brown">{{ post.comuna.region }}</div>
                         <div class="result-desc">{{ post.description }}</div>
                         <div class="filters">
                             <div class="result-filter">{{ post.get_specie_display }}</div>
+                            <div class="result-filter">{{ post.get_sex_display }}</div>
+                            <div class="result-filter">{{ post.get_pet_size_display }}</div>
                         </div>
                         <a href="{% url 'post_view' post.id %}"><button type="button" class="result-button button-blue-paw beauty-button">Ir a publicación</button></a>
                     </div>
