@@ -1,32 +1,24 @@
 /*- - - - - - - - - - - - - MODAL - - - - - - - - - - - - -  */
 
 .modal {
-  width: 40%;
+  width: auto;
+  box-sizing: border-box;
   text-align: center;
-  background: white;
+  background: #d6d6d6f5;
   box-shadow: #00000012 0 0 5px 3px;
   border-radius: 25px;
   position: fixed;
-  top: 8%;
+  top: 18%;
   left: 30%;
   right: 30%;
-  bottom:0;
   display: block;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  cursor: pointer;
   visibility: hidden;
   opacity: 0;
   transition: all 0.35s ease-in;
-}
-
-.modal.register{
-  height: 84%;
-}
-
-.modal.login{
-  height: 50%;
+  height: auto;
 }
 
 .modal-header {
@@ -52,5 +44,5 @@
 
 .modal-dialog{
     text-align: center;
-    padding: 100px 20%;
+    padding: 5% 5%;
 }
