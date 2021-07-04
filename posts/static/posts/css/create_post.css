@@ -123,3 +123,9 @@ input, select::placeholder {
 input[type="file"]{
     max-width: 350px;
 }
+
+
+.pag-inicio{
+    text-align: center;
+    padding-bottom: 30px;
+}

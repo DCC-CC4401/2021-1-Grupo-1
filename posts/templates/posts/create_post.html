@@ -128,5 +128,11 @@
                 <button class="beauty-button button-blue" onclick="cerrar()">Cerrar</button>
             </div>
         </div>
-    {% endif %}
+{% endif %}
+
+    <div class="navigation-options pag-inicio">
+            <span>
+            <a href="{% url 'home' %}"><span class="fas fa-home navicon"></span><span class="navigation-link"> Volver a la página principal</span></a>
+            </span>
+    </div>
 {% endblock content %}
