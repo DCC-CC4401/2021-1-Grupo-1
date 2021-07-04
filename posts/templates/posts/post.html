@@ -129,7 +129,9 @@
                         </div>
                         <div class="publication-date-button">
                             <div class="publication-date">Interesado desde {{ date }}</div>
-
+                            <a href="{% url 'profile' user.id %}">
+                                <button class="beauty-button button-blue go-to-publication">Ir al perfil</button>
+                            </a>
                         </div>
                     </div>
                 </div>
