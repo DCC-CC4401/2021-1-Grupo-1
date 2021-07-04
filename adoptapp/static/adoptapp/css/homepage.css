@@ -45,3 +45,28 @@
 .non-clickable > *{
     cursor: default;
 }
+
+
+#title-post{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#title-post-1{
+    font-size: 40px;
+    font-family: Tahoma, serif;
+    font-weight: 500;
+    color: #a56a43;
+    margin-right: 20px;
+}
+
+#title-post-2{
+    font-size: 40px;
+    font-family: Tahoma, serif;
+    font-weight: 500;
+    color: #2c3e50;
+}

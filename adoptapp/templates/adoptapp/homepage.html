@@ -10,7 +10,9 @@
 {% endblock title %}
 
 {% block content %}
-
+    <div id="title-post">
+        <span id="title-post-1">Últimas</span><span id="title-post-2">Publicaciones</span>
+    </div>
     <div id = "presentation">
        {% for post, photo in posts %}
             {% with post.id|stringformat:"s" as post_url %}
