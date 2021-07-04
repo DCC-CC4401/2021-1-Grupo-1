@@ -9,6 +9,11 @@
     <script defer type="text/javascript" src="{% static 'users/js/profile_edit.js' %}"></script>
     <script defer src="{% static 'users/js/region_comuna_form.js' %}"></script>
 {% endblock include %}
+{% block icon %}
+    {% if request.user.id == profile_user.id %}
+        <a href="{{ request.user.get_profile_url }}"><i class="fas fa-arrow-left padded-icon" id="arrowBack"></i></a>
+    {% endif %}
+{% endblock %}
 {% block profile-section %}
     <div class="profile-section" id="privacy-section">
         <h5 class="section-title" id="title-privacy">Configuración de datos y privacidad</h5>

@@ -228,6 +228,10 @@ filter_li {
     min-height:100px;
 }
 
+#filterSearchButton {
+    margin-left: auto;
+}
+
 .filter-form-group {
     display: flex;
     justify-content: space-between;

@@ -3,6 +3,7 @@ let comunaSelect = document.getElementById('id_comuna');
 regionSelect.addEventListener("change", function () {
     // Fetch all comunas associated with current region using /api/get_comunas
     let regionId =  regionSelect.value;
+    let comunaId = parseInt(comunaSelect.value);
     if (regionId === "") {
         return;
     }
@@ -14,6 +15,9 @@ regionSelect.addEventListener("change", function () {
             comunas.forEach(function(comuna){
                 var option = document.createElement('option');
                 option.value = comuna.id;
+                if(comunaId === comuna.id){
+                    option.selected = true;
+                }
                 option.text = comuna.name;
                 comunaSelect.add(option);
             })

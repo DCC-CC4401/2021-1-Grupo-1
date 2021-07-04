@@ -23,18 +23,12 @@ function updateSubmitButton(sectionSelector, submitButton, initialData) {
             hasChanged = true;
         }
     });
-    console.log(hasChanged);
-    if (hasChanged) {
-        submitButton.disabled = false;
-    } else {
-        submitButton.disabled = true;
-    }
+    submitButton.disabled = !hasChanged;
 }
 
 function addSectionEventListeners(sectionSelector) {
     let submitButton = getSectionSubmitButton(sectionSelector);
     let initialData = getInitialFormSectionData(sectionSelector);
-    console.log(submitButton);
     getSectionInputs(sectionSelector).forEach(function (input) {
         input.addEventListener('change',  () => updateSubmitButton(sectionSelector, submitButton, initialData));
         input.addEventListener('keyup',  () => updateSubmitButton(sectionSelector, submitButton, initialData));
