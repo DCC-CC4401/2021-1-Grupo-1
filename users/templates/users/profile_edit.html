@@ -5,9 +5,11 @@
 {% endblock title %}
 {% block include %}
     <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/modal.css' %}">
     <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script defer type="text/javascript" src="{% static 'users/js/profile_edit.js' %}"></script>
     <script defer src="{% static 'users/js/region_comuna_form.js' %}"></script>
+    <script defer src="{% static 'users/js/modal.js' %}"></script>
 {% endblock include %}
 {% block icon %}
     {% if request.user.id == profile_user.id %}
@@ -20,8 +22,6 @@
         <div class="subsection">
             <form method="post" novalidate>
                 {% csrf_token %}
-                {{ privacy_form.errors }}
-
                 <div class="row">
                     <div class="column">
                         <span class="bold-700 s16 cinf">Nombre: </span>
@@ -103,7 +103,6 @@
         <div class="subsection">
             <form method="post" novalidate>
                 {% csrf_token %}
-                {{ password_form.errors }}
                 <div class="special-left-align">
                     <div class="vspaced5">
                         <label for="password" class="bold-700 s16 cinf">Contraseña actual: </label>
@@ -124,6 +123,16 @@
             </form>
         </div>
     </div>
+    {% if errores %}
+        <div class="modal is-visible login" id="modal1">
+            <div class="modal-dialog">
+                    {% for i in errores %}
+                        <p>{{ i }}</p><br>
+                    {% endfor %}
+                <button class="beauty-button button-blue" onclick="cerrar()">Cerrar</button>
+            </div>
+        </div>
+    {% endif %}
     <div class="navigation-options">
             <span>
             <a href="{% url 'home' %}"><span class="fas fa-home navicon"></span><span class="navigation-link"> Volver a la página principal</span></a>
